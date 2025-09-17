@@ -41,12 +41,12 @@
   "resources":[
     {"id":{"name":"ft_determinationmono","path":"fonts/ft_determinationmono/ft_determinationmono.yy",},},
     {"id":{"name":"ft_sans","path":"fonts/ft_sans/ft_sans.yy",},},
+    {"id":{"name":"obj_altmpcson","path":"objects/obj_altmpcson/obj_altmpcson.yy",},},
     {"id":{"name":"obj_cam","path":"objects/obj_cam/obj_cam.yy",},},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},},
     {"id":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_usable","path":"objects/obj_usable/obj_usable.yy",},},
-    {"id":{"name":"Object5","path":"objects/Object5/Object5.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
     {"id":{"name":"dialogue","path":"scripts/dialogue/dialogue.yy",},},

@@ -13,6 +13,6 @@ if (keyboard_check_pressed(ord("Z")) && obj_usable.can_use) {
     if (place_meeting(x, y, obj_usable)) {
         // 🔹 Aquí llamamos al diálogo
         // De momento un ejemplo fijo, pero se puede sobrescribir en cada hijo
-        dialogue("sans", 1, "TU MADRE LA GORDA", true);
+        dialogue(dialogue_character, 1, dialogue_text, true);
     }
 }

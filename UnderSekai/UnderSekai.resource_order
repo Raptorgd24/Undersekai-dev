@@ -22,11 +22,11 @@
   ],
   "ResourceOrderSettings":[
     {"name":"ft_determinationmono","order":1,"path":"fonts/ft_determinationmono/ft_determinationmono.yy",},
+    {"name":"obj_altmpcson","order":6,"path":"objects/obj_altmpcson/obj_altmpcson.yy",},
     {"name":"obj_cam","order":1,"path":"objects/obj_cam/obj_cam.yy",},
     {"name":"obj_control","order":5,"path":"objects/obj_control/obj_control.yy",},
     {"name":"obj_player","order":2,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_usable","order":3,"path":"objects/obj_usable/obj_usable.yy",},
-    {"name":"Object5","order":4,"path":"objects/Object5/Object5.yy",},
     {"name":"RoomTest","order":2,"path":"rooms/RoomTest/RoomTest.yy",},
     {"name":"snd_txt1","order":1,"path":"sounds/snd_txt1/snd_txt1.yy",},
     {"name":"spr_dialoguebox","order":2,"path":"sprites/spr_dialoguebox/spr_dialoguebox.yy",},

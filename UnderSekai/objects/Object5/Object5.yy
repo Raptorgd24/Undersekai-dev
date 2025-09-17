@@ -1,15 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"NPC_Test",
-  "eventList":[],
+  "%Name":"Object5",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"NPC_Test",
+  "name":"Object5",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
     "path":"folders/Objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_NPC_parent",
+    "path":"objects/obj_NPC_parent/obj_NPC_parent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -26,10 +31,10 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
-    "name":"Snas",
-    "path":"sprites/Snas/Snas.yy",
+    "name":"spr_gok",
+    "path":"sprites/spr_gok/spr_gok.yy",
   },
   "spriteMaskId":null,
   "visible":true,

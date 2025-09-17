@@ -55,8 +55,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Playable_Chars",
+    "path":"folders/Sprites/Playable_Chars.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

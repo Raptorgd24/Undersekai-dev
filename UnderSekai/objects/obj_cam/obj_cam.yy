@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_usable",
+  "%Name":"obj_cam",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_usable",
+  "name":"obj_cam",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_usable",
-    "path":"sprites/spr_usable/spr_usable.yy",
+    "name":"spr_gok",
+    "path":"sprites/spr_gok/spr_gok.yy",
   },
   "spriteMaskId":null,
   "visible":false,

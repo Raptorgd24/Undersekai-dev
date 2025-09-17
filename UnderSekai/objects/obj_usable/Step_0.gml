@@ -8,25 +8,25 @@ y = obj_player.y;
 
 switch (obj_player.last_dir) {
     case "left":
-        x += 2;
-		y += 28;
+        x += 9;
+		y += 30;
         image_angle = 180; // eje X negativo
         break;
 
     case "right":
-        x += 15;
+        x += 10;
         image_angle = 0;   // eje X positivo
         break;
 
     case "up":
-        y -= 0;
+        y += 12;
 		x -= 6;
         image_angle = 90;  // eje Y negativo
         break;
 
     case "down":
-        y += 15;
-		x += 15;
+        y += 18;
+		x += 25;
         image_angle = 270; // eje Y positivo
         break;
 }

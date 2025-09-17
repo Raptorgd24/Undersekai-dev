@@ -11,3 +11,4 @@ my = 0;
 anim_speed = 0.07;   // qué tan rápido cambian los frames
 anim_timer = 0;
 last_dir = "down";
+can_move = true;

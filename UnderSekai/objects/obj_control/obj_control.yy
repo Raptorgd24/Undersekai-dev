@@ -32,9 +32,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gok",
-    "path":"sprites/spr_gok/spr_gok.yy",
+    "name":"spr_noone",
+    "path":"sprites/spr_noone/spr_noone.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

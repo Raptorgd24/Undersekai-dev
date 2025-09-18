@@ -1,3 +1,4 @@
+// --------------------- STEP ---------------------
 if (global.dialogue_active) {
     // Avance letra a letra
     global.dialogue_timer++;
@@ -15,15 +16,7 @@ if (global.dialogue_active) {
     // Avanzar diálogo con Z
     if (keyboard_check_pressed(ord("Z"))) {
         if (global.dialogue_index >= string_length(global.dialogue_text)) {
-            // Cerrar o pasar al siguiente diálogo
-            if (!global.dialogue_keep) {
-                global.dialogue_active = false;
-                obj_player.can_move = true;
-                obj_usable.can_use = true;
-            } else {
-                // Aquí podrías llamar a la función para el siguiente diálogo
-                // Ejemplo: next_dialogue();
-            }
+            dialogue_next();
         }
     }
 }

@@ -1,5 +1,3 @@
-// Variables de diálogo
-dialogue_character = "sans";
-dialogue_portrait = 1;
-dialogue_text = "TU MADRE LA GORDA";
-dialogue_pause = true;
+function npc_dialogue() {
+    dialogue("sans", 8, "esto te va a llevar a un bucle infinito...", false); // por defecto un texto vacío
+}

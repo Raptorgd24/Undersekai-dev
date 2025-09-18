@@ -25,10 +25,13 @@ function dialogue_next() {
         global.dialogue_current += 1;
 
     } else {
-        // Se acabaron los diálogos, cerrar
+        // Fin del diálogo: cerrar visualmente
         global.dialogue_active = false;
         obj_player.can_move = true;
-        obj_usable.can_use = true;
+        obj_usable.can_use = false;
+
+        // Iniciar timer de 5 frames para habilitar uso
+        global.dialogue_use_timer = 5;
 
         // Limpiar arrays
         global.dialogue_personajes = [];

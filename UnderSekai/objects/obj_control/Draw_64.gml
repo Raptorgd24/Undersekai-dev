@@ -18,3 +18,9 @@ if (global.dialogue_active) {
     var text_x = (global.dialogue_sprite != spr_noone) ? 160 : 64;
     draw_text(text_x, 340, visible_text);
 }
+
+draw_text(20, 40, global.dialogue_active);
+draw_text(20, 60, global.dialogue_mensajes);
+draw_text(20, 80, global.dialogue_seguir);
+draw_text(20, 100, global.dialogue_keep);
+draw_text(20, 120, global.dialogue_current);

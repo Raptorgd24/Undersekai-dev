@@ -9,7 +9,9 @@ else {
     velocidad_actual = base_vel;
     anim_speed = 0.07;
 }
-
+if (keyboard_check(ord("V"))) {
+	room_goto(StartingPointBeta)
+}
 // Detectar movimiento (WASD o flechas)
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));
 my = (keyboard_check(vk_down)  || keyboard_check(ord("S"))) - (keyboard_check(vk_up)   || keyboard_check(ord("W")));
@@ -20,13 +22,21 @@ if (mx != 0 || my != 0) {
     var dx = (mx / dist) * velocidad_actual;
     var dy = (my / dist) * velocidad_actual;
 
-    // --- Movimiento con colisión ---
-    if (!place_meeting(x + dx, y, obj_NPC_parent)) {
-        x += dx;
-    }
-    if (!place_meeting(x, y + dy, obj_NPC_parent)) {
-        y += dy;
-    }
+// --- Movimiento con colisión ---
+var inst_x = instance_place(x + dx, y, obj_NPC_parent);
+var inst_y = instance_place(x, y + dy, obj_NPC_parent);
+
+// Comprobación X
+if ((!inst_x || inst_x.passable) && !place_meeting(x + dx, y, obj_colision)) {
+    x += dx;
+}
+
+// Comprobación Y
+if ((!inst_y || inst_y.passable) && !place_meeting(x, y + dy, obj_colision)) {
+    y += dy;
+}
+
+
 
     // --- Animación ---
     anim_timer += anim_speed;

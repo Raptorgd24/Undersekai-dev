@@ -19,3 +19,4 @@ global.dialogue_mensajes = [];
 global.dialogue_seguir = [];
 global.dialogue_current = 0;      // Índice del diálogo actual
 
+global.debug = false;

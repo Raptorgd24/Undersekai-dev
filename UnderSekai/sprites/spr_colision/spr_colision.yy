@@ -19,6 +19,7 @@
   "height":64,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"7696e53d-305d-4b2c-8e8a-d56b91094e79","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"7696e53d-305d-4b2c-8e8a-d56b91094e79","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"10767c84-0b30-40b6-9ebd-0e33acde6e08","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"10767c84-0b30-40b6-9ebd-0e33acde6e08","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_colision",

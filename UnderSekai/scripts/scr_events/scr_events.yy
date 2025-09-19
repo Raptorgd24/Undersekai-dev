@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"dialogue_next",
+  "%Name":"scr_events",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"dialogue_next",
+  "name":"scr_events",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -1,4 +1,4 @@
 function npc_dialogue() {
-    dialogue("sans", 0, "hey, soy un texto de ejemplo.", true);
-    dialogue("sans", 4, "te lo puedes creer?", false);
+    scr_dialogue("sans", 0, "hey, soy un texto de ejemplo.", true);
+    scr_dialogue("sans", 4, "te lo puedes creer?", false);
 }

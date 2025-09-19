@@ -21,7 +21,7 @@ if (global.dialogue_active) {
     // Avanzar diálogo con Z
     if (keyboard_check_pressed(ord("Z"))) {
         if (global.dialogue_index >= string_length(global.dialogue_text)) {
-            dialogue_next();
+            scr_dialogue_next();
             // Bloquear X por 1 frame
             global.dialogue_x_cooldown = 1;
         }
@@ -39,5 +39,20 @@ if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 
     if (global.dialogue_use_timer <= 0) {
         obj_usable.can_use = true;
         global.dialogue_use_timer = 0;
+    }
+}
+
+// Solo si hay datos de evento activos
+if (!is_undefined(global.event_datalol)) {
+    global.event_time++;
+
+    if (global.event_step < array_length(global.event_datalol)) {
+        var target_time = global.event_datalol[global.event_step][0];
+        var action = global.event_datalol[global.event_step][1];
+        
+        if (global.event_time == target_time) {
+            action(); // ejecuta el código
+            global.event_step++;
+        }
     }
 }

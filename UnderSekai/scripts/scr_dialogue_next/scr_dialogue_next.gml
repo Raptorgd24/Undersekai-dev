@@ -1,4 +1,4 @@
-function dialogue_next() {
+function scr_dialogue_next() {
     if (global.dialogue_current < array_length(global.dialogue_mensajes)) {
         var i = global.dialogue_current;
 

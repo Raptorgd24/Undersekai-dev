@@ -1,7 +1,7 @@
 // Step Event
 if (can_move){
 // Tecla de correr (X)
-if (keyboard_check(ord("X"))) {
+if (keyboard_check(ord("X")) || keyboard_check(vk_shift)) {
     velocidad_actual = 3.25;
     anim_speed = 0.1;
 }

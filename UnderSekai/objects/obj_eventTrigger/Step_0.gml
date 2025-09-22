@@ -5,7 +5,7 @@ if (randomassbool == true) {
         // Evitar retriggers inmediatos: desactivar hasta que expire la alarma
         randomassbool = false;
 		show_debug_message("Trigger disparado en instancia " + string(id));
-
+		obj_player.can_move = false;
         // scr_events ya configura alarm[0] = room_speed * 5; si quieres controlarlo aquí, descomenta la línea siguiente:
         // alarm[0] = room_speed * 5;
     }

@@ -12,14 +12,17 @@ function scr_events(_event) {
 
 			global.event_datalol = [
 			    ["after_dialogue", function() {
-			        // Crear explosión en la posición del jugador
-			        instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_boom_temp);
-			        audio_play_sound(snd_boom, 1, false);
+					// Crear explosión en la posición del jugador (obj_boom_temp debe existir)
+					if (instance_exists(obj_player)) {
+					    instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_boom_temp);
+					    audio_play_sound(snd_boom, 1, false);
+					}
 
-			        // Mostrar texto inmediatamente después de la explosión
+			        // luego mostrar más diálogo si quieres
 			        scr_dialogue("noone", 8, "Maybe they need water?", false);
 			    }]
 			];
+
 
 
 		    // scr_events configura la alarma sobre la instancia que llama (alarm[0] = room_speed * 5;)

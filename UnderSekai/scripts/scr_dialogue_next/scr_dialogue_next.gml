@@ -6,7 +6,7 @@ function scr_dialogue_next() {
         obj_usable.can_use = false;
 
         global.dialogue_active = true;
-        global.dialogue_text = global.dialogue_mensajes[i];
+        global.dialogue_text = "* "+global.dialogue_mensajes[i];
         global.dialogue_index = 0;
         global.dialogue_timer = 0;
         global.dialogue_keep = global.dialogue_seguir[i];

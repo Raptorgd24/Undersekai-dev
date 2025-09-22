@@ -25,6 +25,7 @@
   "ResourceOrderSettings":[
     {"name":"ft_determinationmono","order":1,"path":"fonts/ft_determinationmono/ft_determinationmono.yy",},
     {"name":"obj_altmpcson","order":6,"path":"objects/obj_altmpcson/obj_altmpcson.yy",},
+    {"name":"obj_boom_temp","order":11,"path":"objects/obj_boom_temp/obj_boom_temp.yy",},
     {"name":"obj_cam","order":1,"path":"objects/obj_cam/obj_cam.yy",},
     {"name":"obj_colision","order":7,"path":"objects/obj_colision/obj_colision.yy",},
     {"name":"obj_eventTrigger","order":9,"path":"objects/obj_eventTrigger/obj_eventTrigger.yy",},

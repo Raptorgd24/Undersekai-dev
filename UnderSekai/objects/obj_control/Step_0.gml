@@ -45,12 +45,13 @@ if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 
 // Solo si hay datos de evento activos
 if (!is_undefined(global.event_datalol)) {
     global.event_time++;
-
+	show_debug_message("event_time: " + string(global.event_time) + " step: " + string(global.event_step));
     if (global.event_step < array_length(global.event_datalol)) {
         var target_time = global.event_datalol[global.event_step][0];
         var action = global.event_datalol[global.event_step][1];
         
         if (global.event_time == target_time) {
+			show_debug_message("Ejecutando action en tiempo: " + string(target_time));
             action(); // ejecuta el código
             global.event_step++;
         }

@@ -44,6 +44,7 @@
     {"id":{"name":"ft_determinationmono","path":"fonts/ft_determinationmono/ft_determinationmono.yy",},},
     {"id":{"name":"ft_sans","path":"fonts/ft_sans/ft_sans.yy",},},
     {"id":{"name":"obj_altmpcson","path":"objects/obj_altmpcson/obj_altmpcson.yy",},},
+    {"id":{"name":"obj_boom_temp","path":"objects/obj_boom_temp/obj_boom_temp.yy",},},
     {"id":{"name":"obj_cam","path":"objects/obj_cam/obj_cam.yy",},},
     {"id":{"name":"obj_colision","path":"objects/obj_colision/obj_colision.yy",},},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},},

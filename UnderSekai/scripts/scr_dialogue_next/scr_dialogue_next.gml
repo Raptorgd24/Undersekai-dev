@@ -17,10 +17,34 @@ function scr_dialogue_next() {
         global.dialogue_character = global.dialogue_personajes[i];
         global.dialogue_face = global.dialogue_caras[i];
 
-        // Sprite de cara si existe
-        var face_name = "spr_" + string(global.dialogue_personajes[i]);
-        var spr_id = asset_get_index(face_name);
-        global.dialogue_sprite = (spr_id != -1) ? spr_id : noone;
+	// Sprite de cara (si existe)
+	var char_name = string(global.dialogue_personajes[i]);
+	var face_name = "spr_" + char_name;
+	var spr_id = asset_get_index(face_name);
+	global.dialogue_sprite = (spr_id != -1) ? spr_id : noone;
+
+	// --- Fuente y sonido por personaje ---
+	var default_font  = asset_get_index("ft_determinationmono");
+	var default_sound = asset_get_index("snd_txt1");
+
+	// Fuente personalizada
+	var font_name = "fnt_" + char_name;
+	var font_id = asset_get_index(font_name);
+	if (font_id != -1) {
+	    global.dialogue_font = font_id;
+	} else {
+	    global.dialogue_font = default_font;
+	}
+
+	// Sonido personalizado
+	var snd_name = "snd_" + char_name;
+	var snd_id = asset_get_index(snd_name);
+	if (snd_id != -1) {
+	    global.dialogue_sound = snd_id;
+	} else {
+	    global.dialogue_sound = default_sound;
+	}
+
 
         global.dialogue_current += 1;
     } else {

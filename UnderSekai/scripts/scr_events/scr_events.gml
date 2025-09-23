@@ -13,8 +13,9 @@ function scr_events(_event) {
 			global.event_datalol = [
 			    ["after_dialogue", function() {
 					// Crear explosión en la posición del jugador (obj_boom_temp debe existir)
-					if (instance_exists(obj_player)) {
-					    instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_boom_temp);
+					if (instance_exists(obj_NPC_parent)) {
+					    audio_play_sound(snd_sansing, 1, false);
+						instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_boom_temp);
 					    audio_play_sound(snd_boom, 1, false);
 					}
 

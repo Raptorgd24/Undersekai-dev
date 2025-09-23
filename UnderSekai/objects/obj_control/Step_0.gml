@@ -19,7 +19,7 @@ if (global.dialogue_active) {
     }
 
     // Avanzar diálogo con Z
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check(vk_enter)) {
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
         if (global.dialogue_index >= string_length(global.dialogue_text)) {
             scr_dialogue_next();
             // Bloquear X por 1 frame
@@ -28,12 +28,12 @@ if (global.dialogue_active) {
     }
 
     // Mostrar todo el texto instantáneamente con X
-    if (keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0 || keyboard_check(vk_shift)) && global.dialogue_x_cooldown <= 0  {
+    if (keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0 || keyboard_check_pressed(vk_shift)) && global.dialogue_x_cooldown <= 0  {
         global.dialogue_index = string_length(global.dialogue_text);
     }
 }
 
-	if (keyboard_check(vk_f4)){
+	if (keyboard_check_pressed(vk_f4)){
 	if (!window_get_fullscreen()) {
     window_set_fullscreen(true);  // Activar pantalla completa
 	} else {

@@ -60,6 +60,7 @@
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},
     {"id":{"name":"snd_boom","path":"sounds/snd_boom/snd_boom.yy",},},
+    {"id":{"name":"snd_goku","path":"sounds/snd_goku/snd_goku.yy",},},
     {"id":{"name":"snd_sans","path":"sounds/snd_sans/snd_sans.yy",},},
     {"id":{"name":"snd_sansing","path":"sounds/snd_sansing/snd_sansing.yy",},},
     {"id":{"name":"snd_txt1","path":"sounds/snd_txt1/snd_txt1.yy",},},

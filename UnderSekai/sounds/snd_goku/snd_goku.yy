@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_goku",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.14133787,
+  "name":"snd_goku",
+  "parent":{
+    "name":"talk",
+    "path":"folders/Sonidos/talk.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_goku.mp3",
+  "type":0,
+  "volume":1.0,
+}

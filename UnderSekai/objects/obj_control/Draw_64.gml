@@ -154,7 +154,7 @@ if (variable_global_exists("dialogue_active") && global.dialogue_active) {
     // --- Texto estilo Undertale: * + margen 32 ---
     var start_x = text_x;
     var start_y = text_y;
-
+	draw_set_color(c_white);
     for (var li = 0; li < array_length(lines); li++) {
         var line_str = lines[li];
         if (li == 0) {
@@ -179,4 +179,12 @@ if (variable_global_exists("dialogue_active") && global.dialogue_active) {
     draw_text(32, 24, dbg);
     draw_set_color(c_white);
 	}
+}
+
+// --- Dibujar transición ---
+if (global.trans_active) {
+    draw_set_alpha(global.trans_alpha);
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+    draw_set_alpha(1);
 }

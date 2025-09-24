@@ -27,3 +27,7 @@ image_alpha = slowvalue;
 if (image_alpha <= 0) {
     instance_destroy();
 }
+if image_alpha <= 0.5 {
+	
+	instance_create_layer(obj_666.x-20, obj_666.y-20, "Instances_1", obj_boom_temp);
+	audio_play_sound(snd_boom, 1, false);}

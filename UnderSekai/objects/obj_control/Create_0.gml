@@ -24,3 +24,11 @@ global.debug = false;
 global.event_datalol = undefined;
 global.event_time = 0;
 global.event_step = 0;
+
+// --- Transición ---
+global.trans_active = false;
+global.trans_alpha = 0;
+global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
+global.trans_target = Room666;
+global.trans_speed = 0.05; // velocidad configurable
+

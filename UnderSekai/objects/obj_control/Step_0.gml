@@ -78,3 +78,30 @@ if (!is_undefined(global.event_datalol)) {
         }
     }
 }
+
+// --- Manejo de transición ---
+if (global.trans_active) {
+    switch (global.trans_state) {
+        case 0: // Fundido a negro
+            global.trans_alpha += global.trans_speed;
+            if (global.trans_alpha >= 1) {
+                global.trans_alpha = 1;
+                room_goto(global.trans_target);
+                global.trans_state = 1;
+            }
+        break;
+
+        case 1: // Espera un frame tras cambiar room
+            global.trans_state = 2;
+        break;
+
+        case 2: // Fundido de regreso
+            global.trans_alpha -= global.trans_speed;
+            if (global.trans_alpha <= 0) {
+                global.trans_alpha = 0;
+                global.trans_active = false;
+				obj_player.can_move = true;
+            }
+        break;
+    }
+}

@@ -30,5 +30,11 @@ global.trans_active = false;
 global.trans_alpha = 0;
 global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
 global.trans_target = Room666;
-global.trans_speed = 0.05; // velocidad configurable
+trans_speed = 0.05; // velocidad configurable
 
+global.song = mus_sans;
+global.song_volume=1;
+global.song_next=noone;
+global.song_speed=trans_speed;
+global.song_target=1;
+audio_play_sound(global.song, 1, true);

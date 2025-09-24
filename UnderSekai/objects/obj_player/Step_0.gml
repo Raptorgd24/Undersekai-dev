@@ -10,7 +10,7 @@ else {
     anim_speed = 0.07;
 }
 if (keyboard_check_pressed(ord("V"))) {
-	scr_trans(StartingPointBeta,0.1);
+	scr_trans(StartingPointBeta);
 }
 // Detectar movimiento (WASD o flechas)
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));

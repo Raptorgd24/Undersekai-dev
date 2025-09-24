@@ -1,1 +1,1 @@
-audio_play_sound(mus_666, 1, true);
+scr_musictrans(mus_666)

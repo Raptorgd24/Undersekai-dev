@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"mus_666",
+  "%Name":"mus_sans",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":11.218412,
-  "name":"mus_666",
+  "duration":48.746143,
+  "name":"mus_sans",
   "parent":{
     "name":"OST",
     "path":"folders/Sonidos/OST.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"mus_666.ogg",
-  "type":1,
+  "soundFile":"mus_sans.ogg",
+  "type":2,
   "volume":1.0,
 }

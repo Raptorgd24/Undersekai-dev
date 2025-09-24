@@ -31,14 +31,33 @@ global.trans_alpha = 0;
 global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
 global.trans_target = Room666;
 global.trans_speed = 0.05; // velocidad configurable
-musi_speed = 60; // velocidad configurable
 
-global.song = mus_sans;
-global.song_volume=1;
-global.song_next=noone;
-global.song_speed=musi_speed;
-global.song_target=1;
-audio_play_sound(global.song, 1, true);
+
+// --- Música: separar asset / instancia y usar fade por frames ---
+musi_speed = 60; // (no lo usamos para lerp directamente; lo dejamos si lo usas en otro sitio)
+
+// recurso (asset) actual y la instancia reproducida
+global.song_asset = mus_sans;            // asset (ej: mus_sans)
+global.song_inst  = noone;               // instancia (lo seteará audio_play_sound)
+global.song_volume = 1;                  // volumen actual (0..1)
+global.song_target = 1;                  // objetivo (0 o 1)
+global.song_next  = noone;               // asset en cola
+global.song_fade_frames = 60;            // duración del fade en frames (por defecto 60 -> 1s si 60fps)
+global.song_fade_delta  = 1 / max(1, global.song_fade_frames); // cambio por frame
+
+// iniciar la canción inicial de forma segura
+if (!is_undefined(global.song_asset)) {
+    var _asset = global.song_asset;
+    if (is_string(_asset)) _asset = asset_get_index(_asset);
+    if (_asset != -1) {
+        global.song_asset = _asset;
+        global.song_inst = audio_play_sound(global.song_asset, 1, true);
+        audio_sound_gain(global.song_inst, global.song_volume, 0);
+    } else {
+        show_debug_message("⚠️ CREATE: no se pudo iniciar música, asset inválido: " + string(global.song_asset));
+        global.song_inst = noone;
+    }
+}
 
 
 // Arrays de habitaciones por zona

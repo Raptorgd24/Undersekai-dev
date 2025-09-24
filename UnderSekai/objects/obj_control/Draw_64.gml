@@ -178,7 +178,7 @@ if (variable_global_exists("dialogue_active") && global.dialogue_active) {
 	if (global.debug){
     draw_set_color(c_lime);
     draw_text(32, 24, global.current_zone);
-    draw_text(32, 44, global.song);
+
     draw_set_color(c_white);
 	}
 // --- Dibujar transición ---

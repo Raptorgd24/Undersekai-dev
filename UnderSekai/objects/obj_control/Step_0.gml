@@ -28,9 +28,9 @@ if (global.dialogue_active) {
     }
 
     // Mostrar todo el texto instantáneamente con X
-    if (keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0 || keyboard_check_pressed(vk_shift)) && global.dialogue_x_cooldown <= 0  {
-        global.dialogue_index = string_length(global.dialogue_text);
-    }
+	if ((keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0) || (keyboard_check_pressed(vk_shift) && global.dialogue_x_cooldown <= 0)) {
+	    global.dialogue_index = string_length(global.dialogue_text);
+	}
 }
 
 	if (keyboard_check_pressed(vk_f4)){
@@ -101,33 +101,63 @@ if (global.trans_active) {
                 global.trans_alpha = 0;
                 global.trans_active = false;
 				obj_player.can_move = true;
+				obj_usable.can_use = true;
             }
         break;
     }
 }
 
 // --- controlador de volumen para la música ---
-if (variable_global_exists("song")) {
-    if (global.song_volume != global.song_target) {
-        global.song_volume = lerp(global.song_volume, global.song_target, global.song_speed);
+if (variable_global_exists("song_inst") && global.song_inst != noone) {
+    global.song_fade_delta = 1 / max(1, global.song_fade_frames);
 
-        // aplicamos al sonido actual
-        if (audio_exists(global.song)) {
-            audio_sound_gain(global.song, global.song_volume, 0);
+    if (global.song_volume != global.song_target) {
+        // avanzar volumen hacia target con paso fijo
+        if (global.song_target > global.song_volume) {
+            global.song_volume += global.song_fade_delta;
+            if (global.song_volume > global.song_target) global.song_volume = global.song_target;
+        } else {
+            global.song_volume -= global.song_fade_delta;
+            if (global.song_volume < global.song_target) global.song_volume = global.song_target;
         }
 
-        // cuando se completa el fade out
-        if (global.song_volume <= 0.01 && global.song_target == 0) {
-            audio_stop_sound(global.song);
+        // aplicar al sonido actual si sigue vivo
+        if (audio_is_playing(global.song_inst)) {
+            audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
+        } else {
+            global.song_inst = noone;
+        }
 
-            // reproducimos la siguiente con fade in
-            if (variable_global_exists("song_next")) {
-                global.song = audio_play_sound(global.song_next, 1, true);
-                audio_sound_gain(global.song, 0, 0);
-                global.song_target = 1;
-                global.song_speed  = global.song_speed; // mismo valor de fade
-                global.song_next   = noone;
+        // cuando se completa el fade out (0) -> detener e iniciar siguiente si existe
+        if (global.song_volume <= 0.001 && global.song_target == 0) {
+            if (audio_is_playing(global.song_inst)) audio_stop_sound(global.song_inst);
+            global.song_inst = noone;
+
+            // reproducimos la siguiente con fade in si hay cola
+            if (variable_global_exists("song_next") && global.song_next != noone) {
+                var _next_asset = global.song_next;
+                if (is_string(_next_asset)) {
+                    var idx = asset_get_index(_next_asset);
+                    if (idx != -1) _next_asset = idx;
+                    else _next_asset = -1;
+                }
+                if (_next_asset != -1) {
+                    global.song_asset = _next_asset;
+                    global.song_inst  = audio_play_sound(global.song_asset, 1, true);
+                    audio_sound_gain(global.song_inst, 0, 0);
+                    global.song_volume = 0;
+                    global.song_target = 1;
+                    global.song_next = noone;
+                } else {
+                    show_debug_message("⚠ scr_musictrans: song_next inválida: " + string(global.song_next));
+                    global.song_next = noone;
+                }
             }
+        }
+    } else {
+        // si no está cambiando el volumen, aseguramos que el gain coincide
+        if (audio_is_playing(global.song_inst)) {
+            audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
         }
     }
 }

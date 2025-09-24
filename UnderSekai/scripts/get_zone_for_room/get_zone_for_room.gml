@@ -9,5 +9,5 @@ function get_zone_for_room(_room) {
             if (global.zone_MysteryRooms[i] == _room) return "MysteryRooms";
         }
     }
-    return undefined; // No pertenece a ninguna zona
+    return undefined;
 }

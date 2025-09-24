@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_666.ogg",
-  "type":1,
+  "type":2,
   "volume":1.0,
 }

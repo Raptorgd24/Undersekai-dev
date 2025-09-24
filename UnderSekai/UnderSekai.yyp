@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Conjuntos de casillas","folderPath":"folders/Conjuntos de casillas.yy","name":"Conjuntos de casillas","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Curvas de animación","folderPath":"folders/Curvas de animación.yy","name":"Curvas de animación","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -60,6 +60,7 @@
     {"id":{"name":"Room666","path":"rooms/Room666/Room666.yy",},},
     {"id":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
     {"id":{"name":"StartingPointBeta","path":"rooms/StartingPointBeta/StartingPointBeta.yy",},},
+    {"id":{"name":"get_zone_for_room","path":"scripts/get_zone_for_room/get_zone_for_room.yy",},},
     {"id":{"name":"scr_dialogue_next","path":"scripts/scr_dialogue_next/scr_dialogue_next.yy",},},
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},

@@ -19,7 +19,7 @@ global.dialogue_mensajes = [];
 global.dialogue_seguir = [];
 global.dialogue_current = 0;      // Índice del diálogo actual
 global.coroutines = [];
-global.debug = false;
+global.debug = true;
 // Sistema de eventos (timeline por frames)
 global.event_datalol = undefined;
 global.event_time = 0;
@@ -30,11 +30,25 @@ global.trans_active = false;
 global.trans_alpha = 0;
 global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
 global.trans_target = Room666;
-trans_speed = 0.05; // velocidad configurable
+global.trans_speed = 0.05; // velocidad configurable
+musi_speed = 60; // velocidad configurable
 
 global.song = mus_sans;
 global.song_volume=1;
 global.song_next=noone;
-global.song_speed=trans_speed;
+global.song_speed=musi_speed;
 global.song_target=1;
 audio_play_sound(global.song, 1, true);
+
+
+// Arrays de habitaciones por zona
+global.zone_TestRooms    = [Room1, RoomTest, StartingPointBeta];
+global.zone_MysteryRooms = [Room666];
+
+// Canciones por zona → usar ds_map para índices tipo string
+global.zone_music = ds_map_create();
+ds_map_add(global.zone_music, "TestRooms", mus_sans);
+ds_map_add(global.zone_music, "MysteryRooms", mus_666);
+
+// Zona actual
+global.current_zone = "TestRooms";

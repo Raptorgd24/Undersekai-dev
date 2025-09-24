@@ -83,7 +83,7 @@ if (!is_undefined(global.event_datalol)) {
 if (global.trans_active) {
     switch (global.trans_state) {
         case 0: // Fundido a negro
-            global.trans_alpha += trans_speed;
+            global.trans_alpha += global.trans_speed;
             if (global.trans_alpha >= 1) {
                 global.trans_alpha = 1;
                 room_goto(global.trans_target);
@@ -96,7 +96,7 @@ if (global.trans_active) {
         break;
 
         case 2: // Fundido de regreso
-            global.trans_alpha -= trans_speed;
+            global.trans_alpha -= global.trans_speed;
             if (global.trans_alpha <= 0) {
                 global.trans_alpha = 0;
                 global.trans_active = false;

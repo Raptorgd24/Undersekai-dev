@@ -173,14 +173,14 @@ if (variable_global_exists("dialogue_active") && global.dialogue_active) {
     }
 
     // Debug
+
+}
 	if (global.debug){
-    var dbg = use_legacy ? "Jugador arriba (legacy)" : "Jugador abajo (-300)";
     draw_set_color(c_lime);
-    draw_text(32, 24, dbg);
+    draw_text(32, 24, global.current_zone);
+    draw_text(32, 44, global.song);
     draw_set_color(c_white);
 	}
-}
-
 // --- Dibujar transición ---
 if (global.trans_active) {
     draw_set_alpha(global.trans_alpha);

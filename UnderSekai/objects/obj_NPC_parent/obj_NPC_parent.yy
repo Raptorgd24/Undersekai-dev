@@ -28,6 +28,7 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"passable","filters":[],"listItems":[],"multiselect":false,"name":"passable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"npc_id","filters":[],"listItems":[],"multiselect":false,"name":"npc_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sans","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

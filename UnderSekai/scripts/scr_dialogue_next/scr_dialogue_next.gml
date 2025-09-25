@@ -2,6 +2,7 @@
 /// Avanza al siguiente mensaje en la cola o cierra el diálogo si no hay más.
 function scr_dialogue_next() {
     if (!variable_global_exists("dialogue_personajes")) return;
+
     if (global.dialogue_current < array_length(global.dialogue_mensajes)) {
         var i = global.dialogue_current;
 
@@ -47,15 +48,22 @@ function scr_dialogue_next() {
 
         // Pasar al siguiente mensaje
         global.dialogue_current += 1;
+
     } else {
         // Fin del diálogo
         global.dialogue_active = false;
         if (instance_exists(obj_player)) obj_player.can_move = true;
-        if (instance_exists(obj_usable)) obj_usable.can_use = false;
+        if (instance_exists(obj_usable)) obj_usable.can_use = true;
 
         global.dialogue_use_timer = 5;
 
-        // Limpiar
+        // Ejecutar callback si existe
+        if (variable_global_exists("dialogue_end_callback") && global.dialogue_end_callback != noone) {
+            global.dialogue_end_callback();
+            global.dialogue_end_callback = noone;
+        }
+
+        // Limpiar arrays
         global.dialogue_personajes = [];
         global.dialogue_caras      = [];
         global.dialogue_mensajes   = [];

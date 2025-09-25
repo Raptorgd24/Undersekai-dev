@@ -1,40 +1,29 @@
-
 function scr_events(_event) {
-    
-    // Cada evento tiene una lista de pasos [tiempo, acción]
     switch (_event) {
-        
-		case 1:
-			show_debug_message("scr_events: arrancando evento 1; event_time reset a -1; alarm puesta");
-			obj_player.can_move = false;
-			// Mostrar primer mensaje inmediatamente
-			scr_dialogue("noone", 8, "The flowers aren't blooming lmao", false);
 
-			global.event_datalol = [
-			    ["after_dialogue", function() {
-					// Crear explosión en la posición del jugador (obj_boom_temp debe existir)
-					if (instance_exists(obj_NPC_parent)) {
-					    audio_play_sound(snd_sansing, 1, false);
-						instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_boom_temp);
-					    audio_play_sound(snd_boom, 1, false);
-					}
+        case 1:
+            show_debug_message("scr_events: arrancando evento 1");
 
-			        // luego mostrar más diálogo si quieres
-			        scr_dialogue("noone", 8, "Maybe they need water?", false);
-			    }]
-			];
+            // Bloquear movimiento del jugador
+            obj_player.can_move = false;
 
+            // Mostrar primer diálogo
+            scr_dialogue("sans", 10, "don't make another step kid...", true);
+            scr_dialogue("sans", 7, "this time i'm serious", true);
+            scr_dialogue("sans", 4, "so serious I could eat a horse", false);
 
-
-		    // scr_events configura la alarma sobre la instancia que llama (alarm[0] = room_speed * 5;)
-		    alarm[0] = room_speed * 5;
+            // Seleccionar instancia concreta de NPC (la primera que encuentre)
+			var npc = instance_find(obj_NPC_parent, 0);
+			if (npc != noone) {
+			    scr_npc_walk_inst(npc, "Right", 32, function() {
+			        show_debug_message("NPC terminó de caminar!");
+			        // Aquí puedes poner explosión, diálogo, etc
+			        instance_create_layer(npc.x, npc.y, "Instances", obj_boom_temp);
+			    });
+			}
+            // Configurar alarm para continuar el resto del evento si quieres
+            alarm[0] = room_speed * 5; 
 			obj_player.can_move = true;
-		break;
-
+        break;
     }
-}
-
-// En el objeto donde defines randomassbool, agrega:
-alarm[0] = function() {
-    obj_eventTrigger.randomassbool = false;
 }

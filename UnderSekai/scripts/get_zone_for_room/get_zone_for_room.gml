@@ -9,5 +9,10 @@ function get_zone_for_room(_room) {
             if (global.zone_MysteryRooms[i] == _room) return "MysteryRooms";
         }
     }
+    if (array_length(global.zone_Silence) > 0) {
+        for (var i = 0; i < array_length(global.zone_Silence); i++) {
+            if (global.zone_Silence[i] == _room) return "Silence";
+        }
+    }
     return undefined;
 }

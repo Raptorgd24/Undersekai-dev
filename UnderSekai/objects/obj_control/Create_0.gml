@@ -61,13 +61,18 @@ if (!is_undefined(global.song_asset)) {
 
 
 // Arrays de habitaciones por zona
-global.zone_TestRooms    = [Room1, RoomTest, StartingPointBeta];
+global.zone_TestRooms    = [Room1, RoomTest];
 global.zone_MysteryRooms = [Room666];
+global.zone_Silence = [StartingPointBeta];
 
 // Canciones por zona → usar ds_map para índices tipo string
 global.zone_music = ds_map_create();
 ds_map_add(global.zone_music, "TestRooms", mus_sans);
 ds_map_add(global.zone_music, "MysteryRooms", mus_666);
+ds_map_add(global.zone_music, "Silence", mus_silence);
 
 // Zona actual
 global.current_zone = "TestRooms";
+
+
+global.event_npc = noone;

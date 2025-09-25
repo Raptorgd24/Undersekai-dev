@@ -161,3 +161,33 @@ if (variable_global_exists("song_inst") && global.song_inst != noone) {
         }
     }
 }
+
+
+// Si hay un NPC asignado al evento, moverlo
+if (variable_global_exists("event_npc") && global.event_npc != noone) {
+
+    scr_npc_walk_inst(global.event_npc, "right", 32);
+
+    // Cuando termina de caminar
+    if (!global.event_npc.npc_moving) {
+
+        // Guardar posición antes de limpiar variable
+        var npc_x = global.event_npc.x;
+        var npc_y = global.event_npc.y;
+
+        // Explosión en la posición real
+        instance_create_layer(npc_x - 20, npc_y - 20, "Instances", obj_boom_temp);
+        audio_play_sound(snd_sansing, 1, false);
+        audio_play_sound(snd_boom, 1, false);
+
+        // Limpiar variable global para no repetir
+        global.event_npc = noone;
+
+        // Continuar con diálogo posterior
+        scr_dialogue("noone", 8, "Maybe they need water?", false);
+
+        // Restaurar control del jugador si quieres
+        obj_player.can_move = true;
+    }
+}
+

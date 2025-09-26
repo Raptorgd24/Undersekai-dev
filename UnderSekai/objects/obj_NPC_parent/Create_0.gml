@@ -3,3 +3,16 @@ function npc_dialogue() {
     scr_dialogue("sans", 4, "te lo puedes creer?", false);
 }
 
+// Variables de movimiento
+NPCmoving     = false;
+NPCdirection  = "down";
+NPCframes     = 0;
+NPCspeed      = 1;
+NPCmoonwalk   = false;
+
+// Variables de animación
+anim_timer    = 0;
+anim_speed    = 0.2; // puedes ajustar la velocidad de animación
+last_dir      = "down";
+
+show_debug_message("[obj_NPC_parent:Create] NPC creado con npc_id=" + string(npc_id));

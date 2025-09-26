@@ -10,7 +10,6 @@
   "name":"obj_eventTrigger",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"propertyId":{"name":"passable","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"propertyId":{"name":"npc_id","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"event",},
   ],
   "parent":{
     "name":"Objetos",

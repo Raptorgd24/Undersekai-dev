@@ -7,10 +7,7 @@
   ],
   "managed":true,
   "name":"obj_flowers",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"propertyId":{"name":"passable","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"propertyId":{"name":"npc_id","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"flower",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
     "path":"folders/Objetos.yy",
@@ -32,7 +29,9 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"passable","filters":[],"listItems":[],"multiselect":false,"name":"passable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,

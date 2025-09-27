@@ -1,5 +1,12 @@
 // Create Event
 
+//normal player stuff lmao
+global.health = 20
+global.LV = 1
+global.ATK = 1
+global.DEF = 1
+
+
 base_vel = 2;
 velocidad_actual = base_vel;
 

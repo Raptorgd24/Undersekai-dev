@@ -108,11 +108,13 @@ if (variable_global_exists("waiting_for_walk") && global.waiting_for_walk) {
         // Programar el resto del evento
         global.event_datalol = [
             ["after_dialogue", function() {
+				            obj_player.can_move = false;
+							obj_usable.can_use = false;
                 show_debug_message("[Event System] Fase 3: Sonido sansing");
                 audio_play_sound(snd_sansing, 1, false);
                 
                 // Iniciar contador de espera para el boom (50 frames)
-                global.boom_wait_frames = 50;
+                global.boom_wait_frames = 42;
                 global.waiting_for_boom = true;
                 show_debug_message("[Event System] Iniciando espera de 50 frames para boom");
             }]
@@ -140,7 +142,7 @@ if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
             var boom = instance_create_layer(global.event_npc.x - 20, global.event_npc.y - 20, "Instances_1", obj_boom_temp);
             boom.parent_npc = global.event_npc;
             audio_play_sound(snd_boom, 1, false);
-            
+            audio_stop_sound(snd_sansing);
             // Diálogos después de la explosión
             scr_dialogue("noone", 8, "...", true);
             scr_dialogue("noone", 8, "What the fuck...", false);

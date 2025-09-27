@@ -19,7 +19,7 @@ global.dialogue_mensajes = [];
 global.dialogue_seguir = [];
 global.dialogue_current = 0;      // Índice del diálogo actual
 global.coroutines = [];
-global.debug = true;
+global.debug = false;
 // Sistema de eventos (timeline por frames)
 global.event_datalol = undefined;
 global.event_time = 0;

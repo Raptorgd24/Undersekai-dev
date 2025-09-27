@@ -28,7 +28,8 @@ function scr_events(_event) {
                 global.event_datalol = [
                     ["after_dialogue", function() {
                         show_debug_message("[scr_events] Iniciando caminata del NPC");
-                        
+                                    obj_player.can_move = false;
+									obj_usable.can_use = false;
                         if (instance_exists(global.event_npc)) {
                             scr_npcwalk(global.event_npc, "left", 180, 1, false);
                             global.waiting_for_walk = true;

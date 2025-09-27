@@ -6,34 +6,42 @@ function scr_events(_event) {
 
             // Bloquear movimiento del jugador
             obj_player.can_move = false;
+            obj_usable.can_use = false;
 
-            // Mostrar diálogos
+            // Mostrar diálogos iniciales
             scr_dialogue("sans", 10, "don't make another step kid...", true);
             scr_dialogue("sans", 7, "this time i'm serious", true);
             scr_dialogue("sans", 4, "so serious I could eat a horse", false);
 
             // Buscar NPC con npc_id == "sans"
-            var npc = noone;
+            global.event_npc = noone;
             with (obj_NPC_parent) {
                 if (variable_instance_exists(id, "npc_id") && npc_id == "sans") {
-                    npc = id;
+                    global.event_npc = id;
                 }
             }
 
-            if (npc != noone) {
-                var nid = variable_instance_exists(npc, "npc_id") ? variable_instance_get(npc, "npc_id") : "";
-                show_debug_message("[scr_events] NPC encontrado con npc_id=" + string(nid) + ", iniciando caminata");
-
-                // Llamamos al script pasando la instancia objetivo como primer argumento
-                scr_npcwalk(npc, "left", 180, 1, false);
-            }
-            else {
+            if (global.event_npc != noone) {
+                show_debug_message("[scr_events] NPC encontrado: " + string(global.event_npc.npc_id));
+                
+                // Programar inicio del evento después de los diálogos
+                global.event_datalol = [
+                    ["after_dialogue", function() {
+                        show_debug_message("[scr_events] Iniciando caminata del NPC");
+                        
+                        if (instance_exists(global.event_npc)) {
+                            scr_npcwalk(global.event_npc, "left", 180, 1, false);
+                            global.waiting_for_walk = true;
+                        }
+                    }]
+                ];
+                global.event_step = 0;
+                global.event_time = -1;
+            } else {
                 show_debug_message("[scr_events] No se encontró NPC con npc_id=sans");
+                obj_player.can_move = true;
+                obj_usable.can_use = true;
             }
-
-            // Continuar evento / desbloquear jugador
-            alarm[0] = room_speed * 5; 
-            obj_player.can_move = true;
         break;
     }
 }

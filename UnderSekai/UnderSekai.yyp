@@ -65,6 +65,7 @@
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},
     {"id":{"name":"scr_musictrans","path":"scripts/scr_musictrans/scr_musictrans.yy",},},
+    {"id":{"name":"scr_npc_walk_inst","path":"scripts/scr_npc_walk_inst/scr_npc_walk_inst.yy",},},
     {"id":{"name":"scr_npcwalk","path":"scripts/scr_npcwalk/scr_npcwalk.yy",},},
     {"id":{"name":"scr_trans","path":"scripts/scr_trans/scr_trans.yy",},},
     {"id":{"name":"mus_666","path":"sounds/mus_666/mus_666.yy",},},

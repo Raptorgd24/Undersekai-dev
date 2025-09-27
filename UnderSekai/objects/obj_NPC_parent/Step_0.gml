@@ -1,3 +1,4 @@
+// Step
 // Ajuste de depth solo si no es passable
 if (!passable) {
     if (obj_player.y < y) {

@@ -76,3 +76,14 @@ global.current_zone = "TestRooms";
 
 
 global.event_npc = noone;
+
+
+// Sistema de eventos (timeline por frames)
+global.event_datalol = undefined;
+global.event_time = 0;
+global.event_step = 0;
+
+// --- Nuevas variables para esperas ---
+global.waiting_for_walk = false;
+global.waiting_for_boom = false;
+global.boom_wait_frames = 0;

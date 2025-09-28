@@ -69,6 +69,7 @@
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},
     {"id":{"name":"scr_menudialogue","path":"scripts/scr_menudialogue/scr_menudialogue.yy",},},
+    {"id":{"name":"scr_menuskip","path":"scripts/scr_menuskip/scr_menuskip.yy",},},
     {"id":{"name":"scr_musictrans","path":"scripts/scr_musictrans/scr_musictrans.yy",},},
     {"id":{"name":"scr_npc_walk_inst","path":"scripts/scr_npc_walk_inst/scr_npc_walk_inst.yy",},},
     {"id":{"name":"scr_npcwalk","path":"scripts/scr_npcwalk/scr_npcwalk.yy",},},

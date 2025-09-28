@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_doomsday",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":122.5,
+  "name":"mus_doomsday",
+  "parent":{
+    "name":"OST",
+    "path":"folders/Sonidos/OST.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_doomsday.ogg",
+  "type":2,
+  "volume":1.0,
+}

@@ -2,5 +2,5 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 para más información
 function scr_menudialogue(){
 	audio_play_sound(mus_doomsday,1, true);
-	show_debug_message("Tetas")
+	show_debug_message("weork")
 }

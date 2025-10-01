@@ -34,7 +34,7 @@ if (intro_state == "final_fade") {
     // Cambiar de room solo cuando ambos fades estén completos
     if (fade_alpha >= 1 && music_volume <= 0) {
         show_debug_message("=== CAMBIANDO A ROOM1 ===");
-        room_goto(Room1);
+        room_goto(MainMenu);
     }
     exit;
 }

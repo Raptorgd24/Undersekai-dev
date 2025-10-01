@@ -33,4 +33,4 @@ if (array_length(intro_sprites) > 0) {
 }
 
 // Iniciar música
-scr_menudialogue();
+	audio_play_sound(mus_doomsday,1,false)

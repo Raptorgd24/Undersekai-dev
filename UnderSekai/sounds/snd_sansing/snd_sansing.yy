@@ -12,8 +12,8 @@
   "duration":7.402653,
   "name":"snd_sansing",
   "parent":{
-    "name":"Sonidos",
-    "path":"folders/Sonidos.yy",
+    "name":"sfx",
+    "path":"folders/Sonidos/sfx.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

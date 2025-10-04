@@ -9,9 +9,9 @@ function scr_events(_event) {
             obj_usable.can_use = false;
 
             // Mostrar diálogos iniciales
-            scr_dialogue("sans", 10, "don't make another step kid...", true);
-            scr_dialogue("sans", 7, "this time i'm serious", true);
-            scr_dialogue("sans", 4, "so serious I could eat a horse", false);
+            scr_dialogue("sans", 10, "don't make another step kid...", true,false);
+            scr_dialogue("sans", 7, "this time i'm serious", true,false);
+            scr_dialogue("sans", 4, "so serious I could eat a horse", false,false);
 
             // Buscar NPC con npc_id == "sans"
             global.event_npc = noone;

@@ -1,3 +1,4 @@
+image_alpha = 0;
 // --------------------- CREATE ---------------------
 global.dialogue_active = false;   // ¿Hay diálogo abierto?
 global.dialogue_text = "";
@@ -11,12 +12,13 @@ global.dialogue_font = ft_determinationmono;
 global.dialogue_sound = snd_txt1;
 global.dialogue_keep = false;
 global.dialogue_character = "noone";
-
+global.playing = false;
 // Sistema de diálogos con arrays
 global.dialogue_personajes = [];
 global.dialogue_caras = [];
 global.dialogue_mensajes = [];
 global.dialogue_seguir = [];
+global.liberar_move = [];
 global.dialogue_current = 0;      // Índice del diálogo actual
 global.coroutines = [];
 global.debug = false;

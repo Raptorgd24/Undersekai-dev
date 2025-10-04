@@ -14,17 +14,19 @@ function scr_dialogue_next() {
     if (!variable_global_exists("dialogue_seguir") || !is_array(global.dialogue_seguir)) {
         global.dialogue_seguir = [];
     }
+
     
     // Verificar si hay mensajes pendientes
     if (global.dialogue_current >= array_length(global.dialogue_mensajes)) {
         // Fin del diálogo
         global.dialogue_active = false;
-        if (instance_exists(obj_player)) obj_player.can_move = true;
-        if (instance_exists(obj_usable)) obj_usable.can_use = false;
-
+		if (global.liberar_move){
+		  if (instance_exists(obj_player)) obj_player.can_move = true;
+		  if (instance_exists(obj_usable)) obj_usable.can_use = false;
+		
         // Timer de seguridad para evitar uso inmediato
         global.dialogue_use_timer = 5;
-
+		}
         // Limpiar arrays
         global.dialogue_personajes = [];
         global.dialogue_caras = [];

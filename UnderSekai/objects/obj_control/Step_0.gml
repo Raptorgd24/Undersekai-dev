@@ -101,9 +101,9 @@ if (variable_global_exists("waiting_for_walk") && global.waiting_for_walk) {
         global.waiting_for_walk = false;
         
         // Continuar con la siguiente fase del evento
-        scr_dialogue("sans", 0, "anyway kid...", true);
-        scr_dialogue("sans", 0, "i-i think im close-", true);
-        scr_dialogue("sans", 0, "oh no... i'm about to-", false);
+        scr_dialogue("sans", 0, "anyway kid...", true,false);
+        scr_dialogue("sans", 0, "i-i think im close-", true,false);
+        scr_dialogue("sans", 0, "oh no... i'm about to-", false,false);
         
         // Programar el resto del evento
         global.event_datalol = [
@@ -144,8 +144,8 @@ if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
             audio_play_sound(snd_boom, 1, false);
             audio_stop_sound(snd_sansing);
             // Diálogos después de la explosión
-            scr_dialogue("noone", 8, "...", true);
-            scr_dialogue("noone", 8, "What the fuck...", false);
+            scr_dialogue("noone", 8, "...", true,false);
+            scr_dialogue("noone", 8, "What the fuck...", false,true);
             
             // Final del evento
             global.event_datalol = [

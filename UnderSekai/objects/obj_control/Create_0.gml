@@ -31,7 +31,7 @@ global.event_step = 0;
 global.trans_active = false;
 global.trans_alpha = 0;
 global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
-global.trans_target = Room666;
+global.trans_target = rm_Room666;
 global.trans_speed = 0.05; // velocidad configurable
 
 
@@ -63,9 +63,9 @@ if (!is_undefined(global.song_asset)) {
 
 
 // Arrays de habitaciones por zona
-global.zone_TestRooms    = [Room1, RoomTest];
-global.zone_MysteryRooms = [Room666];
-global.zone_Silence = [StartingPointBeta];
+global.zone_TestRooms    = [rm_Room1, rm_RoomTest];
+global.zone_MysteryRooms = [rm_Room666];
+global.zone_Silence = [rm_StartingPointBeta];
 
 // Canciones por zona → usar ds_map para índices tipo string
 global.zone_music = ds_map_create();

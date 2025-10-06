@@ -18,3 +18,11 @@ if ((keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) && li
 if (other_timer == 0) {
     room_goto_next();
 }
+// Toggle pantalla completa con F4
+if (keyboard_check_pressed(vk_f4)) {
+    if (!window_get_fullscreen()) {
+        window_set_fullscreen(true);
+    } else {
+        window_set_fullscreen(false);
+    }
+}

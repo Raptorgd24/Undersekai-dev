@@ -33,33 +33,52 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
     show_debug_message("Opción seleccionada: " + option);
     audio_play_sound(snd_select, 1, false);
     
-    switch (option) {
-        case "START":
-            show_debug_message("Creando nuevo save.dat...");
-            var file = file_text_open_write("save.dat");
-            file_text_close(file);
-            show_debug_message("Archivo save.dat creado correctamente ✅");
-            room_goto(rm_Room1);
-        break;
+switch (option) {
+    case "START":
+        show_debug_message("Creando nuevo save.dat...");
         
-        case "CONTINUE":
-            show_debug_message("Continuando juego...");
-            room_goto(rm_Room1);
-        break;
+        // Valores iniciales
+        global.room_name = "rm_Room1";
+        global.name = "Frisk";
+        global.lv = 1;
+        global.health = 20;
+        global.gold = 0;
+        global.objects = "[]";
+        global.weapon = "Stick";
+        global.armor = "Bandage";
         
-        case "RESET":
-            show_debug_message("Eliminando save.dat...");
-            if (file_exists("save.dat")) file_delete("save.dat");
-            show_debug_message("save.dat eliminado. Creando nuevo...");
-            var file = file_text_open_write("save.dat");
-            file_text_close(file);
-            show_debug_message("Nuevo save.dat creado ✅");
-            room_goto(rm_Room1);
-        break;
+        scr_save_game(); // guarda los valores iniciales
+        room_goto(rm_Room1);
+    break;
+    
+    case "CONTINUE":
+        show_debug_message("Cargando save.dat...");
+        scr_load_game(); // carga valores guardados
+        room_goto(asset_get_index(global.room_name)); // carga la room que estaba guardada
+    break;
+    
+    case "RESET":
+        show_debug_message("Reseteando save.dat...");
+        if (file_exists("save.dat")) file_delete("save.dat");
         
-        case "OPTIONS":
-            show_debug_message("Abriendo menú de opciones...");
-            room_goto(rm_options);
-        break;
-    }
+        // Restablecer a valores iniciales
+        global.room_name = "rm_Room1";
+        global.name = "Frisk";
+        global.lv = 1;
+        global.health = 20;
+        global.gold = 0;
+        global.objects = "[]";
+        global.weapon = "Stick";
+        global.armor = "Bandage";
+        
+        scr_save_game();
+        room_goto(rm_Room1);
+    break;
+    
+    case "OPTIONS":
+        show_debug_message("Abriendo menú de opciones...");
+        room_goto(rm_options);
+    break;
+}
+
 }

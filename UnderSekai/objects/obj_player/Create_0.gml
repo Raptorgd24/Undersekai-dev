@@ -1,10 +1,19 @@
 // Create Event
 
 //normal player stuff lmao
-global.health = 20
-global.LV = 1
+
 global.ATK = 1
 global.DEF = 1
+
+
+show_debug_message("ROOM: " + string(global.room_name));
+show_debug_message("NAME: " + string(global.name));
+show_debug_message("LV: " + string(global.lv));
+show_debug_message("HP: " + string(global.health));
+show_debug_message("GOLD: " + string(global.gold));
+show_debug_message("OBJECTS: " + string(global.objects));
+show_debug_message("WEAPON: " + string(global.weapon));
+show_debug_message("ARMOR: " + string(global.armor));
 
 
 base_vel = 2;

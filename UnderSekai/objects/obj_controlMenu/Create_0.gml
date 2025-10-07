@@ -3,9 +3,9 @@ show_debug_message("=== INICIO INTRO ===");
 image_alpha = 0; // El objeto empieza invisible
 intro_state = "writing";
 intro_texts = [
-    "Long ago, two my dih ruled over Earth:\nVEINY and LONG.",
-    "One day, war broke out between the two\nraces.",
-    "After a long battle, the humans were\nvictorious."
+    "Long ago, two my dih ruled over Earth: ANTONIO\nAND LOBATO.",
+    "One day, war broke out between the two pendejos.",
+    "After a long battle, Freddy Fazbear was\nvictorious."
 ];
 intro_current_text = 0;
 intro_display_text = "";
@@ -34,3 +34,5 @@ if (array_length(intro_sprites) > 0) {
 
 // Iniciar música
 	audio_play_sound(mus_doomsday,1,false)
+	
+	

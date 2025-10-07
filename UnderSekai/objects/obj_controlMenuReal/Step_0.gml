@@ -39,38 +39,43 @@ switch (option) {
         
         // Valores iniciales
         global.room_name = "rm_Room1";
-        global.name = "Frisk";
+        global.name = "EMPTY";
         global.lv = 1;
         global.health = 20;
+        global.maxHP = 20;
         global.gold = 0;
         global.objects = "[]";
         global.weapon = "Stick";
         global.armor = "Bandage";
-        
+        global.play_time = 0
         scr_save_game(); // guarda los valores iniciales
         room_goto(rm_Room1);
     break;
     
-    case "CONTINUE":
-        show_debug_message("Cargando save.dat...");
-        scr_load_game(); // carga valores guardados
-        room_goto(asset_get_index(global.room_name)); // carga la room que estaba guardada
-    break;
+case "CONTINUE":
+    show_debug_message("Cargando partida...");
+    scr_load_game(); // esto ya hace el room_goto automáticamente
+break;
+
+
     
     case "RESET":
         show_debug_message("Reseteando save.dat...");
         if (file_exists("save.dat")) file_delete("save.dat");
-        
+            
+    
+ 
         // Restablecer a valores iniciales
         global.room_name = "rm_Room1";
-        global.name = "Frisk";
+        global.name = "EMPTY";
         global.lv = 1;
         global.health = 20;
+        global.maxHP = 20;
         global.gold = 0;
         global.objects = "[]";
         global.weapon = "Stick";
         global.armor = "Bandage";
-        
+        global.play_time = 0
         scr_save_game();
         room_goto(rm_Room1);
     break;

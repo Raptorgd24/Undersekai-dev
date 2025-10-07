@@ -27,12 +27,12 @@ var inst_x = instance_place(x + dx, y, obj_NPC_parent);
 var inst_y = instance_place(x, y + dy, obj_NPC_parent);
 
 // Comprobación X
-if ((!inst_x || inst_x.passable) && !place_meeting(x + dx, y, obj_colision)) {
+if ((!inst_x || inst_x.passable) && !place_meeting(x + dx, y, obj_colision) && !place_meeting(x + dx, y, obj_save)) {
     x += dx;
 }
 
 // Comprobación Y
-if ((!inst_y || inst_y.passable) && !place_meeting(x, y + dy, obj_colision)) {
+if ((!inst_y || inst_y.passable) && !place_meeting(x, y + dy, obj_colision) && !place_meeting(x, y + dy, obj_save)) {
     y += dy;
 }
 

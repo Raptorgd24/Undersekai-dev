@@ -89,3 +89,19 @@ global.event_step = 0;
 global.waiting_for_walk = false;
 global.waiting_for_boom = false;
 global.boom_wait_frames = 0;
+
+// AÑADIR al final del obj_control:CREATE (o pegar en Create si quieres reemplazar)
+// Inicialización adicional y comprobación de save.dat
+if (!variable_global_exists("play_time")) global.play_time = 0;
+if (!variable_global_exists("room_name") || global.room_name == "") {
+    if (function_exists(asset_get_name)) global.room_name = asset_get_name(room);
+    else global.room_name = "rm_Room1";
+}
+
+if (file_exists("save.dat")) {
+    global.has_save = true;
+    show_debug_message("obj_control: save.dat detectado ✅ -> Continue disponible");
+} else {
+    global.has_save = false;
+    show_debug_message("obj_control: No se encontró save.dat ❌ -> Solo START disponible");
+}

@@ -1,5 +1,9 @@
 if (!instance_exists(obj_player)) exit;
-
+    if (obj_player.y < y) {
+        depth = obj_player.depth - 1;
+    } else {
+        depth = obj_player.depth + 1;
+    }
 // Variables persistentes
 if (!variable_instance_exists(id, "cooldown_timer")) cooldown_timer = 0;
 if (!variable_instance_exists(id, "saved_state")) saved_state = false;

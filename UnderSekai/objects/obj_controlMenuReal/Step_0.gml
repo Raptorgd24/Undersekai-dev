@@ -54,6 +54,7 @@ switch (option) {
     
 case "CONTINUE":
     show_debug_message("Cargando partida...");
+	scr_init_zones();
     scr_load_game(); // esto ya hace el room_goto automáticamente
 break;
 

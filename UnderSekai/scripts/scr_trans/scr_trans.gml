@@ -6,7 +6,7 @@ function scr_trans(_the_room) {
         global.trans_alpha = 0;
         global.trans_state = 0;
         global.trans_target = _the_room;
-		global.room_name = _the_room
+		
         // --- Determinar zona de la habitación ---
         var room_zone = get_zone_for_room(_the_room);
 

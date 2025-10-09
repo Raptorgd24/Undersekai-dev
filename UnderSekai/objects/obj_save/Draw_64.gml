@@ -24,7 +24,7 @@ var minutes = floor(total_s / 60);
 var seconds = total_s mod 60;
 draw_text(bx + box_w - 150, by + gui_padding, string(minutes) + ":" + string_format(seconds, 2, 0));
 
-draw_text(bx + gui_padding+10, by + gui_padding + 35, save_zone_gui);
+draw_text(bx + gui_padding+10, by + gui_padding + 35, room_name_text);
 
 // Opciones
 var opt_y = by + box_h - 60;

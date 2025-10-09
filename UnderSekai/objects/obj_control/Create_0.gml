@@ -39,7 +39,7 @@ global.trans_speed = 0.05; // velocidad configurable
 musi_speed = 60; // (no lo usamos para lerp directamente; lo dejamos si lo usas en otro sitio)
 
 // recurso (asset) actual y la instancia reproducida
-global.song_asset = mus_sans;            // asset (ej: mus_sans)
+//global.song_asset = mus_666;            // asset (ej: mus_sans)
 global.song_inst  = noone;               // instancia (lo seteará audio_play_sound)
 global.song_volume = 1;                  // volumen actual (0..1)
 global.song_target = 1;                  // objetivo (0 o 1)

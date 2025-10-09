@@ -4,7 +4,7 @@ menu_index = 0;
 menu_visible = false;
 saved_state = false;
 cooldown_timer = 0;
-
+global.room_name = room_get_name(room)
 // Tamaño y posición del menú
 box_w = 420;
 box_h = 160;
@@ -12,14 +12,28 @@ bx = 120;
 by = 40;
 gui_padding = 18;
 
-// Texto según room
-if (room == rm_Room1) {
-    dialogue_text = "You feel a warm presence...";
-    room_name_text = "Ruins - Entrance";
-} else {
-    dialogue_text = "You found a save point.";
-    room_name_text = "Unknown Area";
+switch (room) {
+    case rm_Room666:
+        dialogue_text = "You feel like you shouldn't be here.";
+        room_name_text = "???";
+        break;
+
+    case rm_Room1:
+        dialogue_text = "You feel a warm presence...";
+        room_name_text = "Ruins - Entrance";
+        break;
+
+    case rm_StartingPointBeta:
+        dialogue_text = "The flowers even if they aren't blooming, they feel peaceful.";
+        room_name_text = "Hole in the ceiling";
+        break;
+
+    default:
+        dialogue_text = "You found a save point.";
+        room_name_text = "Unknown Area";
+        break;
 }
+
 
 // Leer datos de save.dat si existe
 if (file_exists("save.dat")) {

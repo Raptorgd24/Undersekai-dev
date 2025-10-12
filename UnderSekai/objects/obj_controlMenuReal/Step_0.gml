@@ -49,6 +49,9 @@ switch (option) {
         global.armor = "Bandage";
         global.play_time = 0
         scr_save_game(); // guarda los valores iniciales
+		if (!variable_global_exists("song_asset")) {
+		    global.song_asset = mus_silence; // o el valor inicial que corresponda
+		}
         room_goto(rm_Room1);
     break;
     
@@ -63,9 +66,7 @@ break;
     case "RESET":
         show_debug_message("Reseteando save.dat...");
         if (file_exists("save.dat")) file_delete("save.dat");
-            
-    
- 
+
         // Restablecer a valores iniciales
         global.room_name = "rm_Room1";
         global.name = "EMPTY";
@@ -78,6 +79,9 @@ break;
         global.armor = "Bandage";
         global.play_time = 0
         scr_save_game();
+		if (!variable_global_exists("song_asset")) {
+		    global.song_asset = mus_silence; // o el valor inicial que corresponda
+		}
         room_goto(rm_Room1);
     break;
     

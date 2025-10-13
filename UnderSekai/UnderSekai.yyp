@@ -88,6 +88,7 @@
     {"id":{"name":"scr_trans","path":"scripts/scr_trans/scr_trans.yy",},},
     {"id":{"name":"mus_666","path":"sounds/mus_666/mus_666.yy",},},
     {"id":{"name":"mus_doomsday","path":"sounds/mus_doomsday/mus_doomsday.yy",},},
+    {"id":{"name":"mus_roaringfraud","path":"sounds/mus_roaringfraud/mus_roaringfraud.yy",},},
     {"id":{"name":"mus_sans","path":"sounds/mus_sans/mus_sans.yy",},},
     {"id":{"name":"mus_silence","path":"sounds/mus_silence/mus_silence.yy",},},
     {"id":{"name":"snd_666","path":"sounds/snd_666/snd_666.yy",},},

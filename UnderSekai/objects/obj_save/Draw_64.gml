@@ -22,7 +22,9 @@ draw_text(bx + box_w / 2 - 40, by + gui_padding, "LV " + string(save_lv_gui));
 var total_s = floor(save_time_gui);
 var minutes = floor(total_s / 60);
 var seconds = total_s mod 60;
-draw_text(bx + box_w - 150, by + gui_padding, string(minutes) + ":" + string_format(seconds, 2, 0));
+
+var sec_text = (seconds < 10) ? "0" + string(seconds) : string(seconds);
+draw_text(bx + box_w - 150, by + gui_padding, string(minutes) + ":" + sec_text);
 
 draw_text(bx + gui_padding+10, by + gui_padding + 35, room_name_text);
 

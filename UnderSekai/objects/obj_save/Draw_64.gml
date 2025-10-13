@@ -51,5 +51,5 @@ if (saved_state) {
 
     var heart_x = (menu_index == 0) ? save_x - 18 : return_x - 18;
     if (asset_get_index("spr_heart") >= 0)
-        draw_sprite(spr_heart, 0, heart_x, opt_y+5);
+        draw_sprite(spr_heart, 0, heart_x-15, opt_y+5);
 }

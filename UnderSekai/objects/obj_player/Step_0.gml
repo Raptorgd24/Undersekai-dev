@@ -12,6 +12,10 @@ else {
 if (keyboard_check_pressed(ord("V"))) {
 	scr_trans(rm_StartingPointBeta);
 }
+
+if (keyboard_check_pressed(ord("B"))) {
+	scr_start_battle();
+}
 // Detectar movimiento (WASD o flechas)
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));
 my = (keyboard_check(vk_down)  || keyboard_check(ord("S"))) - (keyboard_check(vk_up)   || keyboard_check(ord("W")));

@@ -19,8 +19,37 @@ function scr_load_game() {
     global.weapon    = file_text_read_string(file); file_text_readln(file);
     global.armor     = file_text_read_string(file); file_text_readln(file);
     global.play_time = real(file_text_read_string(file)); file_text_readln(file);
-    file_text_close(file);
+	global.events_done = file_text_read_string(file); file_text_readln(file);
+	show_debug_message(global.events_done);
+	
+	// Limpia y convierte los arrays desde texto
+global.objects = string_replace_all(global.objects, "[", "");
+global.objects = string_replace_all(global.objects, "]", "");
+global.objects = string_replace_all(global.objects, " ", "");
+global.objects = string_replace_all(global.objects, "\"", "\""); 
+if (string_length(global.objects) == 0) {
+    global.objects = []; // array vacío
+} else {
+    global.objects = string_split(global.objects, ",");
+}
 
+// Igual para events_done
+global.events_done = string_replace_all(global.events_done, "[", "");
+show_debug_message(global.events_done);
+global.events_done = string_replace_all(global.events_done, "]", "");
+show_debug_message(global.events_done);
+global.events_done = string_replace_all(global.events_done, " ", "");
+show_debug_message(global.events_done);
+global.events_done = string_replace_all(global.events_done, "\"", ""); 
+show_debug_message(global.events_done);
+if (string_length(global.events_done) == 0) {
+    global.events_done = [];
+} else {
+    global.events_done = string_split(global.events_done, ",");
+}
+show_debug_message(global.events_done);
+    file_text_close(file);
+	
     // === AÑADIDO: Establecer música correcta para la room guardada ===
     var target_room = asset_get_index(global.room_name);
     if (target_room != -1) {

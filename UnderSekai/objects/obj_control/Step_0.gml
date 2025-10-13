@@ -135,6 +135,7 @@ if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
             global.event_datalol = [
                 ["after_dialogue", function() {
                     show_debug_message("[Event System] Fase 4: Fin del evento");
+					array_push(global.events_done, "Test");
                     obj_player.can_move = true;
                     obj_usable.can_use = true;
                     global.event_npc = noone;
@@ -254,5 +255,4 @@ if (variable_global_exists("song_inst") && global.song_inst != noone) {
     }
 }
 
-// --------------------- DRAW GUI (Dialog System) ---------------------
-// (resto inalterado; no lo duplico aquí por brevedad)
+global.play_time += delta_time / 1000000;

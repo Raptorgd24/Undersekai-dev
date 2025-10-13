@@ -44,10 +44,11 @@ switch (option) {
         global.health = 20;
         global.maxHP = 20;
         global.gold = 0;
-        global.objects = "[]";
+        global.objects = [];
         global.weapon = "Stick";
         global.armor = "Bandage";
         global.play_time = 0
+		global.events_done = [];
         scr_save_game(); // guarda los valores iniciales
 		if (!variable_global_exists("song_asset")) {
 		    global.song_asset = mus_silence; // o el valor inicial que corresponda
@@ -74,10 +75,11 @@ break;
         global.health = 20;
         global.maxHP = 20;
         global.gold = 0;
-        global.objects = "[]";
+        global.objects = [];
         global.weapon = "Stick";
         global.armor = "Bandage";
         global.play_time = 0
+		global.events_done = [];
         scr_save_game();
 		if (!variable_global_exists("song_asset")) {
 		    global.song_asset = mus_silence; // o el valor inicial que corresponda

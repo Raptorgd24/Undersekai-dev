@@ -14,6 +14,7 @@ show_debug_message("GOLD: " + string(global.gold));
 show_debug_message("OBJECTS: " + string(global.objects));
 show_debug_message("WEAPON: " + string(global.weapon));
 show_debug_message("ARMOR: " + string(global.armor));
+show_debug_message("EVENTCOSO: " + string(global.events_done));
 
 
 base_vel = 2;

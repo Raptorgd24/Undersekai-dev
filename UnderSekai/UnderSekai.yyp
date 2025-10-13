@@ -131,10 +131,10 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"rm_ActualMenu","path":"rooms/rm_ActualMenu/rm_ActualMenu.yy",},},
-    {"roomId":{"name":"rm_Room1","path":"rooms/rm_Room1/rm_Room1.yy",},},
     {"roomId":{"name":"rm_Lore","path":"rooms/rm_Lore/rm_Lore.yy",},},
     {"roomId":{"name":"rm_MainMenu","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},},
+    {"roomId":{"name":"rm_ActualMenu","path":"rooms/rm_ActualMenu/rm_ActualMenu.yy",},},
+    {"roomId":{"name":"rm_Room1","path":"rooms/rm_Room1/rm_Room1.yy",},},
     {"roomId":{"name":"rm_StartingPointBeta","path":"rooms/rm_StartingPointBeta/rm_StartingPointBeta.yy",},},
     {"roomId":{"name":"rm_RoomTest","path":"rooms/rm_RoomTest/rm_RoomTest.yy",},},
     {"roomId":{"name":"rm_Room666","path":"rooms/rm_Room666/rm_Room666.yy",},},

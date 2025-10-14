@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":512,
-  "compression":0,
+  "compression":2,
   "conversionMode":0,
   "duration":146.61046,
   "name":"mus_roaringfraud",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"mus_roaringfraud.ogg",
-  "type":2,
+  "type":1,
   "volume":1.0,
 }

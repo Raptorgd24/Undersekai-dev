@@ -1,11 +1,14 @@
 opciones = ["FIGHT", "ACT", "ITEM", "MERCY"];
 seleccion = 0;
-heart_offset_x = [ -80, -20, 40, 100 ];
+heart_offset_x = [ -840, -20, 40, 100 ];
 
-text_to_show = "Texto por defecto";
+text_to_show = "The Roaring Knight appears.";
 
-box_width = 300;
-box_height = 100;
-box_x = 50;
-box_y = 450;
+box_width = 550;
+box_height = 170;
+box_x = 45;
+box_y = 225;
 image_alpha = 0;
+if (enemy = "Roaring_Fraud"){
+audio_play_sound(mus_roaringfraud, 1, true);
+}

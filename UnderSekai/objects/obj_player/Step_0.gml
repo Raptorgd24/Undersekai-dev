@@ -14,7 +14,7 @@ if (keyboard_check_pressed(ord("V"))) {
 }
 
 if (keyboard_check_pressed(ord("B"))) {
-	scr_start_battle();
+	scr_start_battle("Roaring_Fraud");
 }
 // Detectar movimiento (WASD o flechas)
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));

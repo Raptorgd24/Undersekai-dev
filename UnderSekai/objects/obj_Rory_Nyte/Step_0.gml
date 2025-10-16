@@ -1,5 +1,5 @@
 // Movimiento en forma de ∞ suave (lemniscata)
-t += 0.03;
+t += 0.05;
 
 // Ecuación tipo lemniscata de Bernoulli suavizada
 var a = 1; // controla la suavidad
@@ -13,5 +13,5 @@ y = origin_y + amplitude_y * sin_t * cos_t / (1 + sqr(cos_t));
 trail_timer++;
 if (trail_timer >= trail_interval) {
     trail_timer = 0;
-    instance_create_layer(x, y, layer, obj_trail);
+   instance_create_layer(x, y, layer, obj_trail);
 }

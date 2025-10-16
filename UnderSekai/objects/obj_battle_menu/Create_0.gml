@@ -25,8 +25,8 @@ box_height = 150;
 text_to_show = "* The Roaring Knight appears.";
 
 // Enemigo
-px = 128;
-py = 32;
+px = 118;
+py = 27;
 
 if (global.enemy == "Rory_Nyte") {
     audio_play_sound(mus_roaringfraud, 1, true);

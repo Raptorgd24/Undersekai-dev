@@ -17,6 +17,8 @@ if (!menu_visible && !global.dialogue_active && cooldown_timer <= 0) {
         instance_exists(obj_usable) && obj_usable.can_use) {
         if (place_meeting(x, y, obj_usable)) {
             scr_dialogue("noone", 0, dialogue_text, false, false);
+			audio_play_sound(snd_heal, 1, false,0.7);
+			global.health = global.maxHP; // regenerar HP
             state = "dialogue";
         }
     }
@@ -69,9 +71,8 @@ if (state == "menu" && menu_visible) {
             audio_play_sound(snd_menumove, 1, false);
 
         // Confirmar selección
-        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
-            if (asset_get_index("snd_select") >= 0)
-                audio_play_sound(snd_select, 1, false);
+        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {          
+                
 
             // Opción SAVE → actualizar desde global y guardar
             if (menu_index == 0) {
@@ -100,8 +101,9 @@ if (state == "menu" && menu_visible) {
 
                 // Guardar en archivo
                 scr_save_game();
-
-                global.health = global.maxHP; // regenerar HP
+				
+				audio_play_sound(snd_save, 1, false);
+                
 
                 saved_state = true;
                 cooldown_timer = 2; // post-save rápido
@@ -109,6 +111,7 @@ if (state == "menu" && menu_visible) {
 
             // Opción RETURN → cerrar menú sin guardar
             else {
+				audio_play_sound(snd_select, 1, false);
                 menu_visible = false;
                 state = "idle";
                 if (instance_exists(obj_player)) obj_player.can_move = true;

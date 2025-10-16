@@ -1,11 +1,13 @@
-mode = "intro";        // "intro" o "select" o "battle"
+mode = "intro"; // intro | select | battle
 parpadeos = 0;
-alpha_state = 0;       // 0 = invisible, 1 = visible (para parpadeo)
+alpha_state = 0;
+
 target_x = x;
 target_y = y;
+image_alpha = 1;
+move_speed = 0.2;
+depth = -999999;
 
-// Para el modo “battle” (esquivar): limitar movimiento dentro de un rectángulo
-box_left   = 100;
-box_right  = 300;
-box_top    = 200;
-box_bottom = 400;
+gui_x = 0;
+gui_y = 0;
+gui_scale = 2;

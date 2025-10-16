@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"frick",
-    "path":"sprites/frick/frick.yy",
+    "name":"spr_frick",
+    "path":"sprites/spr_frick/spr_frick.yy",
   },
   "spriteMaskId":null,
   "visible":true,

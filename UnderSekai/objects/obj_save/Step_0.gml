@@ -18,7 +18,7 @@ if (!menu_visible && !global.dialogue_active && cooldown_timer <= 0) {
         if (place_meeting(x, y, obj_usable)) {
             scr_dialogue("noone", 0, dialogue_text, false, false);
 			audio_play_sound(snd_heal, 1, false,0.7);
-			global.health = global.maxHP; // regenerar HP
+			global.healthu = global.maxHP; // regenerar HP
             state = "dialogue";
         }
     }
@@ -78,7 +78,7 @@ if (state == "menu" && menu_visible) {
             if (menu_index == 0) {
                 save_name    = global.name;
                 save_lv      = global.lv;
-                save_hp      = global.health;
+                save_hp      = global.healthu;
                 save_maxhp   = global.maxHP;
                 save_gold    = global.gold;
                 save_objects = global.objects;

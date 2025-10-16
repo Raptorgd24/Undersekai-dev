@@ -54,7 +54,7 @@ if (file_exists("save.dat")) {
     // Inicializar con global solo si no hay archivo
     save_name = global.name;
     save_lv   = global.lv;
-    save_hp   = global.health;
+    save_hp   = global.healthu;
     save_maxhp   = global.maxHP;
     save_gold = global.gold;
     save_objects = global.objects;

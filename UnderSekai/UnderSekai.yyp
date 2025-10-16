@@ -98,6 +98,7 @@
     {"id":{"name":"scr_dialogue_next","path":"scripts/scr_dialogue_next/scr_dialogue_next.yy",},},
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},
+    {"id":{"name":"scr_heal","path":"scripts/scr_heal/scr_heal.yy",},},
     {"id":{"name":"scr_init_zones","path":"scripts/scr_init_zones/scr_init_zones.yy",},},
     {"id":{"name":"scr_load_game","path":"scripts/scr_load_game/scr_load_game.yy",},},
     {"id":{"name":"scr_musictrans","path":"scripts/scr_musictrans/scr_musictrans.yy",},},

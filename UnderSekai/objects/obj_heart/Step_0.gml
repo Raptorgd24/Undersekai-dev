@@ -16,3 +16,6 @@ switch (mode) {
         gui_y = y;
         break;
 }
+if (keyboard_check_pressed(ord("V"))) {
+	scr_heal(20);
+}

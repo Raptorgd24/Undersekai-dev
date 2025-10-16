@@ -12,7 +12,7 @@ function scr_load_game() {
     global.room_name = file_text_read_string(file); file_text_readln(file);
     global.name      = file_text_read_string(file); file_text_readln(file);
     global.lv        = real(file_text_read_string(file)); file_text_readln(file);
-    global.health    = real(file_text_read_string(file)); file_text_readln(file);
+    global.healthu    = real(file_text_read_string(file)); file_text_readln(file);
     global.maxHP    = real(file_text_read_string(file)); file_text_readln(file);
     global.gold      = real(file_text_read_string(file)); file_text_readln(file);
     global.objects   = file_text_read_string(file); file_text_readln(file);

@@ -6,43 +6,38 @@ var gui_y = y;
 // === Texto del nombre y LV ===
 draw_set_font(ft_notdetermination);
 draw_set_color(c_white);
-
-// Nombre del jugador
 draw_text(gui_x, gui_y, string(global.name));
-
-// Nivel (LV)
 draw_text(gui_x + spacing_name_lv, gui_y, "LV " + string(global.lv));
-
-// === Texto “HP” ===
 draw_text(gui_x + spacing_name_lv + spacing_lv_hp, gui_y, "HP");
 
-// === Dibujar barra de vida ===
-var ratio = global.health / global.maxHP;
-var ratio_display = hp_display / global.maxHP;
+// --- Parámetros de ancho ---
+var px_per_hp = 0.7; // ancho en píxeles por cada punto de HP
 
-// Coordenadas de la barra
-var bar_x = gui_x + spacing_name_lv + spacing_lv_hp + spacing_hp_bar;
-var bar_y = gui_y - 3; // un pequeño ajuste visual
+// Ancho de fondo según maxHP
+var width_nohealth = global.maxHP * px_per_hp;
 
-// Fondo (vacío)
-draw_sprite_ext(sprite_empty, 0, bar_x, bar_y, scale, scale, 0, c_white, 1);
+// Ancho de barra amarilla según health
+var width_health = global.healthu * px_per_hp;
 
-// Barra amarilla (vida actual)
-// La idea: recortar el sprite a una proporción según la vida
-var full_width = bar_width * ratio_display;
-if (full_width > 0) {
-    draw_sprite_part_ext(sprite_full, 0, 0, 0, full_width, bar_height, bar_x, bar_y, scale, scale, c_white, 1);
-}
+// --- Fondo (spr_nohealth) ---
+draw_sprite_stretched(
+    spr_nohealth,
+    0,
+    gui_x + 280,
+    gui_y - 3,
+    width_nohealth * 2,       // ancho proporcional al maxHP
+    sprite_get_height(spr_nohealth) * 3
+);
 
-// === Texto a la derecha (HP actual / Máximo) ===
-draw_set_color(c_white);
-var text_hp = string(floor(global.health)) + "/" + string(global.maxHP);
-draw_text(bar_x + (bar_width * scale) + 20, gui_y, text_hp);
+// --- Barra amarilla (spr_health) ---
+draw_sprite_stretched(
+    spr_health,
+    0,
+    gui_x + 280,
+    gui_y - 3,
+    width_health * 2,         // ancho proporcional a health
+    sprite_get_height(spr_health) * 3
+);
 
-if (global.health < hp_display - 0.5) {
-    // Si la vida visual es mayor que la real (o sea, perdió HP)
-    if (floor(current_time / 100) mod 2 == 0) {
-        draw_set_color(c_red);
-        draw_text(bar_x + (bar_width * scale) + 20, gui_y, text_hp);
-    }
-}
+// --- Texto de valores HP ---
+draw_text(gui_x + 280 + width_nohealth * 2 + 20, gui_y, string(global.healthu) + "/" + string(global.maxHP));

@@ -6,7 +6,7 @@ var file = file_text_open_write("save.dat");
 file_text_write_string(file, global.room_name); file_text_writeln(file);
 file_text_write_string(file, global.name); file_text_writeln(file);
 file_text_write_string(file, string(global.lv)); file_text_writeln(file);
-file_text_write_string(file, string(global.health)); file_text_writeln(file);
+file_text_write_string(file, string(global.healthu)); file_text_writeln(file);
 file_text_write_string(file, string(global.maxHP)); file_text_writeln(file);
 file_text_write_string(file, string(global.gold)); file_text_writeln(file);
 file_text_write_string(file, string(global.objects)); file_text_writeln(file);

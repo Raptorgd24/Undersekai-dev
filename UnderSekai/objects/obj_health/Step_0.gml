@@ -1,7 +1,12 @@
-/// @desc Lógica de actualización del HUD
+/// Step Event - actualizar tamaño físico del objeto según HP actual
 
-// Asegurar que la vida esté en rango
-global.health = clamp(global.health, 0, global.maxHP);
 
-// Transición suave del HP visual (puedes ajustar el 0.15)
-hp_display = lerp(hp_display, global.health, 0.15);
+// Interpolación suave de la barra visual
+hp_display = lerp(hp_display, global.healthu, 0.2);
+
+// 🔹 Ancho del objeto según vida actual
+// Esto hace que el objeto se reduzca o aumente según la vida real
+var ratio = global.healthu / global.maxHP;       // porcentaje de vida actual
+dynamic_width = global.maxHP * px_per_hp;       // ancho máximo
+image_xscale = (dynamic_width * ratio) / base_bar_width * scale;  // escalar según vida
+image_yscale = scale;

@@ -41,7 +41,7 @@ switch (option) {
         global.room_name = "rm_Room1";
         global.name = "EMPTY";
         global.lv = 1;
-        global.health = 20;
+        global.healthu = 20;
         global.maxHP = 20;
         global.gold = 0;
         global.objects = [];
@@ -72,7 +72,7 @@ break;
         global.room_name = "rm_Room1";
         global.name = "EMPTY";
         global.lv = 1;
-        global.health = 20;
+        global.healthu = 20;
         global.maxHP = 20;
         global.gold = 0;
         global.objects = [];

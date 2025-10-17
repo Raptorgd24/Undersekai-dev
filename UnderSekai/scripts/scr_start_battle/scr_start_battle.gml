@@ -1,6 +1,6 @@
 function scr_start_battle(le_enemy) {
     /// @desc Inicia la secuencia de entrada a batalla
-    audio_play_sound(snd_666, 1, false);
+    audio_play_sound(snd_encounter, 1, false);
     
     // Guardar enemigo global
     global.enemy = le_enemy;

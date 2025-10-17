@@ -10,6 +10,7 @@ scale = 3;
 // Para animar los cambios de vida suavemente
 hp_display = global.healthu;
 
+
 // Configuración de sprites
 sprite_full = spr_health;
 sprite_empty = spr_nohealth;

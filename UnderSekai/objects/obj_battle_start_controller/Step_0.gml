@@ -19,14 +19,14 @@ switch (phase) {
             if (black_alpha == 1) {
                 black_alpha = 0;
                 transition_heart.image_alpha = 0;
-                audio_play_sound(snd_sans, 1, false);
+                audio_play_sound(snd_noise, 1, false);
                 with (obj_player) {
                     visible = true;
                 }
             } else {
                 black_alpha = 1;
                 transition_heart.image_alpha = 1;
-                audio_play_sound(snd_sans, 1, false);
+                audio_play_sound(snd_noise, 1, false);
                 with (obj_player) {
                     visible = false;
                 }
@@ -54,6 +54,7 @@ switch (phase) {
 
     case 2:
         // Mover corazón a posición GUI calculada con cámara
+		audio_play_sound(snd_battlefall, 1, false);
         if (!variable_global_exists("target_gui_x")) {
             // Fallback si no se calcularon las variables globales
             var cam = camera_get_active();
@@ -65,10 +66,11 @@ switch (phase) {
 			// En phase 2, calcular como coordenadas GUI:
 			global.target_gui_x = 20;  // Coordenada GUI directa, no relativa a cámara
 			global.target_gui_y = display_get_gui_height() - 100;
-
+			
 			// Y en el movimiento:
 			transition_heart.gui_x = lerp(transition_heart.gui_x, global.target_gui_x, 0.1);
 			transition_heart.gui_y = lerp(transition_heart.gui_y, global.target_gui_y, 0.1);
+			
         }
         
         transition_heart.x = lerp(transition_heart.x, global.target_gui_x, 0.1);

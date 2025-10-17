@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"snd_heal",
+  "%Name":"snd_megaslashed",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":128,
-  "compression":0,
+  "bitRate":512,
+  "compression":2,
   "conversionMode":0,
-  "duration":0.7129705,
-  "name":"snd_heal",
+  "duration":1.7226304,
+  "name":"snd_megaslashed",
   "parent":{
     "name":"sfx",
     "path":"folders/Sonidos/sfx.yy",
@@ -18,8 +18,8 @@
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
-  "sampleRate":44100,
-  "soundFile":"snd_heal.wav",
-  "type":0,
+  "sampleRate":48000,
+  "soundFile":"snd_megaslashed.wav",
+  "type":1,
   "volume":1.0,
 }

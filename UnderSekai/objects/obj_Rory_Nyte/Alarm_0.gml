@@ -1,6 +1,9 @@
 // obj_Rory_Nyte - Alarm[0] (si quieres usarla para desbloquear movimiento)
-        image_index = 0;
-        is_hurt = false;
-		can_move = true;
-        hurt_sound_played = false;
-		show_debug_message("htfddgrh")
+image_index = 0;
+is_hurt = false;
+can_move = true;
+hurt_sound_played = false;
+
+// Reset del shake cuando termina el daño
+shake_time = 0;
+x = shake_origin_x;

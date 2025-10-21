@@ -121,3 +121,5 @@ zoom_speed = 0.02;
 zooming = false;
 zoom_current = 1.0;
 zoom_sprite_id = noone;  // guardaremos la instancia del sprite central aquí
+
+global.ps = part_system_create_layer("Particles", false);

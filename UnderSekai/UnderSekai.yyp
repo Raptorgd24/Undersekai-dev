@@ -88,6 +88,7 @@
     {"id":{"name":"obj_trans","path":"objects/obj_trans/obj_trans.yy",},},
     {"id":{"name":"obj_usable","path":"objects/obj_usable/obj_usable.yy",},},
     {"id":{"name":"obj_zoom_effect","path":"objects/obj_zoom_effect/obj_zoom_effect.yy",},},
+    {"id":{"name":"ef_enemyDamageTest","path":"particles/ef_enemyDamageTest/ef_enemyDamageTest.yy",},},
     {"id":{"name":"rm_ActualMenu","path":"rooms/rm_ActualMenu/rm_ActualMenu.yy",},},
     {"id":{"name":"rm_Lore","path":"rooms/rm_Lore/rm_Lore.yy",},},
     {"id":{"name":"rm_MainMenu","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},},

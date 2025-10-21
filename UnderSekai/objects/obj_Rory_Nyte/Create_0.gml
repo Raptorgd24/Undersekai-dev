@@ -18,3 +18,8 @@ image_speed = 0.1;        // ahora tiene velocidad por defecto para que la anima
 hurt_sound_played = false; // importante inicializar
 
 lePrecision = 0;
+
+// --- Variables para el shake ---
+shake_time = 0;       // duración del shake
+shake_power = 4;      // fuerza del movimiento lateral
+shake_origin_x = x;   // posición base (por si se mueve)

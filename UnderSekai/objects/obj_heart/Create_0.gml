@@ -1,4 +1,5 @@
-mode = "intro"; // intro | select | battle
+// obj_heart - Create
+mode = "intro"; // intro | select | enemy_select | fight | battle
 parpadeos = 0;
 alpha_state = 0;
 

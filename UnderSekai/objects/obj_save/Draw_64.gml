@@ -2,11 +2,34 @@ if (!menu_visible) exit; // Solo mostrar después del diálogo
 
 // Fondo del menú
 if (asset_get_index("spr_blackboxtext") >= 0) {
-    draw_sprite_stretched(spr_blackboxtext, 0, bx, by, box_w, box_h);
+
+    var scale = 2; // Escala x2
+
+    // Crear superficie temporal del tamaño original
+    var surf = surface_create(box_w, box_h);
+
+    if (surface_exists(surf)) {
+        surface_set_target(surf);
+        draw_clear_alpha(c_black, 0);
+
+        // Dibujar el sprite nine-slice al tamaño original
+        draw_sprite_stretched(spr_blackboxtext, 0, 0, 0, box_w/2, box_h/2);
+
+        // Volver al render normal
+        surface_reset_target();
+
+        // Dibujar la superficie escalada (x2) en pantalla
+        draw_surface_stretched(surf, bx, by, box_w * 2, box_h * 2);
+
+        // Limpiar superficie
+        surface_free(surf);
+    }
+
 } else {
     draw_set_color(c_black);
     draw_rectangle(bx, by, bx + box_w, by + box_h, false);
 }
+
 
 // Fuente
 if (asset_get_index("ft_determinationsans") >= 0)
@@ -17,14 +40,14 @@ draw_set_color(saved_state ? c_yellow : c_white);
 
 // Datos guardados actualmente en save.dat (o GUI actualizado tras Save)
 draw_text(bx + gui_padding+10, by + gui_padding, save_name_gui);
-draw_text(bx + box_w / 2 - 40, by + gui_padding, "LV " + string(save_lv_gui));
+draw_text(bx + box_w / 2 - 20, by + gui_padding, "LV " + string(save_lv_gui));
 
 var total_s = floor(save_time_gui);
 var minutes = floor(total_s / 60);
 var seconds = total_s mod 60;
 
 var sec_text = (seconds < 10) ? "0" + string(seconds) : string(seconds);
-draw_text(bx + box_w - 150, by + gui_padding, string(minutes) + ":" + sec_text);
+draw_text(bx + box_w - 80, by + gui_padding, string(minutes) + ":" + sec_text);
 
 draw_text(bx + gui_padding+10, by + gui_padding + 35, room_name_text);
 
@@ -35,7 +58,7 @@ if (saved_state) {
     draw_text(bx + 30, opt_y, "File saved");
 } else {
     var save_x = bx + 100;
-    var return_x = bx + 230;
+    var return_x = bx + 260;
 
     if (menu_index == 0) {
         draw_set_color(c_yellow);
@@ -51,5 +74,5 @@ if (saved_state) {
 
     var heart_x = (menu_index == 0) ? save_x - 18 : return_x - 18;
     if (asset_get_index("spr_heart") >= 0)
-        draw_sprite(spr_heart, 0, heart_x-15, opt_y+5);
+        draw_sprite_ext(spr_heart, 0, heart_x-15, opt_y+5,2,2,0,c_white,1);
 }

@@ -1,57 +1,72 @@
-/// @desc Inicialización del menú de batalla
-image_alpha = 0; // invisible al principio
+// obj_battle_menu - Create
+/// @desc Inicialización del menú de batalla (controlador principal)
+image_alpha = 0;
 depth = -100;
 
-// --- Estado del menú ---
-mode = "menu"; // "menu" | "enemy_select" | "attacking" | "enemy_turn"
+// Estado / modos: "menu" | "enemy_select" | "attacking" | "enemy_turn"
+mode = "menu";
 seleccion = 0;
+selected_obj = noone;
 
-selected_obj =noone;
-// --- Opciones del menú ---
-opciones = ["FIGHT", "ACT", "ITEM", "MERCY"];
+// Opciones del menú
+opciones = ["FIGHT","ACT","ITEM","MERCY"];
 
-// --- Posiciones de botones ---
+// Posiciones botones / caja de texto
 boton_x_inicial = 45;
 boton_y = 410;
 boton_espaciado = 145;
 
-// --- Caja de texto ---
 box_x = 45;
 box_y = 245;
 box_width = 550;
 box_height = 150;
 
-// --- Enemigo por defecto ---
+// Enemigo por defecto (valores manejados desde aquí)
 enemyName = "Test";
 enemyHealth = 50;
-px = 118;
-py = 27;
+enemyDefense = 0;
+theEnemy = noone; // instancia real del enemigo (si existe)
+px = 118; py = 27; // posiciones por defecto para crear enemigos
 
-// --- Texto inicial ---
-text_to_show = "* What will you do?";
+dmg = 0;
+otraPrecisionSOB =0;
+// Texto inicial
+text_to_show = "* Random Encounter!";
 
-// --- Configurar enemigo según global.enemy ---
-if (global.enemy == "Rory_Nyte") {
-    audio_play_sound(mus_roaringfraud, 1, true);
-    theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
-    text_to_show = "* The Roaring Knight appears.";
-    enemyName = "Roaring Knight";
-    enemyHealth = 40000;
-} else if 
-(global.enemy == "Negru") {
-    audio_play_sound(mus_roaringfraud, 1, true);
-    theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
-    text_to_show = "* The Roaring Knight appears.";
-    enemyName = "Roaring Knight";
-    enemyHealth = 40000;
-} else {
-    audio_play_sound(mus_roaringfraud, 1, true);
-    text_to_show = "* The Roaring Knight doesn't appear.";
-    enemyName = "Test";
-    enemyHealth = 50;
+// Guardamos referencia global para otros objetos (fallback)
+global.battle_menu = id;
+
+// Inicializar según global.enemy (mapeo simple -> añade más casos según necesites)
+if (variable_global_exists("enemy")) {
+    switch (global.enemy) {
+        case "Rory_Nyte":
+            audio_play_sound(mus_roaringfraud, 1, true);
+            theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
+            text_to_show = "* The Roaring Knight appears.";
+            enemyName = "Roaring Knight";
+            enemyHealth = 40000;
+			enemyDefense = 300;
+            break;
+        case "Negru":
+            // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos
+            audio_play_sound(mus_roaringfraud, 1, true);
+            theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
+            text_to_show = "* The Roaring Knight appears.";
+            enemyName = "Roaring Knight";
+            enemyHealth = 40000;
+			enemyDefense = 300;
+            break;
+        default:
+            audio_play_sound(mus_roaringfraud, 1, true);
+            text_to_show = "* The Roaring Knight doesn't appear.";
+            enemyName = "Test";
+            enemyHealth = 50;
+			enemyDefense = 3;
+            break;
+    }
 }
 
-// --- Configurar obj_thebox ---
+// Configurar obj_thebox (si existe) para mostrar texto
 if (instance_exists(obj_thebox)) {
     with (obj_thebox) {
         x = other.box_x;
@@ -65,27 +80,44 @@ if (instance_exists(obj_thebox)) {
     }
 }
 
-// --- Configurar obj_heart ---
+// Configurar obj_heart (posición inicial)
 if (instance_exists(obj_heart)) {
     with (obj_heart) {
         mode = "select";
-        x = 0;
-        y = 0;
-        target_x = 0;
-        target_y = 0;
+        // posicionarlo sobre la opción actual
+        x = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
+        y = other.boton_y + 6;
+        target_x = x;
+        target_y = y;
     }
 }
 
-// --- Bloquear movimiento jugador ---
+// Bloquear movimiento del jugador fuera de batalla
 if (instance_exists(obj_player)) {
     with (obj_player) {
         can_move = false;
         visible = false;
-    }
+    }	
 }
 
-// --- Turno y control interno ---
-turn = "player";
+// Turno y control
+turn = "player"; // "player" | "enemy"
 fight_timer = 0;
 attack_power = 0;
 text_done = false;
+
+// Alarma por defecto no usada (se usan alarm[2]/alarm[3] para turno enemigo)
+alarm[0] = -1;
+alarm[1] = -1;
+alarm[2] = -1;
+alarm[3] = -1;
+
+
+// zoom cosos
+default_cam_w = 320;
+default_cam_h = 240;
+zoom_target = 0.75;      // 0.75 = 75% del tamaño -> zoom in suave
+zoom_speed = 0.02;
+zooming = false;
+zoom_current = 1.0;
+zoom_sprite_id = noone;  // guardaremos la instancia del sprite central aquí

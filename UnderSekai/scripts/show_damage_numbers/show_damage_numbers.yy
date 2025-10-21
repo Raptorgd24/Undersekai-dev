@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"show_damage_numbers",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"show_damage_numbers",
+  "parent":{
+    "name":"BattleStuff",
+    "path":"folders/Scripts/BattleStuff.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

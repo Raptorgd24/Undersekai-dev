@@ -1,6 +1,6 @@
+// obj_heart - Alarm[0] (intro)
 if (mode == "intro") {
     if (parpadeos < 5) {
-        // Parpadear alternando alpha
         if (alpha_state == 0) {
             image_alpha = 1;
             alpha_state = 1;
@@ -9,9 +9,8 @@ if (mode == "intro") {
             alpha_state = 0;
         }
         parpadeos += 1;
-        alarm[0] = 10;  // tiempo entre parpadeos, ajustar según rapidez deseada
+        alarm[0] = 10;
     } else {
-        // Terminó intro, pasar a modo select (selección de acción)
         mode = "select";
         image_alpha = 1;
     }

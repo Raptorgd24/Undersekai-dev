@@ -1,75 +1,134 @@
-/// @desc Control del menú de batalla
+// obj_battle_menu - Step
+/// @desc Control principal de estados/modos del combate
 
-// === MODO MENÚ PRINCIPAL ===
+// Helpers locales
+var menu_objs = [obj_fight, obj_act, obj_item, obj_mercy];
+
 if (mode == "menu") {
-    // Movimiento del cursor
-	
+    // Navegación del cursor (L/R)
     if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))) {
         audio_play_sound(snd_menumove, 1, false);
-        seleccion = (seleccion + 1) mod 4;
-		show_debug_message("Cursor derecha → seleccion: " + string(seleccion));
+        seleccion = (seleccion + 1) mod array_length(opciones);
     }
     if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"))) {
         audio_play_sound(snd_menumove, 1, false);
-        seleccion = (seleccion + 3) mod 4;
-		show_debug_message("Cursor izquierda → seleccion: " + string(seleccion));
+        seleccion = (seleccion - 1 + array_length(opciones)) mod array_length(opciones);
     }
 
     // Confirmar opción
     if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
         audio_play_sound(snd_select, 1, false);
         var opcion = opciones[seleccion];
-        show_debug_message("Seleccion: " + opcion);
-
         switch (opcion) {
             case "FIGHT":
+                // pasar a selección de enemigo / pantalla de ataque
                 mode = "enemy_select";
-				show_debug_message("Entrando a modo ENEMY_SELECT");
                 if (instance_exists(obj_thebox)) {
                     with (obj_thebox) {
                         text = "  * " + other.enemyName;
                         display_text = "  * " + other.enemyName;
                         text_index = 999;
-						show_debug_message("Texto del enemigo actualizado en obj_thebox");
                     }
                 }
-
                 break;
-            case "ACT":   with (obj_act)   { execute_action(); } break;
-            case "ITEM":  with (obj_item)  { execute_action(); } break;
-            case "MERCY": with (obj_mercy) { execute_action(); } break;
+            case "ACT":   if (instance_exists(obj_act))   with (obj_act)   { execute_action(); } break;
+            case "ITEM":  if (instance_exists(obj_item))  with (obj_item)  { execute_action(); } break;
+            case "MERCY": if (instance_exists(obj_mercy)) with (obj_mercy) { execute_action(); } break;
         }
     }
 
-    // Actualizar botones
-    var objs = [obj_fight, obj_act, obj_item, obj_mercy];
-    for (var i = 0; i < 4; i++) {
-        with (objs[i]) {
-            image_index = (i == other.seleccion) ? 1 : 0;
+    // Actualizar sprites de botones (resaltado)
+    for (var i = 0; i < array_length(menu_objs); i++) {
+        if (instance_exists(menu_objs[i])) {
+            with (menu_objs[i]) {
+                image_index = (i == other.seleccion) ? 1 : 0;
+            }
         }
     }
 
-    // Actualizar corazón
+    // Actualizar posición del corazón sobre la opción seleccionada
     if (instance_exists(obj_heart)) {
-        var objs = [obj_fight, obj_act, obj_item, obj_mercy];
-         selected_obj = objs[seleccion];
-        
+        var target = menu_objs[seleccion];
+        if (instance_exists(target)) {
+            selected_obj = target;
             with (obj_heart) {
                 mode = "select";
                 x = other.selected_obj.x + 4;
                 y = other.selected_obj.y + 6;
             }
-        
+        }
     }
 }
 
-
-// === MODO SELECCIÓN DE ENEMIGO ===
+// SELECCIÓN DE ENEMIGO (preparar barra de ataque)
 else if (mode == "enemy_select") {
-    // Regresar al menú
-	
+    // Cancelar selección (X / Shift)
     if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
-		show_debug_message("Jugador canceló selección de enemigo, volviendo a MENU");
+        mode = "menu";
+        if (instance_exists(obj_thebox)) {
+            with (obj_thebox) {
+                text = other.text_to_show;
+                display_text = "";
+                text_index = 0;
+            }
+        }
+        // restaurar corazón a opción
+        if (instance_exists(obj_heart)) {
+            with (obj_heart) {
+                mode = "select";
+                x = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
+                y = other.boton_y + 6;
+            }
+        }
+    }
+
+    // Confirmar ataque -> crear obj_attack_bar
+    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+        // Crear barra si no existe ya
+        if (!instance_exists(obj_attack_bar)) {
+            var ab = instance_create_layer(-500, 0, "Instances", obj_attack_bar);
+            if (instance_exists(ab)) {
+                ab.battle_id = id;      // referencia al controlador de batalla
+                // Inicializamos coordenadas desde aquí para el attack_bar
+                ab.start_x = box_x - 18;
+                ab.end_x   = box_x + 240;
+                ab.y_pos   = box_y - 126;
+            }
+        }
+        // Limpiar cuadro de texto
+        if (instance_exists(obj_thebox)) {
+            with (obj_thebox) {
+                text = "";
+                display_text = "";
+                text_index = 0;
+            }
+        }
+        mode = "attacking";
+    }
+
+    // Mover corazón frente al enemigo (UI)
+    if (instance_exists(obj_heart)) {
+        with (obj_heart) {
+            mode = "enemy_select";
+            x = other.box_x - 3;
+            y = other.box_y - 115;
+        }
+    }
+}
+
+// MODO ATAQUE (esperamos que obj_attack_bar haga la lógica y luego notifique mediante alarms)
+else if (mode == "attacking") {
+    // Mantenemos el corazón visible en la zona de ataque (pero fuera del box)
+    if (instance_exists(obj_heart)) {
+        with (obj_heart) {
+            mode = "enemy_select";
+            x = other.box_x - 423;
+            y = other.box_y - 115;
+        }
+    }
+    // Si no existe la barra (ya terminó), volvemos a menú si no es turno enemigo
+    if (!instance_exists(obj_attack_bar) && turn == "player") {
+        // si la barra ya fue destruida pero el turno quedó en player, regresamos al menu
         mode = "menu";
         if (instance_exists(obj_thebox)) {
             with (obj_thebox) {
@@ -79,58 +138,33 @@ else if (mode == "enemy_select") {
             }
         }
     }
-
-    // Confirmar ataque
-    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
-		show_debug_message("Jugador confirma ataque al enemigo");
-        // Crear barra de ataque
-		// en obj_battle_menu - Step, case enemy_select -> al confirmar:
-		if (!instance_exists(obj_attack_bar)) {
-		    var ab = instance_create_layer(-540, -540, "Instances", obj_attack_bar);
-		    if (instance_exists(ab)) {
-		        ab.battle_id = id; // referencia al menú
-		        show_debug_message("obj_attack_bar creado por obj_battle_menu y battle_id asignado");
-		    }
-		}
-
-
-        // Limpiar texto
-        if (instance_exists(obj_thebox)) {
-            with (obj_thebox) {
-                text = "";
-                display_text = "";
-                text_index = 0;
-            }
-        }
-
-        mode = "attacking";
-
-		
-    }
-
-    // Mover corazón frente al enemigo
-    if (instance_exists(obj_heart)) {
-        with (obj_heart) {
-            mode = "enemy_select";
-            x = other.box_x -3;
-            y = other.box_y - 115;
-        }
-    }
 }
 
-// === MODO ATAQUE ===
-else if (mode == "attacking") {
-			with (obj_heart) {
-            mode = "enemy_select";
-            x = other.box_x -423;
-            y = other.box_y - 115;
-        }
-				with (selected_obj){
-			image_index = 0
-		}
-		
-	
+// MODO TURNO ENEMIGO
+else if (mode == "enemy_turn") {
+    // durante el turno enemigo, bloquear inputs del jugador en el Step del menu.
+    // La secuencia de texto y fin del turno está controlada por alarm[2] y alarm[3].
+    // (No ponemos lógica activa aquí; las alarmas gestionan el flujo)
 }
 
-// === TURNO ENEMIGO ===
 
+// Control del zoom suave
+if (zooming) {
+    // Suavizado hacia el objetivo
+    zoom_current = lerp(zoom_current, zoom_target, zoom_speed);
+
+    // Mantener relación 4:3
+    var new_w = default_cam_w * zoom_current;
+    var new_h = default_cam_h * zoom_current;
+
+    // Calcular posición centrada
+    var center_x = (default_cam_w - new_w) / 2;
+    var center_y = (default_cam_h - new_h) / 2;
+
+    // Aplicar tamaño y posición al view 0
+    camera_set_view_size(view_camera[0], new_w, new_h);
+    camera_set_view_pos(view_camera[0], center_x, center_y);
+
+    // Si llegamos al zoom deseado, pasar a la siguiente alarma
+
+}

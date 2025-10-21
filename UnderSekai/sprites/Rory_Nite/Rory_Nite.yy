@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"Rory_Nite",
-  "bboxMode":0,
-  "bbox_bottom":90,
-  "bbox_left":0,
-  "bbox_right":76,
+  "bboxMode":2,
+  "bbox_bottom":84,
+  "bbox_left":-6,
+  "bbox_right":60,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -42,6 +42,7 @@
   "height":93,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"7d7e7460-a586-4491-b645-ea0ed14f03f4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"7d7e7460-a586-4491-b645-ea0ed14f03f4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"c9d7f642-be71-4cb2-b0a8-8d1641b3fa33","blendMode":0,"displayName":"default","isLocked":false,"name":"c9d7f642-be71-4cb2-b0a8-8d1641b3fa33","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"Rory_Nite",

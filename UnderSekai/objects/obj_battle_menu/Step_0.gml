@@ -39,11 +39,7 @@ if (mode == "menu") {
 
     // Actualizar sprites de botones (resaltado)
     for (var i = 0; i < array_length(menu_objs); i++) {
-        if (instance_exists(menu_objs[i])) {
-            with (menu_objs[i]) {
-                image_index = (i == other.seleccion) ? 1 : 0;
-            }
-        }
+                menu_objs[i].image_index = (i == other.seleccion) ? 1 : 0;
     }
 
     // Actualizar posición del corazón sobre la opción seleccionada
@@ -59,7 +55,14 @@ if (mode == "menu") {
         }
     }
 }
-
+else if (mode == "end"){
+	if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+		with (obj_heart){
+			scr_trans(last_room)
+			show_debug_message(last_room)
+		}
+	}
+}
 // SELECCIÓN DE ENEMIGO (preparar barra de ataque)
 else if (mode == "enemy_select") {
     // Cancelar selección (X / Shift)
@@ -102,6 +105,9 @@ else if (mode == "enemy_select") {
                 display_text = "";
                 text_index = 0;
             }
+			
+			obj_fight.image_index = 0	
+			
         }
         mode = "attacking";
     }
@@ -127,17 +133,7 @@ else if (mode == "attacking") {
         }
     }
     // Si no existe la barra (ya terminó), volvemos a menú si no es turno enemigo
-    if (!instance_exists(obj_attack_bar) && turn == "player") {
-        // si la barra ya fue destruida pero el turno quedó en player, regresamos al menu
-        mode = "menu";
-        if (instance_exists(obj_thebox)) {
-            with (obj_thebox) {
-                text = other.text_to_show;
-                display_text = "";
-                text_index = 0;
-            }
-        }
-    }
+
 }
 
 // MODO TURNO ENEMIGO

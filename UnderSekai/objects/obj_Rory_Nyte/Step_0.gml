@@ -2,7 +2,7 @@
 
 // Movimiento lemniscata si puede moverse
 if (can_move) {
-    t += 0.05;
+    t += 0.02;
     var sin_t = sin(t), cos_t = cos(t);
     x = origin_x + amplitude_x * sin_t / (1 + sqr(cos_t));
     y = origin_y + amplitude_y * sin_t * cos_t / (1 + sqr(cos_t));
@@ -25,7 +25,8 @@ if (is_hurt) {
         image_index = 14
         if (lePrecision >= 0.95){
             audio_play_sound(snd_megaslashed, 1, false);
-            audio_resume_sound(mus_roaringfraud);
+			with (obj_battle_menu){
+            audio_resume_sound(songbattle);}
             with(obj_battle_menu){
                 alarm[0] = ceil(room_speed * 0.00001);
             }
@@ -37,7 +38,7 @@ if (is_hurt) {
         hurt_sound_played = true;
 
         // --- Activar el shake al recibir daño ---
-        shake_time = 10; // frames de duración
+        shake_time = 30; // frames de duración
     }
 
     // Aseguramos que image_speed sea positivo para que la animación avance
@@ -62,6 +63,5 @@ else
 if (shake_time > 0) {
     shake_time -= 1;
     x = shake_origin_x + random_range(-shake_power, shake_power);
-} else {
-    x = shake_origin_x;
 }
+shake_origin_x = x;

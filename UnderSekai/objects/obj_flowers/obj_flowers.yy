@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"spr_noone",
-    "path":"sprites/spr_noone/spr_noone.yy",
+    "name":"spr_colision",
+    "path":"sprites/spr_colision/spr_colision.yy",
   },
   "spriteMaskId":null,
   "visible":true,

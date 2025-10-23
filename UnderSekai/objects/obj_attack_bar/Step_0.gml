@@ -22,11 +22,7 @@ if (moving && !stopped) {
         did_hit = false;
 
         // Notificar al menú que empiece turno enemigo
-        if (instance_exists(battle_id)) {
-            with (battle_id) {
-                alarm[2] = 1; // inicio turno enemigo
-            }
-        }
+
 
         instance_destroy();
         exit;
@@ -107,9 +103,6 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
         }
     }
 
-    // Reproducir sonido de slash
-    
-
     // Sincronizar: aplicar daño tras un pequeño retraso (para que el slash se vea)
     alarm[0] = ceil(room_speed * 0.35);
 
@@ -117,7 +110,9 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
     if (precision >= 0.95) {
         image_blend = c_yellow;
 		audio_play_sound(snd_noise, 1, false);
-		audio_pause_sound(mus_roaringfraud);
+		with (battle_id){
+		audio_pause_sound(songbattle);
+		}
 		audio_play_sound(snd_slash, 1, false,1,0,0.8);
 
 	}

@@ -8,4 +8,4 @@ image_speed = 0; // congelado
 
 // Parámetros de fade
 alpha = 1;
-fade_speed = 0.05;
+fade_speed = 0.03;

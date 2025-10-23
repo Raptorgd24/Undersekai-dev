@@ -14,6 +14,10 @@ if (keyboard_check_pressed(ord("V"))) {
 }
 
 if (keyboard_check_pressed(ord("B"))) {
+	scr_start_battle("Mogus");
+}
+
+if (keyboard_check_pressed(ord("N"))) {
 	scr_start_battle("Rory_Nyte");
 }
 // Detectar movimiento (WASD o flechas)

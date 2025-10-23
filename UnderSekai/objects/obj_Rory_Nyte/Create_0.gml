@@ -6,7 +6,7 @@ amplitude_x = 66;
 amplitude_y = 65;
 
 trail_timer = 0;
-trail_interval = 2;
+trail_interval = 6;
 image_xscale = 1.5;
 image_yscale = 1.5;
 
@@ -22,4 +22,6 @@ lePrecision = 0;
 // --- Variables para el shake ---
 shake_time = 0;       // duración del shake
 shake_power = 4;      // fuerza del movimiento lateral
-shake_origin_x = x;   // posición base (por si se mueve)
+   // posición base (por si se mueve)
+shake_origin_x = x;
+lecontinue =false;

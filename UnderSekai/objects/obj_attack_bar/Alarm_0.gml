@@ -5,39 +5,33 @@ if (did_hit) {
    
     if (instance_exists(battle_id)) {
         with (battle_id) {
+			var dead = false;
 			 dmg = other.damage; // Guardamos daño local antes de entrar a with()
             // Restar vida del enemigo
             if (variable_instance_exists(id, "enemyHealth")) {
                 enemyHealth -= dmg;
                 enemyHealth = max(0, enemyHealth);
+				if (enemyHealth <= 0){
+				dead=true 
+				}
 
-                // Mostrar texto del golpe
-                if (instance_exists(obj_thebox)) {
-                    with (obj_thebox) {
-                        text = "* You hit " + other.enemyName + " for " + string(other.dmg) + "!";
-                        display_text = "";
-                        text_index = 0;
-                    }
-                }
             }
 
             // Avisar al enemigo para que reproduzca animación de daño
-            if (instance_exists(theEnemy)) {
                 with (theEnemy) {
                     is_hurt = true;
                     can_move = false;
                 }
-            }
+            
 
             // Programar inicio del turno enemigo
-            alarm[2] = 1;
-        }
-    } else {
-        // Fallback: buscar el menú manualmente
-        if (instance_exists(obj_battle_menu)) {
-            with (instance_find(obj_battle_menu, 0)) {
-                alarm[2] = 1;
-            }
+			
+			if (!dead){
+            alarm[2] = room_speed*0.75;
+			}
+			else{
+			alarm[4] = room_speed*0.75;
+			}
         }
     }
 }

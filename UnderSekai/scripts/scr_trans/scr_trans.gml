@@ -1,4 +1,8 @@
-function scr_trans(_the_room) {
+function scr_trans(_the_room=rm_Room666) {
+
+	show_debug_message("Que transaaa")
+	if (instance_exists(obj_heart))
+	instance_destroy(obj_heart)
     if (!global.trans_active) {
         global.trans_active = true;
         obj_player.can_move = false;

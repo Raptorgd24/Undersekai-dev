@@ -7,7 +7,7 @@ depth = -100;
 mode = "menu";
 seleccion = 0;
 selected_obj = noone;
-
+songbattle = mus_nuzzle;
 // Opciones del menú
 opciones = ["FIGHT","ACT","ITEM","MERCY"];
 
@@ -26,7 +26,7 @@ enemyName = "Test";
 enemyHealth = 50;
 enemyDefense = 0;
 theEnemy = noone; // instancia real del enemigo (si existe)
-px = 118; py = 27; // posiciones por defecto para crear enemigos
+px = 129; py = 27; // posiciones por defecto para crear enemigos
 
 dmg = 0;
 otraPrecisionSOB =0;
@@ -40,24 +40,34 @@ global.battle_menu = id;
 if (variable_global_exists("enemy")) {
     switch (global.enemy) {
         case "Rory_Nyte":
-            audio_play_sound(mus_roaringfraud, 1, true);
+			songbattle = mus_roaringfraud
+            audio_play_sound(songbattle, 1, true);
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
             enemyName = "Roaring Knight";
             enemyHealth = 40000;
-			enemyDefense = 300;
+			enemyDefense = -800;
             break;
         case "Negru":
             // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos
-            audio_play_sound(mus_roaringfraud, 1, true);
+            audio_play_sound(songbattle, 1, true);
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
             enemyName = "Roaring Knight";
             enemyHealth = 40000;
 			enemyDefense = 300;
             break;
-        default:
-            audio_play_sound(mus_roaringfraud, 1, true);
+        case "Mogus":
+            audio_play_sound(songbattle, 1, true);
+			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);
+            text_to_show = "* Something feels sus!";
+            enemyName = "The Impostor";
+            enemyHealth = 50;
+			enemyDefense = -3;
+            break;
+		default:
+		    audio_play_sound(songbattle, 1, true);
+			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);
             text_to_show = "* The Roaring Knight doesn't appear.";
             enemyName = "Test";
             enemyHealth = 50;

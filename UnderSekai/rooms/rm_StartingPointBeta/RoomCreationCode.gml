@@ -23,6 +23,6 @@ if (array_contains(global.events_done, "Test")) {
     show_debug_message("Mi bombo test");
 	if instance_exists(obj_eventTrigger){
 		instance_destroy(obj_eventTrigger)
-		instance_destroy(obj_NPC_parent)
+
 	}
 }

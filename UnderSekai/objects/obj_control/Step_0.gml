@@ -163,6 +163,7 @@ if (global.trans_active) {
 
         case 1:
             global.trans_state = 2;
+			obj_player.visible = true;
         break;
 
         case 2:
@@ -170,8 +171,9 @@ if (global.trans_active) {
             if (global.trans_alpha <= 0) {
                 global.trans_alpha = 0;
                 global.trans_active = false;
-                if (instance_exists(obj_player)) obj_player.can_move = true;
-                if (instance_exists(obj_usable)) obj_usable.can_use = true;
+                obj_player.can_move = true;
+                obj_usable.can_use = true;
+				
             }
         break;
     }

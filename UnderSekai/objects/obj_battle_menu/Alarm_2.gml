@@ -15,7 +15,7 @@ with (obj_thebox) {
 	target_width = 80;
 	target_height = 80;
 	target_x = 120
-	target_y = 108
+	target_y = 109
 }
 }
 

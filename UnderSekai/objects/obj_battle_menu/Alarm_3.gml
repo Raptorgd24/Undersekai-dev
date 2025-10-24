@@ -9,6 +9,10 @@ turn = "player";
         text = other.text_to_show;
         display_text = "";
         text_index = 0;
+		target_width = 280;
+		target_height = 78;
+		target_x = 25;
+		target_y = 110;
     }
 
 

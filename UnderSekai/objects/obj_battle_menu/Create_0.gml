@@ -27,7 +27,7 @@ enemyHealth = 50;
 enemyDefense = 0;
 theEnemy = noone; // instancia real del enemigo (si existe)
 px = 129; py = 27; // posiciones por defecto para crear enemigos
-turntime= 30;
+turntime= 5;
 
 dmg = 0;
 otraPrecisionSOB =0;

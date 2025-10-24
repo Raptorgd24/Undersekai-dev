@@ -16,6 +16,8 @@ file_text_write_string(file, string(global.play_time)); file_text_writeln(file);
 //test icle
 file_text_write_string(file, string(global.events_done)); file_text_writeln(file);
 
+file_text_write_string(file, string(global.xp)); file_text_writeln(file);
+
 file_text_close(file);
 
 show_debug_message("Guardado: " + room_get_name(room));

@@ -30,7 +30,7 @@ switch(mode){
 // --- Reducir cooldown cada step (por si algún otro objeto la llama)
 if (global.atkcooldown) {
     global.cooldowntimer -= 1;
-    show_debug_message(global.cooldowntimer);
+    
 
     // Hace que parpadee cada 5 frames (ajusta a tu gusto)
     if ((global.cooldowntimer div 10) mod 2 == 0) {

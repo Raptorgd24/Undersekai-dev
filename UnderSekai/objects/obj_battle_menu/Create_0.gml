@@ -27,7 +27,23 @@ enemyHealth = 50;
 enemyDefense = 0;
 theEnemy = noone; // instancia real del enemigo (si existe)
 px = 129; py = 27; // posiciones por defecto para crear enemigos
-turntime= 5;
+
+goldGiven = 0;
+expgiven =0;
+
+attack_name = "knifeda"
+turntime= 10;
+bullet = obj_mknife;
+bullets = noone;
+bulletcooldown = 50;
+bulletcooldownOG = bulletcooldown;
+bullet_x = 30;
+bullet_x2 = 300;
+bullet_y = 30;
+bullet_y2 = 200;
+
+
+
 
 dmg = 0;
 otraPrecisionSOB =0;
@@ -51,6 +67,8 @@ if (variable_global_exists("enemy")) {
             enemyName = "Roaring Knight";
             enemyHealth = 40000;
 			enemyDefense = -800;
+			expgiven = 10000;
+			goldGiven = 9999;
             break;
         case "Negru":
             // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos
@@ -60,6 +78,8 @@ if (variable_global_exists("enemy")) {
             enemyName = "Roaring Knight";
             enemyHealth = 40000;
 			enemyDefense = 300;
+			expgiven = 10000;
+			goldGiven = 9999;
             break;
         case "Mogus":
             audio_play_sound(songbattle, 1, true);
@@ -68,6 +88,8 @@ if (variable_global_exists("enemy")) {
             enemyName = "The Impostor";
             enemyHealth = 50;
 			enemyDefense = -3;
+			expgiven = 8;
+			goldGiven = 12;
             break;
 		default:
 		    audio_play_sound(songbattle, 1, true);

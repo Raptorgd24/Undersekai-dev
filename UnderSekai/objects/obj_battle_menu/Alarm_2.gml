@@ -19,5 +19,21 @@ with (obj_thebox) {
 }
 }
 
+switch (attack_name){
+	case "knifeda":
+		show_debug_message("knifu da!")
+		turntime= 10;
+		bullet = obj_mknife;
+		bullets = noone;
+		bulletcooldown = 50;
+		bulletcooldownOG = bulletcooldown;
+		bullet_x = 30;
+		bullet_x2 = 300;
+		bullet_y = 30;
+		bullet_y2 = 200;
+	break;
+}
+
+
 // programamos fin del turno enemigo en alarm[3] (2 segundos por defecto)
 alarm[3] = room_speed * turntime;

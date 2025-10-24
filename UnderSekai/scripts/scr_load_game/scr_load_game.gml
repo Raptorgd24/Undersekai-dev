@@ -20,6 +20,7 @@ function scr_load_game() {
     global.armor     = file_text_read_string(file); file_text_readln(file);
     global.play_time = real(file_text_read_string(file)); file_text_readln(file);
 	global.events_done = file_text_read_string(file); file_text_readln(file);
+	global.xp      = real(file_text_read_string(file)); file_text_readln(file);
 	show_debug_message(global.events_done);
 	
 	// Limpia y convierte los arrays desde texto

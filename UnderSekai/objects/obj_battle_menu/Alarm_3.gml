@@ -2,7 +2,8 @@
 show_debug_message("obj_battle_menu - Alarm[3] -> fin turno enemigo, vuelve jugador");
 mode = "menu";
 turn = "player";
-
+instance_destroy(bullets)
+instance_destroy(bullet)
 // Restaurar texto del menú
 
     with (obj_thebox) {

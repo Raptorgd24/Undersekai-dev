@@ -1,7 +1,6 @@
 // obj_battle_menu - Step
 /// @desc Control principal de estados/modos del combate
 
-// Helpers locales
 var menu_objs = [obj_fight, obj_act, obj_item, obj_mercy];
 
 if (mode == "menu") {
@@ -59,13 +58,10 @@ else if (mode == "end"){
 	if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
 		with (obj_heart){
 			scr_trans(last_room)
-			show_debug_message(last_room)
 		}
 	}
 }
-// SELECCIÓN DE ENEMIGO (preparar barra de ataque)
 else if (mode == "enemy_select") {
-    // Cancelar selección (X / Shift)
     if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
         mode = "menu";
         if (instance_exists(obj_thebox)) {
@@ -75,7 +71,6 @@ else if (mode == "enemy_select") {
                 text_index = 0;
             }
         }
-        // restaurar corazón a opción
         if (instance_exists(obj_heart)) {
             with (obj_heart) {
                 mode = "select";
@@ -85,14 +80,11 @@ else if (mode == "enemy_select") {
         }
     }
 
-    // Confirmar ataque -> crear obj_attack_bar
     if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
-        // Crear barra si no existe ya
         if (!instance_exists(obj_attack_bar)) {
             var ab = instance_create_layer(-500, 0, "Instances", obj_attack_bar);
             if (instance_exists(ab)) {
-                ab.battle_id = id;      // referencia al controlador de batalla
-                // Inicializamos coordenadas desde aquí para el attack_bar
+                ab.battle_id = id;     
                 ab.start_x = box_x - 18;
                 ab.end_x   = box_x + 240;
                 ab.y_pos   = box_y - 126;
@@ -138,9 +130,16 @@ else if (mode == "attacking") {
 
 // MODO TURNO ENEMIGO
 else if (mode == "enemy_turn") {
-    // durante el turno enemigo, bloquear inputs del jugador en el Step del menu.
-    // La secuencia de texto y fin del turno está controlada por alarm[2] y alarm[3].
-    // (No ponemos lógica activa aquí; las alarmas gestionan el flujo)
+
+	
+			bulletcooldown -= 1
+		if (bulletcooldown <= 0){
+			bulletcooldown = bulletcooldownOG
+			bullets = instance_create_layer(choose(bullet_x, bullet_x2),choose(bullet_y, bullet_y2),"Instances_1",bullet)
+		}
+	
+	
+
 }
 
 

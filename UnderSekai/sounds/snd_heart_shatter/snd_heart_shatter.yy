@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_heart_shatter",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":2,
+  "conversionMode":0,
+  "duration":0.71006805,
+  "name":"snd_heart_shatter",
+  "parent":{
+    "name":"sfx",
+    "path":"folders/Sonidos/sfx.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_heart_shatter.wav",
+  "type":2,
+  "volume":1.0,
+}

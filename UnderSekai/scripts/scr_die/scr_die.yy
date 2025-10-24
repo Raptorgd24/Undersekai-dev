@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_die",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_die",
+  "parent":{
+    "name":"BattleStuff",
+    "path":"folders/Scripts/BattleStuff.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

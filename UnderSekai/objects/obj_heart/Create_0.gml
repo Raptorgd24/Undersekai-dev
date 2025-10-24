@@ -17,3 +17,4 @@ gui_scale = 2;
 global.atkcooldown = false; // si está true, no se puede recibir daño
 global.cooldowntimer = 0;
 soulspeed = 1.5;
+dead = false;

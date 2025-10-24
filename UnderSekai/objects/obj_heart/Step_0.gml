@@ -17,10 +17,6 @@ switch(mode){
         //if (variable_instance_exists(id, "box_left")) {
             x = clamp(x + dx*soulspeed, box_left+2, box_right-12);
             y = clamp(y + dy*soulspeed, box_top+2, box_bottom-12);
-        /*} else {
-            x += dx*soulspeed;
-            y += dy*soulspeed;
-        }*/
 		
         break;
 }
@@ -50,4 +46,10 @@ if (global.atkcooldown) {
 // --- Debug / curación rápida
 if (keyboard_check_pressed(ord("V"))){
     scr_heal(20);
+}
+if (!dead){
+	if (global.healthu <=0){
+		dead = true;
+		scr_die()
+	}
 }

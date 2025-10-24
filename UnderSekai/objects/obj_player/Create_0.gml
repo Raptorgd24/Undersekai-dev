@@ -2,8 +2,8 @@
 
 //normal player stuff lmao
 
-global.ATK = 1
-global.DEF = 1
+global.ATK = (8 + (global.lv * 2))
+global.DEF = (9 + ceil((global.lv / 4)))
 
 
 show_debug_message("ROOM: " + string(global.room_name));

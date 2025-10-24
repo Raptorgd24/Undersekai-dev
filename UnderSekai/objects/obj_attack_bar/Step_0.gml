@@ -110,9 +110,6 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
     if (precision >= 0.95) {
         image_blend = c_yellow;
 		audio_play_sound(snd_noise, 1, false);
-		with (battle_id){
-		audio_pause_sound(songbattle);
-		}
 		audio_play_sound(snd_slash, 1, false,1,0,0.8);
 
 	}

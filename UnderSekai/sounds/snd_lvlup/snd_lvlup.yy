@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_lvlup",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.98360544,
+  "name":"snd_lvlup",
+  "parent":{
+    "name":"sfx",
+    "path":"folders/Sonidos/sfx.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_lvlup.wav",
+  "type":2,
+  "volume":1.0,
+}

@@ -26,7 +26,8 @@ if (is_hurt) {
         if (lePrecision >= 0.95){
             audio_play_sound(snd_megaslashed, 1, false);
 			with (obj_battle_menu){
-            audio_resume_sound(songbattle);}
+            
+			}
             with(obj_battle_menu){
                 alarm[0] = ceil(room_speed * 0.00001);
             }

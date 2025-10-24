@@ -4,7 +4,7 @@ audio_stop_sound(songbattle)
 mode = "end";
 global.xp += expgiven;
 global.gold += goldGiven;
-	
+scr_lvlup_game()	
     with (obj_thebox) {
 		var expwon = string(other.expgiven)
 		var goldwon = string(other.goldGiven)

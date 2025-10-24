@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_swipe",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":2,
+  "conversionMode":0,
+  "duration":0.5297052,
+  "name":"snd_swipe",
+  "parent":{
+    "name":"sfx",
+    "path":"folders/Sonidos/sfx.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_swipe.wav",
+  "type":2,
+  "volume":1.0,
+}

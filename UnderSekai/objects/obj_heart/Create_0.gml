@@ -13,6 +13,7 @@ gui_x = 0;
 gui_y = 0;
 gui_scale = 2;
 
-		show_debug_message(last_room)
-		
-		
+// Cooldown / ataque
+global.atkcooldown = false; // si está true, no se puede recibir daño
+global.cooldowntimer = 0;
+soulspeed = 1.5;

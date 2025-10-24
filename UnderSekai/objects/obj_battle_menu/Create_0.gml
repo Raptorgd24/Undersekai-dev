@@ -18,8 +18,8 @@ boton_espaciado = 145;
 
 box_x = 45;
 box_y = 245;
-box_width = 550;
-box_height = 150;
+box_width = 280;
+box_height = 78;
 
 // Enemigo por defecto (valores manejados desde aquí)
 enemyName = "Test";
@@ -27,12 +27,16 @@ enemyHealth = 50;
 enemyDefense = 0;
 theEnemy = noone; // instancia real del enemigo (si existe)
 px = 129; py = 27; // posiciones por defecto para crear enemigos
+turntime= 30;
 
 dmg = 0;
 otraPrecisionSOB =0;
 // Texto inicial
 text_to_show = "* Random Encounter!";
 
+lebox = instance_create_layer(0, -870, "Instances", obj_thebox);
+//lebox.x = -50
+//lebox.y = -500
 // Guardamos referencia global para otros objetos (fallback)
 global.battle_menu = id;
 

@@ -1,7 +1,7 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
 // obj_gameover_controller - Alarm[1]
-
+alarm[2] = room_speed; 
     audio_play_sound(snd_heart_shatter2, 1, false);
 // Destruye el corazón y genera los pedazos
 with (obj_heart) {

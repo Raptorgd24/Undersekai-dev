@@ -1,17 +1,16 @@
 // obj_number - Step
-// Movimiento tipo "bounce" hacia arriba y abajo
+// 
 
+// odio la gravedad
 y += vy;
 vy += gravity;
 
-// Rebotar cuando toca el punto inicial o ligeramente por debajo
 if (y > ystart && bounces < max_bounces) {
     y = ystart;
     vy = bounce_power;
     bounces++;
 }
 
-// Fade out después de todos los rebotes
 if (bounces >= max_bounces) {
 	gravity=0;
     image_alpha -= 0.02;

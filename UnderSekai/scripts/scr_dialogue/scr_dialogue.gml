@@ -1,7 +1,5 @@
-/// @function scr_dialogue(_personaje, _cara, _mensaje, _seguir)
-/// Añade un mensaje a la cola y arranca el diálogo si está parado.
 function scr_dialogue(_personaje, _cara, _mensaje, _seguir, _move) {
-    // Asegurar que los arrays existen
+    
     if (!variable_global_exists("dialogue_personajes")) global.dialogue_personajes = [];
     if (!variable_global_exists("dialogue_caras")) global.dialogue_caras = [];
     if (!variable_global_exists("dialogue_mensajes")) global.dialogue_mensajes = [];
@@ -14,7 +12,6 @@ function scr_dialogue(_personaje, _cara, _mensaje, _seguir, _move) {
     array_push(global.dialogue_seguir, _seguir);
     global.liberar_move = _move	
 
-    // Si no había diálogo activo, iniciar
     if (!variable_global_exists("dialogue_active") || !global.dialogue_active) {
         global.dialogue_current = 0;
         scr_dialogue_next();

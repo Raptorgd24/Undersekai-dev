@@ -5,18 +5,18 @@ function npc_dialogue() {
     scr_dialogue("sans", 4, "te lo puedes creer?", false,true);
 }
 
-// Variables de movimiento
+
 NPCmoving     = false;
 NPCdirection  = "down";
 NPCframes     = 0;
 NPCspeed      = 1;
 NPCmoonwalk   = false;
 
-// Variables de animación
+
 anim_timer    = 0;
-anim_speed    = 0.1; // puedes ajustar la velocidad de animación
+anim_speed    = 0.1; 
 last_dir      = "down";
-// Variables para controlar diálogos post-caminata
+
 post_walk_dialogues = false;
 has_talked_extra = false;
 can_walk_event = false;

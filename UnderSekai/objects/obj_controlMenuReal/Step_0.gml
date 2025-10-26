@@ -10,13 +10,13 @@ if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) {
     moved = true;
 }
 // Toggle pantalla completa con F4
-if (keyboard_check_pressed(vk_f4)) {
+/*if (keyboard_check_pressed(vk_f4)) {
     if (!window_get_fullscreen()) {
         window_set_fullscreen(true);
     } else {
         window_set_fullscreen(false);
     }
-}
+}*/
 // Capping (no circular)
 if (menu_index < 0) menu_index = 0;
 if (menu_index > array_length(menu_options) - 1) menu_index = array_length(menu_options) - 1;

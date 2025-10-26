@@ -36,9 +36,9 @@ if (global.dialogue_active) {
 }
 
 // Toggle pantalla completa con F4
-if (keyboard_check_pressed(vk_f4)) {
+/*if (keyboard_check_pressed(vk_f4)) {
     window_set_fullscreen(!window_get_fullscreen());
-}
+}*/
 
 // Timer para habilitar uso después de 5 frames
 if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 0) {

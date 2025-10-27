@@ -27,7 +27,7 @@ if (mode == "shoot") {
 if (place_meeting(x, y, obj_heart)){
     if (!global.atkcooldown){
 		audio_play_sound(snd_hurt,1,false)
-        global.healthu -= max(1, 15 - global.DEF);
+        global.healthu -= max(1, global.enemydmg - global.DEF);
         global.atkcooldown = true;
         global.cooldowntimer = room_speed * 1.25; // 1 segundos de cooldown
 		show_debug_message(global.cooldowntimer)

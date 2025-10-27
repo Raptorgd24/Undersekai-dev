@@ -21,12 +21,12 @@ box_y = 245;
 box_width = 280;
 box_height = 78;
 
-// Enemigo por defecto (valores manejados desde aquí)
 enemyName = "Test";
 enemyHealth = 50;
 enemyDefense = 0;
-theEnemy = noone; // instancia real del enemigo (si existe)
-px = 129; py = 27; // posiciones por defecto para crear enemigos
+theEnemy = noone; 
+px = 129; py = 27; 
+global.enemydmg =0;
 
 goldGiven = 0;
 expgiven =0;
@@ -47,13 +47,11 @@ bullet_y2 = 200;
 
 dmg = 0;
 otraPrecisionSOB =0;
-// Texto inicial
 text_to_show = "* Random Encounter!";
 
 lebox = instance_create_layer(0, -870, "Instances", obj_thebox);
 //lebox.x = -50
 //lebox.y = -500
-// Guardamos referencia global para otros objetos (fallback)
 global.battle_menu = id;
 
 // Inicializar según global.enemy (mapeo simple -> añade más casos según necesites)
@@ -65,10 +63,11 @@ if (variable_global_exists("enemy")) {
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
             enemyName = "Roaring Knight";
-            enemyHealth = 40000;
+            enemyHealth = 10000;
 			enemyDefense = -800;
 			expgiven = 10000;
 			goldGiven = 9999;
+			global.enemydmg = 50
             break;
         case "Negru":
             // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos
@@ -90,6 +89,7 @@ if (variable_global_exists("enemy")) {
 			enemyDefense = -3;
 			expgiven = 8;
 			goldGiven = 12;
+			global.enemydmg = 5
             break;
 		default:
 		    audio_play_sound(songbattle, 1, true);

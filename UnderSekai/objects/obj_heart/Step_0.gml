@@ -8,13 +8,15 @@ switch(mode){
         gui_y = y;
         break;
     case "enemy_turn":
+	if (mode != "dead"){
         var dx = keyboard_check(vk_right) - keyboard_check(vk_left);
         var dy = keyboard_check(vk_down)  - keyboard_check(vk_up);
                  
             x = clamp(x + dx*soulspeed, box_left+2, box_right-12);
             y = clamp(y + dy*soulspeed, box_top+2, box_bottom-12);
-		
+	}
         break;
+	
 }
 
 

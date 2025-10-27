@@ -7,6 +7,7 @@ with (obj_heart) {
     audio_play_sound(snd_heart_shatter, 1, false);
     sprite_index = spr_heart_shatter;
 	x -=2;
+	
 }
 
 // Espera un poco (0.5 segundos más o lo que quieras)

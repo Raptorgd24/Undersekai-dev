@@ -57,6 +57,8 @@ if (mode == "menu") {
 else if (mode == "end"){
 	if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
 		with (obj_heart){
+			
+			audio_resume_sound(global.song_inst);
 			scr_trans(last_room)
 		}
 	}
@@ -116,7 +118,6 @@ else if (mode == "enemy_select") {
 
 // MODO ATAQUE (esperamos que obj_attack_bar haga la lógica y luego notifique mediante alarms)
 else if (mode == "attacking") {
-    // Mantenemos el corazón visible en la zona de ataque (pero fuera del box)
     if (instance_exists(obj_heart)) {
         with (obj_heart) {
             mode = "enemy_select";
@@ -124,7 +125,6 @@ else if (mode == "attacking") {
             y = other.box_y - 115;
         }
     }
-    // Si no existe la barra (ya terminó), volvemos a menú si no es turno enemigo
 
 }
 

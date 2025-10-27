@@ -40,7 +40,7 @@ switch (phase) {
                 var cam_y = camera_get_view_y(cam);
                 var cam_width = camera_get_view_width(cam);
                 var cam_height = camera_get_view_height(cam);
-                
+                audio_pause_sound(global.song_inst);
                 global.target_gui_x = cam_x + 90;  
                 global.target_gui_y = cam_y + cam_height - 250;
             }

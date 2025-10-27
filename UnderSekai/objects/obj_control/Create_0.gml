@@ -1,11 +1,11 @@
 image_alpha = 0;
 // --------------------- CREATE ---------------------
-global.dialogue_active = false;   // ¿Hay diálogo abierto?
+global.dialogue_active = false;   
 global.dialogue_text = "";
-global.dialogue_index = 0;        // Para mostrar letra a letra
+global.dialogue_index = 0;      
 global.dialogue_cooldown = 0;       
 global.dialogue_timer = 0;
-global.dialogue_speed = 4;        // Velocidad de escritura
+global.dialogue_speed = 4;     
 global.dialogue_face = -1;
 global.dialogue_sprite = spr_noone;
 global.dialogue_font = ft_determinationmono;
@@ -13,41 +13,35 @@ global.dialogue_sound = snd_txt1;
 global.dialogue_keep = false;
 global.dialogue_character = "noone";
 global.playing = false;
-// Sistema de diálogos con arrays
 global.dialogue_personajes = [];
 global.dialogue_caras = [];
 global.dialogue_mensajes = [];
 global.dialogue_seguir = [];
 global.liberar_move = [];
-global.dialogue_current = 0;      // Índice del diálogo actual
+global.dialogue_current = 0;      
 global.coroutines = [];
 global.debug = false;
-// Sistema de eventos (timeline por frames)
+
 global.event_datalol = undefined;
 global.event_time = 0;
 global.event_step = 0;
 
-// --- Transición ---
 global.trans_active = false;
 global.trans_alpha = 0;
-global.trans_state = 0;    // 0 = fundido a negro, 1 = cambiar room, 2 = fundido de regreso
+global.trans_state = 0;   
 global.trans_target = rm_Room666;
-global.trans_speed = 0.05; // velocidad configurable
+global.trans_speed = 0.05; 
 
 
-// --- Música: separar asset / instancia y usar fade por frames ---
-musi_speed = 60; // (no lo usamos para lerp directamente; lo dejamos si lo usas en otro sitio)
+musi_speed = 60;
 
-// recurso (asset) actual y la instancia reproducida
-//global.song_asset = mus_666;            // asset (ej: mus_sans)
-global.song_inst  = noone;               // instancia (lo seteará audio_play_sound)
-global.song_volume = 1;                  // volumen actual (0..1)
-global.song_target = 1;                  // objetivo (0 o 1)
-global.song_next  = noone;               // asset en cola
-global.song_fade_frames = 60;            // duración del fade en frames (por defecto 60 -> 1s si 60fps)
-global.song_fade_delta  = 1 / max(1, global.song_fade_frames); // cambio por frame
+global.song_inst  = noone;               
+global.song_volume = 1;                  
+global.song_target = 1;                  
+global.song_next  = noone;              
+global.song_fade_frames = 60;            
+global.song_fade_delta  = 1 / max(1, global.song_fade_frames); 
 
-// iniciar la canción inicial de forma segura
 if (!is_undefined(global.song_asset)) {
     var _asset = global.song_asset;
     if (is_string(_asset)) _asset = asset_get_index(_asset);
@@ -56,13 +50,12 @@ if (!is_undefined(global.song_asset)) {
         global.song_inst = audio_play_sound(global.song_asset, 1, true);
         audio_sound_gain(global.song_inst, global.song_volume, 0);
     } else {
-        show_debug_message("⚠️ CREATE: no se pudo iniciar música, asset inválido: " + string(global.song_asset));
+        show_debug_message("obj control CREATE: no se pudo iniciar música, asset inválido: " + string(global.song_asset));
         global.song_inst = noone;
     }
 }
 
 
-// Arrays de habitaciones por zona
 global.zone_TestRooms    = [rm_Room1, rm_RoomTest];
 global.zone_MysteryRooms = [rm_Room666];
 global.zone_Silence = [rm_StartingPointBeta];

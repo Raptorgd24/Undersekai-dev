@@ -10,37 +10,31 @@ if (global.dialogue_active) {
         }
     }
 
-    // Inicializar cooldown de X si no existe
     if (!variable_global_exists("dialogue_x_cooldown")) {
         global.dialogue_x_cooldown = 0;
     }
 
-    // Reducir cooldown de X
     if (global.dialogue_x_cooldown > 0) {
         global.dialogue_x_cooldown -= 1;
     }
 
-    // Avanzar diálogo con Z
     if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
         if (global.dialogue_index >= string_length(global.dialogue_text)) {
             scr_dialogue_next();
-            // Bloquear X por 1 frame
+            
             global.dialogue_x_cooldown = 1;
         }
     }
 
-    // Mostrar todo el texto instantáneamente con X
     if ((keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0) || (keyboard_check_pressed(vk_shift) && global.dialogue_x_cooldown <= 0)) {
         global.dialogue_index = string_length(global.dialogue_text);
     }
 }
 
-// Toggle pantalla completa con F4
 /*if (keyboard_check_pressed(vk_f4)) {
     window_set_fullscreen(!window_get_fullscreen());
 }*/
 
-// Timer para habilitar uso después de 5 frames
 if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 0) {
     global.dialogue_use_timer -= 1;
     if (global.dialogue_use_timer <= 0) {
@@ -49,7 +43,6 @@ if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 
     }
 }
 
-// Sistema de eventos mejorado
 if (!is_undefined(global.event_datalol) && is_array(global.event_datalol)) {
     if (global.event_step < array_length(global.event_datalol)) {
         var entry = global.event_datalol[global.event_step];
@@ -88,7 +81,6 @@ if (!is_undefined(global.event_datalol) && is_array(global.event_datalol)) {
     }
 }
 
-// Sistema de espera para caminata de NPC
 if (variable_global_exists("waiting_for_walk") && global.waiting_for_walk) {
     if (instance_exists(global.event_npc) && !global.event_npc.NPCmoving) {
         show_debug_message("[Event System] NPC terminó de caminar, continuando evento");
@@ -113,7 +105,6 @@ if (variable_global_exists("waiting_for_walk") && global.waiting_for_walk) {
     }
 }
 
-// Sistema de espera para el boom (50 frames)
 if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
     if (global.boom_wait_frames > 0) {
         global.boom_wait_frames--;
@@ -149,7 +140,6 @@ if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
     }
 }
 
-// --- Manejo de transición ---
 if (global.trans_active) {
     switch (global.trans_state) {
         case 0:
@@ -179,9 +169,6 @@ if (global.trans_active) {
     }
 }
 
-// ------------------------------------------------------------
-// 🔹 BLOQUE CORREGIDO: detectar si la room pidió cambio de música
-// ------------------------------------------------------------
 if (variable_instance_exists(id, "requested_song") && !is_undefined(requested_song) && requested_song != noone) {
     // Asegurar globals necesarios
     if (!variable_global_exists("song_fade_frames")) global.song_fade_frames = 60;

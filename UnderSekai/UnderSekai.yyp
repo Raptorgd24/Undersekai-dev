@@ -2,7 +2,7 @@
   "$GMProject":"v1",
   "%Name":"UnderSekai",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -14,7 +14,6 @@
     {"$GMFolder":"","%Name":"Curvas de animación","folderPath":"folders/Curvas de animación.yy","name":"Curvas de animación","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensiones","folderPath":"folders/Extensiones.yy","name":"Extensiones","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Fuentes","folderPath":"folders/Fuentes.yy","name":"Fuentes","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"GOD","folderPath":"folders/Objetos/GOD.yy","name":"GOD","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Líneas temporales","folderPath":"folders/Líneas temporales.yy","name":"Líneas temporales","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Notas","folderPath":"folders/Notas.yy","name":"Notas","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objetos","folderPath":"folders/Objetos.yy","name":"Objetos","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -23,6 +22,7 @@
     {"$GMFolder":"","%Name":"Bullets","folderPath":"folders/Objetos/BattleBoys/ActualEnemies/Bullets.yy","name":"Bullets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Options","folderPath":"folders/Objetos/BattleBoys/Options.yy","name":"Options","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Gameover","folderPath":"folders/Objetos/Gameover.yy","name":"Gameover","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"GOD","folderPath":"folders/Objetos/GOD.yy","name":"GOD","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"MainMenu","folderPath":"folders/Objetos/MainMenu.yy","name":"MainMenu","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particle Systems","folderPath":"folders/Particle Systems.yy","name":"Particle Systems","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rutas","folderPath":"folders/Rutas.yy","name":"Rutas","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -52,7 +52,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.1.193",
+    "IDEVersion":"2024.14.0.207",
   },
   "name":"UnderSekai",
   "resources":[
@@ -127,6 +127,7 @@
     {"id":{"name":"show_damage_numbers","path":"scripts/show_damage_numbers/show_damage_numbers.yy",},},
     {"id":{"name":"mus_666","path":"sounds/mus_666/mus_666.yy",},},
     {"id":{"name":"mus_doomsday","path":"sounds/mus_doomsday/mus_doomsday.yy",},},
+    {"id":{"name":"mus_gameover","path":"sounds/mus_gameover/mus_gameover.yy",},},
     {"id":{"name":"mus_nuzzle","path":"sounds/mus_nuzzle/mus_nuzzle.yy",},},
     {"id":{"name":"mus_roaringfraud","path":"sounds/mus_roaringfraud/mus_roaringfraud.yy",},},
     {"id":{"name":"mus_sans","path":"sounds/mus_sans/mus_sans.yy",},},
@@ -166,6 +167,7 @@
     {"id":{"name":"spr_boom","path":"sprites/spr_boom/spr_boom.yy",},},
     {"id":{"name":"spr_bossBG","path":"sprites/spr_bossBG/spr_bossBG.yy",},},
     {"id":{"name":"spr_colision","path":"sprites/spr_colision/spr_colision.yy",},},
+    {"id":{"name":"spr_deadglow","path":"sprites/spr_deadglow/spr_deadglow.yy",},},
     {"id":{"name":"spr_dialoguebox","path":"sprites/spr_dialoguebox/spr_dialoguebox.yy",},},
     {"id":{"name":"spr_event","path":"sprites/spr_event/spr_event.yy",},},
     {"id":{"name":"spr_fight","path":"sprites/spr_fight/spr_fight.yy",},},
@@ -178,7 +180,6 @@
     {"id":{"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},},
     {"id":{"name":"spr_item","path":"sprites/spr_item/spr_item.yy",},},
     {"id":{"name":"spr_literalblack","path":"sprites/spr_literalblack/spr_literalblack.yy",},},
-    {"id":{"name":"spr_menushit","path":"sprites/spr_menushit/spr_menushit.yy",},},
     {"id":{"name":"spr_mercy","path":"sprites/spr_mercy/spr_mercy.yy",},},
     {"id":{"name":"spr_miss","path":"sprites/spr_miss/spr_miss.yy",},},
     {"id":{"name":"spr_mknife","path":"sprites/spr_mknife/spr_mknife.yy",},},

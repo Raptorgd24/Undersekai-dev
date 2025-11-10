@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_megaslashed",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":512,
+  "channelFormat":1,
   "compression":2,
+  "compressionQuality":10,
   "conversionMode":0,
   "duration":1.7226304,
+  "exportDir":"",
   "name":"snd_megaslashed",
   "parent":{
     "name":"sfx",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"snd_megaslashed.wav",
-  "type":1,
   "volume":1.0,
 }

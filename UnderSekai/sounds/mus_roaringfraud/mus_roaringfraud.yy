@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"mus_roaringfraud",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":512,
+  "channelFormat":1,
   "compression":2,
+  "compressionQuality":10,
   "conversionMode":0,
   "duration":146.61046,
+  "exportDir":"",
   "name":"mus_roaringfraud",
   "parent":{
     "name":"OST",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"mus_roaringfraud.ogg",
-  "type":1,
   "volume":1.0,
 }

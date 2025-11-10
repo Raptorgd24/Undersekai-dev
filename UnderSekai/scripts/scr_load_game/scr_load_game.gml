@@ -97,10 +97,14 @@ show_debug_message(global.events_done);
         
         // Hacer transición automática a la room guardada
         room_goto(target_room);
+
 		
     } else {
         show_debug_message("⚠ scr_load_game: No se encontró la room '" + string(global.room_name) + "'");
     }
 
     show_debug_message("✅ scr_load_game: Archivo cargado correctamente");
+	
+	
+	
 }

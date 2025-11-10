@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"mus_gameover",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":2,
+  "compression":2,
+  "compressionQuality":10,
+  "conversionMode":0,
+  "duration":13.714292,
+  "exportDir":"",
+  "name":"mus_gameover",
+  "parent":{
+    "name":"OST",
+    "path":"folders/Sonidos/OST.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_gameover.ogg",
+  "volume":1.0,
+}

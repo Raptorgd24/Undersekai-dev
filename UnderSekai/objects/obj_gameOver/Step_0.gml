@@ -50,9 +50,11 @@ if (room == rm_gameOver_screen) {
 				instance_destroy(obj_cam)
 				instance_destroy(obj_usable)
 				instance_destroy(obj_player)
-				
+				audio_sound_gain(deathsong,0,100)
                 scr_load_game();
             } else if (fade_action == "giveup") {
+				audio_sound_gain(deathsong,0,100)
+				
                 game_restart();
             }
         }

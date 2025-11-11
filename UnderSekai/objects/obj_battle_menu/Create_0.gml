@@ -68,6 +68,8 @@ if (variable_global_exists("enemy")) {
 			expgiven = 10000;
 			goldGiven = 9999;
 			global.enemydmg = 50
+			bulletcooldown = 20;
+			bulletcooldownOG = bulletcooldown;
             break;
         case "Negru":
             // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos

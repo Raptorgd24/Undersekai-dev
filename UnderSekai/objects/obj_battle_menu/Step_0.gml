@@ -131,7 +131,7 @@ else if (mode == "attacking") {
 // MODO TURNO ENEMIGO
 else if (mode == "enemy_turn") {
 
-	
+			show_debug_message(bulletcooldown)
 			bulletcooldown -= 1
 		if (bulletcooldown <= 0){
 			bulletcooldown = bulletcooldownOG

@@ -25,8 +25,8 @@ switch (attack_name){
 		turntime= 10;
 		bullet = obj_mknife;
 		bullets = noone;
-		bulletcooldown = 50;
-		bulletcooldownOG = bulletcooldown;
+		//bulletcooldown = 50;
+		//bulletcooldownOG = bulletcooldown;
 		bullet_x = 30;
 		bullet_x2 = 300;
 		bullet_y = 30;

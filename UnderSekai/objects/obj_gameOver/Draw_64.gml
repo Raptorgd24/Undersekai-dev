@@ -15,4 +15,13 @@ for (var i = 0; i < array_length(menu_options); i++) {
     draw_set_color(col);
     draw_text(xh, yh, option);
 }
+// Dibujar fundido negro (transición)
+if (fade_alpha > 0) {
+    draw_set_alpha(fade_alpha);
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, gui_w, gui_h, false);
+    draw_set_alpha(1);
+}
+
+
 }

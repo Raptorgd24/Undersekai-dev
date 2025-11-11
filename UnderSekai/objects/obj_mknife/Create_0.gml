@@ -4,5 +4,5 @@ mode = "appear";
 image_alpha = 0;
 image_angle = 0;
 sped = 3;
-target_angle = 0; // 🔸 aquí guardaremos el ángulo fijo antes del disparo
+target_angle = 0; 
 audio_play_sound(snd_saber3,1,false)

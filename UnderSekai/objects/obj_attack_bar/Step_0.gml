@@ -20,11 +20,20 @@ if (moving && !stopped) {
         moving = false;
         stopped = true;
         did_hit = false;
-
+		show_debug_message("omelo chino")
         // Notificar al menú que empiece turno enemigo
-
-
-        instance_destroy();
+		alarm[1] = room_speed*0.75;
+		speed=0;
+		image_speed = 0.45;
+		image_index = 0;
+		
+		        with (battle_id) {
+					var ex = px;
+					var ey = py;
+					instance_create_layer(ex + 10, ey - 10, "Instances_1", obj_miss);
+					
+				}
+        //instance_destroy();
         exit;
     }
 }
@@ -36,7 +45,6 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
     moving = false;
     speed = 0;
 
-    // === NUEVA LÓGICA DE DAÑO (tipo Undertale, precisa y escalada) ===
 
     var dist = abs(x - center_x);   // distancia del golpe al centro
     var max_range = 60;             // rango máximo donde aún hay daño (ajustable)

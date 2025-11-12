@@ -20,8 +20,8 @@ function show_damage_numbers(_x, _y, _damage) {
 	
 	
 	with (obj_battle_menu){
-	with (theEnemy){
-		alarm[0] = room_speed / 2;
+		with (theEnemy){
+			alarm[0] = room_speed / 2;
+		}
 	}
-}
 }

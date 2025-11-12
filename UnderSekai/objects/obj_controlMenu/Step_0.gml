@@ -25,22 +25,18 @@ if (music_fading) {
     if (music_volume <= 0) {
         music_volume = 0;
         audio_stop_sound(mus_doomsday);
-        show_debug_message("Música detenida");
     } else {
         // Aplicar volumen reducido a la música
         audio_sound_gain(mus_doomsday, music_volume, 0);
-        show_debug_message("Volumen música: " + string(music_volume));
     }
 }
 
 // Si estamos en fade final
 if (intro_state == "final_fade") {
     fade_alpha += fade_speed;
-    show_debug_message("Fade visual alpha: " + string(fade_alpha));
     
     // Cambiar de room solo cuando ambos fades estén completos
     if (fade_alpha >= 1 && music_volume <= 0) {
-        show_debug_message("=== CAMBIANDO A ROOM1 ===");
         room_goto(rm_MainMenu);
     }
     exit;
@@ -62,8 +58,6 @@ switch (intro_state) {
                 audio_play_sound(snd_txt2, 1, false);
                 
             } else {
-                // Texto completo, pausa breve
-                show_debug_message("Texto " + string(intro_current_text) + " completado");
                 intro_state = "waiting";
                 intro_char_timer = -60; // 2 segundos de pausa
             }
@@ -84,12 +78,10 @@ switch (intro_state) {
                 // Cambiar sprite inmediatamente
                 if (intro_current_text < array_length(intro_sprites)) {
                     current_sprite = intro_sprites[intro_current_text];
-                    show_debug_message("Sprite cambiado a: " + string(current_sprite));
                 }
                 
             } else {
                 // Último texto, iniciar fade final Y fade de música
-                show_debug_message("ÚLTIMO TEXTO - Iniciando fades finales");
                 intro_state = "final_fade";
                 fade_alpha = 0;
                 music_fading = true;

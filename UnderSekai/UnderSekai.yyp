@@ -82,6 +82,7 @@
     {"id":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},},
     {"id":{"name":"obj_item","path":"objects/obj_item/obj_item.yy",},},
     {"id":{"name":"obj_mercy","path":"objects/obj_mercy/obj_mercy.yy",},},
+    {"id":{"name":"obj_miss","path":"objects/obj_miss/obj_miss.yy",},},
     {"id":{"name":"obj_mknife","path":"objects/obj_mknife/obj_mknife.yy",},},
     {"id":{"name":"obj_mogus","path":"objects/obj_mogus/obj_mogus.yy",},},
     {"id":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},},

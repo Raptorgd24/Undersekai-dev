@@ -34,6 +34,12 @@ if (did_hit) {
 			}
         }
     }
+} else{
+	with (battle_id) {
+		alarm[4] = room_speed*0.75;
+	}
+	
+	
 }
 
 // Destruir la barra tras aplicar daño

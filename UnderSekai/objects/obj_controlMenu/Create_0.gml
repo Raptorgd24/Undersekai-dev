@@ -1,6 +1,6 @@
 // CREATE EVENT
 show_debug_message("=== INICIO INTRO ===");
-image_alpha = 0; // El objeto empieza invisible
+image_alpha = 0;
 intro_state = "writing";
 intro_texts = [
     "Long ago, two my dih ruled over Earth: ANTONIO\nAND LOBATO.",

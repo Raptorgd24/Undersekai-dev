@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_mknife",
+  "%Name":"obj_miss",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_mknife",
+  "name":"obj_miss",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bullets",
-    "path":"folders/Objetos/BattleBoys/ActualEnemies/Bullets.yy",
+    "name":"BattleBoys",
+    "path":"folders/Objetos/BattleBoys.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_mknife",
-    "path":"sprites/spr_mknife/spr_mknife.yy",
+    "name":"spr_miss",
+    "path":"sprites/spr_miss/spr_miss.yy",
   },
   "spriteMaskId":null,
   "visible":true,

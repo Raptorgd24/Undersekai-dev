@@ -1,6 +1,5 @@
 // obj_Rory_Nyte - Step
 
-// Movimiento lemniscata si puede moverse
 if (can_move) {
     t += 0.02;
     var sin_t = sin(t), cos_t = cos(t);
@@ -25,9 +24,7 @@ if (is_hurt) {
         image_index = 14
         if (lePrecision >= 0.95){
             audio_play_sound(snd_megaslashed, 1, false);
-			with (obj_battle_menu){
-            
-			}
+
             with(obj_battle_menu){
                 alarm[0] = ceil(room_speed * 0.00001);
             }

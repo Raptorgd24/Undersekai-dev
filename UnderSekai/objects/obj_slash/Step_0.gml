@@ -23,7 +23,7 @@ if (image_index == image_number - 1) {
             }
         }
     
-	scr_screenshake(15)
+	scr_screenshake(10,2)
     // Destruir el slash (efecto terminado)
     instance_destroy();
 }

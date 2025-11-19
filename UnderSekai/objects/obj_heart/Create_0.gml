@@ -18,5 +18,3 @@ global.atkcooldown = false;
 global.cooldowntimer = 0;
 soulspeed = 1.5;
 dead = false;
-
-shake_timer = 10;

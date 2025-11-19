@@ -30,9 +30,7 @@ if (place_meeting(x, y, obj_heart)){
         global.healthu -= max(1, global.enemydmg - global.DEF);
         global.atkcooldown = true;
         global.cooldowntimer = room_speed * 1.25; // 1 segundos de cooldown
-		layer_set_visible("Shake", true);
-		with (obj_heart)
-		shake_timer = 10;
+		scr_screenshake(10)
     }
 }
 

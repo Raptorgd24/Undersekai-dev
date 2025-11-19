@@ -11,3 +11,4 @@ parent_npc = noone; // Inicializar
 if (variable_global_exists("sans_destroyed")) {
     global.sans_destroyed = undefined;
 }
+scr_screenshake(30,3,2)

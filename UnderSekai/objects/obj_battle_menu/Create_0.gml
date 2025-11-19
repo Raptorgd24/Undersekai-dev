@@ -93,6 +93,21 @@ if (variable_global_exists("enemy")) {
 			goldGiven = 12;
 			global.enemydmg = 5
             break;
+            break;
+        case "Goku":
+			songbattle = mus_ultrainstinct
+            audio_play_sound(songbattle, 1, true);
+			theEnemy = instance_create_layer(px, py-20, "Instances", obj_goku);
+            text_to_show = "* WHAT THE FUCK";
+            enemyName = "Goku";
+            enemyHealth = 999999999999;
+			enemyDefense = 1000;
+			expgiven = 0;
+			goldGiven = 0;
+			bulletcooldown = 0;
+			bulletcooldownOG = bulletcooldown;
+			global.enemydmg = 100
+            break;
 		default:
 		    audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);

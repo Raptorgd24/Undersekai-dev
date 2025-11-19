@@ -8,7 +8,7 @@ function npc_dialogue() {
 	}
 	if talk = 1{
     scr_dialogue("sans", 9, "matate zorra", true,false);
-    scr_dialogue("sans", 7, "Ambatukaaaaaaaaaa aaaaaaaaaaaaaaaa tetas tetas tetas tetas tetas tetas aaaaaaaaaaaaaaam", false,true);
 	alarm_set(1,1)
+	
 	}
 }

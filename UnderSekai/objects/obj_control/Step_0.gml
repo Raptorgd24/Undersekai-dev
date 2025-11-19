@@ -31,9 +31,14 @@ if (global.dialogue_active) {
     }
 }
 
-/*if (keyboard_check_pressed(vk_f4)) {
-    window_set_fullscreen(!window_get_fullscreen());
-}*/
+if (shake_timer <= 0){	
+	if (shake_layer != -1)
+	layer_set_visible("Shake", false);
+} else{
+	shake_timer--	
+}
+
+
 
 if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 0) {
     global.dialogue_use_timer -= 1;

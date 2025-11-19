@@ -1,6 +1,5 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
-show_debug_message("Hey beibi")
 	with (obj_battle_menu){
 		with (theEnemy){
 			alarm[0] = room_speed / 2;

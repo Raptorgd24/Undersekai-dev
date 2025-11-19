@@ -14,7 +14,7 @@ var base_y = gui_h * 0.7;
 //draw_sprite_ext(spr_deadglow, 0, 0, 0,1,1,0,c_white,spr_glow_alpha);
 
 draw_set_alpha(spr_ble_alpha);
-draw_sprite(spr_ble, 0, 0, 0);
+draw_sprite_ext(spr_GameOver, 0, 75, 20,0.40,0.40,0,c_white,1);
 
 
 

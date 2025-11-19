@@ -19,11 +19,15 @@ switch(mode){
 	
 }
 
-
+if (shake_timer = 0){
+	layer_set_visible("Shake", false);
+}
 // cooldown mierda
 if (global.atkcooldown) {
     global.cooldowntimer -= 1;
-    
+	if (shake_timer >0){
+		shake_timer -= 1;
+	}
 
    
     if ((global.cooldowntimer div 10) mod 2 == 0) {

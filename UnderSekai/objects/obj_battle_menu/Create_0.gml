@@ -42,8 +42,8 @@ bullet_x2 = 300;
 bullet_y = 30;
 bullet_y2 = 200;
 
-
-
+shake_timer = 20;
+shake_layer = -1;
 
 dmg = 0;
 otraPrecisionSOB =0;

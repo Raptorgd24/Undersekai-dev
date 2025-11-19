@@ -98,3 +98,6 @@ if (file_exists("save.dat")) {
     global.has_save = false;
     show_debug_message("obj_control: No se encontró save.dat ❌ -> Solo START disponible");
 }
+
+shake_timer = 20;
+shake_layer = -1;

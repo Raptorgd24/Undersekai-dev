@@ -14,7 +14,9 @@ gui_y = 0;
 gui_scale = 2;
 
 // Cooldown / ataque
-global.atkcooldown = false; // si está true, no se puede recibir daño
+global.atkcooldown = false; 
 global.cooldowntimer = 0;
 soulspeed = 1.5;
 dead = false;
+
+shake_timer = 10;

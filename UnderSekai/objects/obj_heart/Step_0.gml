@@ -40,7 +40,7 @@ if (global.atkcooldown) {
 
 
 if (keyboard_check_pressed(ord("V"))){
-    scr_heal(20);
+    scr_heal(20,true);
 }
 if (!dead){
 	if (global.healthu <=0){

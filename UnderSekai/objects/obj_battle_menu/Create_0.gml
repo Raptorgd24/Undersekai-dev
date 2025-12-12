@@ -6,12 +6,15 @@ depth = -100;
 // Estado / modos: "menu" | "enemy_select" | "attacking" | "enemy_turn"
 mode = "menu";
 seleccion = 0;
-selected_obj = noone;
 songbattle = mus_nuzzle;
-// Opciones del menú
 opciones = ["FIGHT","ACT","ITEM","MERCY"];
 
-// Posiciones botones / caja de texto
+selected_index = 0;        
+
+sel_left  = noone;
+sel_mid   = noone;
+sel_right = noone;
+
 boton_x_inicial = 45;
 boton_y = 410;
 boton_espaciado = 145;
@@ -54,7 +57,6 @@ lebox = instance_create_layer(0, -870, "Instances", obj_thebox);
 //lebox.y = -500
 global.battle_menu = id;
 
-// Inicializar según global.enemy (mapeo simple -> añade más casos según necesites)
 if (variable_global_exists("enemy")) {
     switch (global.enemy) {
         case "Rory_Nyte":
@@ -72,7 +74,7 @@ if (variable_global_exists("enemy")) {
 			bulletcooldownOG = bulletcooldown;
             break;
         case "Negru":
-            // ejemplo: si Negru comparte ciclo con Rory_Nyte de momento reutilizamos
+            
             audio_play_sound(songbattle, 1, true);
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
@@ -176,3 +178,81 @@ zoom_current = 1.0;
 zoom_sprite_id = noone;  // guardaremos la instancia del sprite central aquí
 
 global.ps = part_system_create_layer("Particles", false);
+
+
+function generate_item_text() {
+    if (instance_exists(obj_thebox)) {
+        with (obj_thebox) {
+
+            var page = other.current_item_page;
+            var per_page = other.max_items_per_page;
+
+            var start = page * per_page;
+            var endo = min(start + per_page, array_length(global.objects));
+
+            var _txt = "";
+
+            for (var i = start; i < endo; i++) {
+
+                var index_in_page = i - start;
+                var row = index_in_page mod 3;
+                var column = index_in_page div 3;
+
+                if (column == 0)
+                    _txt += "  * " + string(global.objects[i]);
+                else
+                    _txt += "         * " + string(global.objects[i]);
+
+                if (column == 1 || i == endo - 1)
+                    _txt += "\n";
+            }
+
+            text = _txt;
+            display_text = "";
+            text_index = 0;
+        }
+    }
+}
+
+/// get_item_page_text(page) -> string
+function get_item_page_text(_page) {
+    var per_page = max_items_per_page; // 6
+    var start = _page * per_page;
+    var total = array_length(global.objects);
+    var endo = min(start + per_page, total);
+
+    var rows = 3;
+    // Inicializar líneas
+    var lines = [];
+    for (var r = 0; r < rows; r++) {
+        array_push(lines, "");
+    }
+
+    // Para cada elemento de la página, calcular fila y columna (row-major)
+    for (var i = start; i < endo; i++) {
+        var index_in_page = i - start;         // 0..(per_page-1)
+        var row = index_in_page div 2;        // 0..2 (cada 2 items avanzamos fila)
+        var col = index_in_page mod 2;        // 0 = izquierda, 1 = derecha
+
+        var item_name = string(global.objects[i]);
+
+        if (col == 0) {
+            // columna izquierda
+            lines[row] += "  * " + item_name;
+        } else {
+            // columna derecha: ponemos un espaciado fijo antes
+            // ajusta el número de espacios (aquí 10) si necesitas más separación
+            lines[row] += "          " + "  * " + item_name;
+        }
+    }
+
+    // Concatenar sólo las líneas que tengan contenido
+    var out = "";
+    for (var r = 0; r < rows; r++) {
+        if (string_length(lines[r]) > 0) {
+            out += lines[r] + "\n";
+        }
+    }
+
+    return out;
+}

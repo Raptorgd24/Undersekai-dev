@@ -19,8 +19,7 @@ switch(mode){
 	
 }
 
-
-// cooldown mierda
+// cooldown
 if (global.atkcooldown) {
     global.cooldowntimer -= 1;
 

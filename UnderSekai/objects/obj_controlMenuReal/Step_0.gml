@@ -44,7 +44,7 @@ switch (option) {
         global.healthu = 20;
         global.maxHP = 20;
         global.gold = 0;
-        global.objects = [];
+        global.objects = ["FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest"];
         global.weapon = "Stick";
         global.armor = "Bandage";
         global.play_time = 0
@@ -76,7 +76,7 @@ break;
         global.healthu = 20;
         global.maxHP = 20;
         global.gold = 0;
-        global.objects = [];
+        global.objects = ["FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest"];
         global.weapon = "Stick";
         global.armor = "Bandage";
         global.play_time = 0

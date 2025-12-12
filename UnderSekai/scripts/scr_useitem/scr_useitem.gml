@@ -4,7 +4,7 @@ function scr_useitem(_itemname) {
 
     switch (data.type) {
         case "food":
-            obj_player.hp += data.heal;
+           scr_heal(data.heal);
         break;
 
         case "weapon":

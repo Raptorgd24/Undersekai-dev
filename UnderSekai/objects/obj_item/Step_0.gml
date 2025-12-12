@@ -1,5 +1,6 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
+/*
 function execute_action() {
     if (instance_exists(obj_thebox)) {
         with (obj_thebox) {

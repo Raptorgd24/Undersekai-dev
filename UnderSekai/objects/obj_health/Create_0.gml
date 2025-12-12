@@ -5,7 +5,7 @@ x = 50;
 y = 386;
 
 // Escala visual
-scale = 3;
+scale = 1;
 
 // Para animar los cambios de vida suavemente
 hp_display = global.healthu;
@@ -32,3 +32,5 @@ depth = -999999; // Siempre visible por encima
 // Factor de longitud: controla cuántos píxeles por punto de HP
 // 20 HP = 16 px → 16 / 20 = 0.8 px por HP
 px_per_hp = 0.7;
+
+cosonce = false;

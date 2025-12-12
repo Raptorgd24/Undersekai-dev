@@ -5,6 +5,7 @@ function scr_item_data(_itemname){
         case "FoodTest":
             return {
                 name: "FoodTest",
+                desc: "FoodTest desc",
                 type: "food",
                 heal: 20
             };
@@ -12,6 +13,7 @@ function scr_item_data(_itemname){
         case "WeaponTest":
             return {
                 name: "WeaponTest",
+                desc: "WeaponTest Desc",
                 type: "weapon",
                 atk: 5
             };
@@ -19,6 +21,7 @@ function scr_item_data(_itemname){
         case "ArmorTest":
             return {
                 name: "ArmorTest",
+                desc: "ArmorTest desc",
                 type: "armor",
                 def: 4
             };
@@ -26,6 +29,7 @@ function scr_item_data(_itemname){
         case "KeyTest":
             return {
                 name: "KeyTest",
+                desc: "KeyTes desct",
                 type: "key"
             };
     }

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_create_menu_items",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_create_menu_items",
+  "parent":{
+    "name":"ItemStuff",
+    "path":"folders/Scripts/ItemStuff.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

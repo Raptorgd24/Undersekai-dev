@@ -30,8 +30,40 @@ if (mode == "menu") {
                     }
                 }
                 break;
-            case "ACT":   if (instance_exists(obj_act))   with (obj_act)   { execute_action(); } break;
-            case "ITEM":  if (instance_exists(obj_item))  with (obj_item)  { execute_action(); } break;
+            case "ACT":
+                mode = "act_select";
+                if (instance_exists(obj_thebox)) {
+                    with (obj_thebox) {
+                        text = "  * " + other.enemyName;
+                        display_text = "  * " + other.enemyName;
+                        text_index = 999;
+                    }
+                }			
+			break;
+				
+case "ITEM":
+    mode = "item_select";
+		if (instance_exists(obj_thebox)) {
+			with (obj_thebox) {
+				text = "";
+                display_text = "";
+                text_index = 0;
+             }
+        }
+
+	selected_item_index = 0;
+
+	if (array_length(global.objects) > 0) {
+		scr_create_menu_items();
+	} else {
+		audio_play_sound(snd_error, 1, false);
+		mode = "menu";
+	}
+
+	
+break;
+
+
             case "MERCY": if (instance_exists(obj_mercy)) with (obj_mercy) { execute_action(); } break;
         }
     }
@@ -116,7 +148,107 @@ else if (mode == "enemy_select") {
     }
 }
 
-// MODO ATAQUE (esperamos que obj_attack_bar haga la lógica y luego notifique mediante alarms)
+
+
+else if (mode == "item_select")
+{
+    // reposicionar corazón
+    if (instance_exists(obj_heart)) {
+        with (obj_heart) {
+            mode = "item_select";
+            x = other.box_x - 423;
+            y = other.box_y - 115;
+        }
+    }
+
+    var len = array_length(global.objects);
+
+    if (len <= 0) {
+        scr_destroy_menu_items();
+        mode = "menu";
+        return;
+    }
+
+    // --- SALIR ---
+    if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
+        audio_play_sound(snd_select, 1, false);
+        scr_destroy_menu_items();
+        mode = "menu";
+
+        if (instance_exists(obj_thebox)) with (obj_thebox) {
+            text = other.text_to_show;
+            display_text = "";
+            text_index = 0;
+        }
+        return;
+    }
+
+    // --- DERECHA ---
+    if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))) {
+        audio_play_sound(snd_menumove, 1, false);
+        selected_item_index = (selected_item_index + 1) mod len;
+        scr_update_menu_items();
+    }
+
+    // --- IZQUIERDA ---
+    if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"))) {
+        audio_play_sound(snd_menumove, 1, false);
+        selected_item_index = (selected_item_index - 1 + len) mod len;
+        scr_update_menu_items();
+    }
+
+    // --- USAR ITEM ---
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+        audio_play_sound(snd_select, 1, false);
+
+        var item = global.objects[selected_item_index];
+        var data = scr_item_data(item);
+
+        scr_useitem(item);
+
+        // si es food → eliminar
+        if (data.type == "food") {
+            array_delete(global.objects, selected_item_index, 1);
+
+            if (selected_item_index >= array_length(global.objects)) {
+                selected_item_index = max(0, array_length(global.objects) - 1);
+            }
+        }
+
+        if (array_length(global.objects) <= 0) {
+            scr_destroy_menu_items();
+            mode = "menu";
+        } else {
+            scr_update_menu_items();
+        }
+
+        alarm[2] = 1;
+    }
+}
+
+
+
+
+else if (mode == "act_select") {
+	    if (instance_exists(obj_heart)) {
+        with (obj_heart) {
+            mode = "act_select";
+            x = other.box_x - 3;
+            y = other.box_y - 115;
+        }
+    }
+
+    if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
+        mode = "menu";
+        audio_play_sound(snd_select, 1, false);
+
+        if (instance_exists(obj_thebox)) with (obj_thebox) {
+            text = other.text_to_show;
+            display_text = "";
+            text_index = 0;
+        }
+    }
+}
 else if (mode == "attacking") {
     if (instance_exists(obj_heart)) {
         with (obj_heart) {

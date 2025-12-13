@@ -56,7 +56,6 @@ case "ITEM":
 	if (array_length(global.objects) > 0) {
 		scr_create_menu_items();
 	} else {
-		audio_play_sound(snd_error, 1, false);
 		mode = "menu";
 	}
 
@@ -200,7 +199,7 @@ else if (mode == "item_select")
     // --- USAR ITEM ---
     if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
         audio_play_sound(snd_select, 1, false);
-
+		scr_destroy_menu_items()
         var item = global.objects[selected_item_index];
         var data = scr_item_data(item);
 

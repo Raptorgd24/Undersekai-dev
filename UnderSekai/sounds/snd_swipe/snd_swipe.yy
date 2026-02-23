@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":2,
+  "channelFormat":1,
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.5297052,
+  "duration":0.5297083,
   "exportDir":"",
   "name":"snd_swipe",
   "parent":{

@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":1.7226304,
+  "duration":1.7226459,
   "exportDir":"",
   "name":"snd_megaslashed",
   "parent":{

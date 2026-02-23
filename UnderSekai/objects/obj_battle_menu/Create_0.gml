@@ -1,13 +1,18 @@
 // obj_battle_menu - Create
-/// @desc Inicialización del menú de batalla (controlador principal)
+/// @desc 
 image_alpha = 0;
 depth = -100;
 
-// Estado / modos: "menu" | "enemy_select" | "attacking" | "enemy_turn"
 mode = "menu";
 seleccion = 0;
 songbattle = mus_nuzzle;
 opciones = ["FIGHT","ACT","ITEM","MERCY"];
+
+// --- Dialogue system ---
+dialogue_index = 0;
+dialogue_data = undefined;
+dialogue_active = false;
+
 
 selected_index = 0;        
 
@@ -95,7 +100,6 @@ if (variable_global_exists("enemy")) {
 			goldGiven = 12;
 			global.enemydmg = 5
             break;
-            break;
         case "Goku":
 			songbattle = mus_ultrainstinct
             audio_play_sound(songbattle, 1, true);
@@ -109,6 +113,20 @@ if (variable_global_exists("enemy")) {
 			bulletcooldown = 0;
 			bulletcooldownOG = bulletcooldown;
 			global.enemydmg = 100
+            break;
+        case "Sans":
+			songbattle = mus_megalovania
+            audio_play_sound(songbattle, 1, true);
+			theEnemy = instance_create_layer(px, py-20, "Instances", obj_sans);
+            text_to_show = "* You feel your crawling sinsing \n  in your back";
+            enemyName = "Sans";
+            enemyHealth = 991;
+			enemyDefense = 1;
+			expgiven = 600;
+			goldGiven = 600;
+			bulletcooldown = 45;
+			bulletcooldownOG = bulletcooldown;
+			global.enemydmg = 1
             break;
 		default:
 		    audio_play_sound(songbattle, 1, true);

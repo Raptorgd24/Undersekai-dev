@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_getbattletext",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_getbattletext",
+  "parent":{
+    "name":"TextGraah",
+    "path":"folders/Scripts/BattleStuff/TextGraah.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

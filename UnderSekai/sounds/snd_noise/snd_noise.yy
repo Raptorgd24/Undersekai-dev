@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":1,
+  "channelFormat":0,
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.07256236,
+  "duration":0.0725625,
   "exportDir":"",
   "name":"snd_noise",
   "parent":{

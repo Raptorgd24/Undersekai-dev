@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.05802721,
+  "duration":0.058020834,
   "exportDir":"",
   "name":"snd_txt1",
   "parent":{

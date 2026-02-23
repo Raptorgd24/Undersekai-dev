@@ -94,6 +94,54 @@ else if (mode == "end"){
 		}
 	}
 }
+
+else if (mode == "dialogue") {
+
+    if (!instance_exists(dialogue_box)) exit;
+
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+
+        // completar texto
+       if (dialogue_box.text_index < string_length(dialogue_box.text)) {
+            /* dialogue_box.text_index = string_length(dialogue_box.text);
+            dialogue_box.display_text = dialogue_box.text;*/
+        }
+        else {
+            // siguiente texto
+            if (dialogue_data.cont) {
+                dialogue_index++;
+                dialogue_data = scr_getbattletext(dialogue_index);
+
+                dialogue_box.text = dialogue_data.text;
+                dialogue_box.display_text = "";
+                dialogue_box.text_index = 0;
+                dialogue_box.voice = dialogue_data.voice;
+
+                if (instance_exists(theEnemy)) {
+                    theEnemy.image_index = dialogue_data.face;
+                }
+            }
+            else {
+                // fin del diálogo
+                if (instance_exists(dialogue_box))
+                    instance_destroy(dialogue_box);
+
+                mode = "enemy_turn";
+                alarm[5] = room_speed * 1;
+            }
+        }
+    }
+	
+	if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)){
+	        // completar texto
+        if (dialogue_box.text_index < string_length(dialogue_box.text)) {
+            dialogue_box.text_index = string_length(dialogue_box.text);
+            dialogue_box.display_text = dialogue_box.text;
+        }
+	}
+}
+
+
 else if (mode == "enemy_select") {
     if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
         mode = "menu";
@@ -221,7 +269,7 @@ else if (mode == "item_select")
             scr_update_menu_items();
         }
 
-        alarm[2] = 1;
+        alarm[5] = 1;
     }
 }
 

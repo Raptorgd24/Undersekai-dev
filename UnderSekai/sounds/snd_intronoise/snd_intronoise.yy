@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.8429933,
+  "duration":2.843,
   "exportDir":"",
   "name":"snd_intronoise",
   "parent":{

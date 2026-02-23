@@ -1,4 +1,4 @@
-// Eliminar sprite si existe
+/// @description Zoom quitar
 if (instance_exists(zoom_sprite_id)) {
     with (zoom_sprite_id) instance_destroy();
 }

@@ -54,10 +54,11 @@ switch (option) {
 		if (!variable_global_exists("song_asset")) {
 		    global.song_asset = mus_silence; // o el valor inicial que corresponda
 		}
-        room_goto(rm_Room1);
+        room_goto(rm_NamingMenu);
     break;
     
 case "CONTINUE":
+	audio_stop_sound(mus_close)
     show_debug_message("Cargando partida...");
 	scr_init_zones();
     scr_load_game(); // esto ya hace el room_goto automáticamente
@@ -86,7 +87,7 @@ break;
 		if (!variable_global_exists("song_asset")) {
 		    global.song_asset = mus_silence; // o el valor inicial que corresponda
 		}
-        room_goto(rm_Room1);
+        room_goto(rm_NamingMenu);
     break;
     
     case "OPTIONS":

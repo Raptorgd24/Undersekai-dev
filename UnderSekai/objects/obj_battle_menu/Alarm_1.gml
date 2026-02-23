@@ -1,4 +1,4 @@
-// Crear sprite central
+/// @description Zoom coso
 
 zoom_sprite_id = instance_create_layer(0, 0, "Instances", obj_zoom_effect);
 

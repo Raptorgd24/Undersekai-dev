@@ -1,4 +1,4 @@
-// obj_battle_menu - Alarm[2] -> Inicio del turno enemigo (texto / animación)
+/// @description  Inicio del turno enemigo (texto / animación)
 /// Iniciamos la secuencia de turno enemigo (texto corto)
 show_debug_message("obj_battle_menu - Alarm[2] -> inicio turno enemigo (texto)");
 mode = "enemy_turn";

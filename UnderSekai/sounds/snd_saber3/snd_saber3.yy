@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":2,
+  "channelFormat":1,
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":1.3162812,
+  "duration":1.3162917,
   "exportDir":"",
   "name":"snd_saber3",
   "parent":{

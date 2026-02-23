@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_sansmovement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_sansmovement",
+  "parent":{
+    "name":"SansShit",
+    "path":"folders/Scripts/BattleStuff/SansShit.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

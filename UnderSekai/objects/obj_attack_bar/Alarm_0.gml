@@ -27,7 +27,7 @@ if (did_hit) {
             // Programar inicio del turno enemigo
 			
 			if (!dead){
-            alarm[2] = room_speed*0.75;
+            alarm[5] = room_speed*0.75;
 			}
 			else{
 			alarm[4] = room_speed*0.75;

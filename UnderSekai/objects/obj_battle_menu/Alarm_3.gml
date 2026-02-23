@@ -1,4 +1,4 @@
-// obj_battle_menu - Alarm[3] -> Fin del turno enemigo (vuelta al jugador)
+/// @description Fin del turno enemigo (vuelta al jugador)
 show_debug_message("obj_battle_menu - Alarm[3] -> fin turno enemigo, vuelve jugador");
 mode = "menu";
 turn = "player";

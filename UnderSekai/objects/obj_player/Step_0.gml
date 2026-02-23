@@ -21,6 +21,10 @@ if (keyboard_check_pressed(ord("N"))) {
 	scr_start_battle("Rory_Nyte");
 }
 
+if (keyboard_check_pressed(ord("M"))) {
+	scr_start_battle("Sans");
+}
+
 if (keyboard_check_pressed(ord("G"))) {
 	scr_screenshake()
 }
@@ -31,7 +35,7 @@ my = (keyboard_check(vk_down)  || keyboard_check(ord("S"))) - (keyboard_check(vk
 // Si hay movimiento
 if (mx != 0 || my != 0) {
     var dist = point_distance(0, 0, mx, my);
-    var dx = (mx / dist) * velocidad_actual;
+    var dx = (mx	/ dist) * velocidad_actual;
     var dy = (my / dist) * velocidad_actual;
 
 // --- Movimiento con colisión ---

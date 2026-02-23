@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.14133787,
+  "duration":0.14133333,
   "exportDir":"",
   "name":"snd_goku",
   "parent":{

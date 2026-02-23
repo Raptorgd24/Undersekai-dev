@@ -6,11 +6,11 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "channelFormat":2,
+  "channelFormat":1,
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.5937415,
+  "duration":0.59375,
   "exportDir":"",
   "name":"snd_hurt",
   "parent":{

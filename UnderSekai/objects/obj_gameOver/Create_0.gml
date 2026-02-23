@@ -32,5 +32,3 @@ spr_glow_alpha = 0;
 spr_ble_alpha = 0;
 
 // Crea los sprites base (puedes ponerlos en Draw también si prefieres)
-
-;

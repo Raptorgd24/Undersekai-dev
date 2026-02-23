@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_startdialogue",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_startdialogue",
+  "parent":{
+    "name":"TextGraah",
+    "path":"folders/Scripts/BattleStuff/TextGraah.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

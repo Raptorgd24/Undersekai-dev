@@ -8,9 +8,9 @@
   "bitDepth":1,
   "channelFormat":1,
   "compression":2,
-  "compressionQuality":10,
+  "compressionQuality":4,
   "conversionMode":0,
-  "duration":36.30585,
+  "duration":48.746147,
   "exportDir":"",
   "name":"mus_sans",
   "parent":{

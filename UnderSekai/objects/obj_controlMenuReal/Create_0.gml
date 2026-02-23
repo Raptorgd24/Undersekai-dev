@@ -4,7 +4,7 @@
 image_alpha = 0; // El objeto empieza invisible
 // Fuente
 // === CONFIGURACIÓN DE MENÚ ===
-
+audio_play_sound(mus_close, 1, true);
 
 // Fuente
 font_menu = ft_determinationsans;

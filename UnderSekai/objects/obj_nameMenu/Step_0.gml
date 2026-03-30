@@ -17,27 +17,31 @@ cursor_timer++;
 if (menu_state == MenuState.INPUT) {
 
     if (keyboard_check_pressed(vk_up)) {
+		audio_play_sound(snd_menumove, 1, false);
         row = max(0, row - 1);
         col = min(col, array_length(keyboard[row]) - 1);
     }
 
     if (keyboard_check_pressed(vk_down)) {
-        row = min(array_length(keyboard) - 1, row + 1);
+		 audio_play_sound(snd_menumove, 1, false);
+       row = min(array_length(keyboard) - 1, row + 1);
         col = min(col, array_length(keyboard[row]) - 1);
     }
 
     if (keyboard_check_pressed(vk_left)) {
+		audio_play_sound(snd_menumove, 1, false);
         col = max(0, col - 1);
     }
 
     if (keyboard_check_pressed(vk_right)) {
+	    audio_play_sound(snd_menumove, 1, false);	
         col = min(array_length(keyboard[row]) - 1, col + 1);
     }
 
     // ACEPTAR (Z o ENTER)
     if (input_enabled && confirm_lock_timer <= 0 &&
         (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
-
+		audio_play_sound(snd_select, 1, false);
         confirm_lock_timer = 10;
 
         var key = keyboard[row][col];
@@ -94,6 +98,7 @@ if (menu_state == MenuState.CONFIRM) {
         confirm_lock_timer = 20;
 
         if (confirm_option == 0) {
+			audio_stop_sound(mus_close)
 			global.name = text_input;
 			scr_save_game()
 

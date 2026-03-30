@@ -1,8 +1,7 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
 
-image_alpha = 0; // El objeto empieza invisible
-// Fuente
+image_alpha = 0; 
 // === CONFIGURACIÓN DE MENÚ ===
 audio_play_sound(mus_close, 1, true);
 

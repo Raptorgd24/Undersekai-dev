@@ -1,11 +1,8 @@
-/// @description Inserte aquí la descripción
-// Create
+row = 0;
+col = 0;
 
-row = 0;      // fila seleccionada
-col = 0;      // columna seleccionada
-
-text_input = "";   // texto que va escribiendo el jugador
-max_chars = 10;    // límite opcional
+text_input = "";
+max_chars = 6;
 
 keyboard = [
     ["Q","W","E","R","T","Y","U","I","O","P"],
@@ -14,15 +11,33 @@ keyboard = [
     ["ENTER","RETURN"]
 ];
 
-
-image_alpha = 0; // El objeto empieza invisible
-
 enum MenuState {
-    INPUT,      // elegir letras
-    CONFIRM     // ¿Seguro? Sí / No
+    INPUT,
+    CONFIRM,
+    BACK_ANIM
 }
 
 menu_state = MenuState.INPUT;
 
-confirm_option = 0; // 0 = Sí, 1 = No
-name_scale = 1;     // para el tween del nombre
+confirm_option = 0;
+
+name_scale = 1;
+target_scale = 1;
+
+fade_alpha = 0;
+fade_speed = 1/180;
+fading = false;
+
+fade_timer = 0;
+fade_duration = 180; // 3 segundos exactos a 60fps
+fade_done = false;
+
+input_enabled = true;
+input_delay = 0;
+
+key_pop = 1;
+cursor_timer = 0;
+confirm_lock_timer = 0;
+
+gpu_set_texfilter(false);
+image_alpha =0;

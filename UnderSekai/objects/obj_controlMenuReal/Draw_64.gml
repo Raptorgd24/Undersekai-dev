@@ -1,5 +1,5 @@
 draw_set_font(font_menu);
-
+gpu_set_texfilter(false);
 for (var i = 0; i < array_length(menu_options); i++) {
     var txt = menu_options[i];
     var yy = 360 + (i * menu_spacing);

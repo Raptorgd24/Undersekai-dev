@@ -1,5 +1,4 @@
 // STEP EVENT
-show_debug_message("Estado: " + string(intro_state) + ", Texto: " + string(intro_current_text));
 // Toggle pantalla completa con F4
 /*if (keyboard_check_pressed(vk_f4)) {
     if (!window_get_fullscreen()) {
@@ -8,7 +7,6 @@ show_debug_message("Estado: " + string(intro_state) + ", Texto: " + string(intro
         window_set_fullscreen(false);
     }
 }*/
-// SKIP GLOBAL - Cualquier Z o Enter activa el fade final Y el fade de música
 if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
     show_debug_message("SKIP ACTIVADO - Iniciando fades");
     if (intro_state != "final_fade") {

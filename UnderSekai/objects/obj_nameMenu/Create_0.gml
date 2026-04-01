@@ -18,26 +18,19 @@ enum MenuState {
 }
 
 menu_state = MenuState.INPUT;
-
 confirm_option = 0;
-
-name_scale = 1;
-target_scale = 1;
-
-fade_alpha = 0;
-fade_speed = 1/180;
-fading = false;
-
-fade_timer = 0;
-fade_duration = 180; // 3 segundos exactos a 60fps
-fade_done = false;
 
 input_enabled = true;
 input_delay = 0;
-
-key_pop = 1;
-cursor_timer = 0;
 confirm_lock_timer = 0;
 
+fade_alpha = 0;
+fading = false;
+fade_timer = 0;
+fade_duration = 180;
+fade_done = false;
+
 gpu_set_texfilter(false);
-image_alpha =0;
+
+text_obj = instance_create_layer(0, 0, "Instances", obj_nameMenuText);
+text_obj.parent = id;

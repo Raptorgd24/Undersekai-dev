@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":160.104,
+  "duration":196.40819,
   "exportDir":"",
   "name":"mus_megalovania",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":48000,
-  "soundFile":"mus_megalovania.ogg",
+  "soundFile":"mus_megalovania.wav",
   "volume":1.0,
 }

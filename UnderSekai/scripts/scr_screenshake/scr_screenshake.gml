@@ -1,5 +1,11 @@
 function scr_screenshake(_time = 20, _magn = 3, _vel = 1.4)
 {
+		if (!layer_exists("Instances")) {
+    layer_create(0, "Instances");
+}
+if (!layer_exists("Instances_1")) {
+    layer_create(0, "Instances_1");
+}
     var _layerName = "Shake";
     var _layerId = layer_get_id(_layerName);
 

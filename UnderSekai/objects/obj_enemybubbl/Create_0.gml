@@ -20,4 +20,14 @@ text_offset_y = 8;
 enemy_id = noone;
 
 // sonido de texto
-voice = snd_txt2;
+voice = undefined;  // Inicializar voice
+if (is_undefined(voice)) {
+    switch (global.enemy) {
+        case "Sans":	
+            voice = snd_sans;
+            break;
+        default:
+            voice = snd_txt2;
+            break;
+    }
+}

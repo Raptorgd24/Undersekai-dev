@@ -2,6 +2,7 @@
 /// Comportamiento visual; al terminar animación, aplicamos la animación de golpe al enemigo real
 
 // Usamos final de animación de modo robusto:
+if (global.enemy !="Sans"){
 if (image_index == image_number - 1) {
 
         // Fallback robusto: intentar acceder al menú global
@@ -14,8 +15,7 @@ if (image_index == image_number - 1) {
                             can_move = false;
                             //image_index = 14;
                             //image_speed = 0.3;
-							show_debug_message("Tu madre la gorda")
-                            if (!variable_instance_exists(id, "hurt_sound_played")) hurt_sound_played = false;
+			                            if (!variable_instance_exists(id, "hurt_sound_played")) hurt_sound_played = false;
                             hurt_sound_played = false;
                         }
                     }
@@ -26,4 +26,12 @@ if (image_index == image_number - 1) {
 	scr_screenshake(10,2)
     // Destruir el slash (efecto terminado)
     instance_destroy();
+}
+
+}else{
+if (image_index == image_number - 1) {
+	
+instance_destroy();
+
+}
 }

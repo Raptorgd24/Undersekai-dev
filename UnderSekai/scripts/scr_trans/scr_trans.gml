@@ -1,4 +1,4 @@
-function scr_trans(_the_room=rm_Room666) {
+function scr_trans(_the_room=rm_Room666, _x=0, _y=0) {
 
 	show_debug_message("Que transaaa")
 	if (instance_exists(obj_heart))
@@ -7,6 +7,8 @@ function scr_trans(_the_room=rm_Room666) {
         global.trans_active = true;
         obj_player.can_move = false;
         obj_usable.can_use = false;
+		obj_control._x =_x;
+		obj_control._y =_y;
         global.trans_alpha = 0;
         global.trans_state = 0;
         global.trans_target = _the_room;

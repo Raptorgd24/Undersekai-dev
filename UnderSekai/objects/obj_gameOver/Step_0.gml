@@ -50,8 +50,18 @@ if (room == rm_gameOver_screen) {
 				instance_destroy(obj_cam)
 				instance_destroy(obj_usable)
 				instance_destroy(obj_player)
+				instance_destroy(obj_battle_menu)
+				instance_destroy(obj_thebox)
+				instance_destroy(obj_heart)
 				audio_sound_gain(deathsong,0,100)
-                scr_load_game();
+                scr_load_game(false);
+                // Reset UI variables
+                global.temp_menu_items = undefined;
+                // Reset camera to default
+                //camera_set_view_size(view_camera[0], 320, 240);
+               // camera_set_view_pos(view_camera[0], 0, 0);
+                // Go to saved room
+                room_goto(asset_get_index(global.room_name));
             } else if (fade_action == "giveup") {
 				audio_sound_gain(deathsong,0,100)
 				

@@ -20,7 +20,6 @@ if (moving && !stopped) {
         moving = false;
         stopped = true;
         did_hit = false;
-		show_debug_message("omelo chino")
         // Notificar al menú que empiece turno enemigo
 		alarm[1] = room_speed*0.75;
 		speed=0;
@@ -44,22 +43,38 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
     stopped = true;
     moving = false;
     speed = 0;
-
-
-    var dist = abs(x - center_x);   // distancia del golpe al centro
+	
+	if (global.enemy =="Sans"){
+	with (obj_sans){
+	image_index = random_range(2,9)
+	with (obj_sanslegs){
+	image_index = random_range (0,2)
+	}
+	}
+	}
+	var dist = abs(x - center_x);   // distancia del golpe al centro
     var max_range = 60;             // rango máximo donde aún hay daño (ajustable)
     precision = clamp(1 - (dist / max_range), 0, 1); // 1 = perfecto, 0 = lejos
 	if (precision >= 0.95) {
 		with(obj_battle_menu){
-		alarm[1] = ceil(room_speed * 0.00001);
+			alarm[1] = ceil(room_speed * 0.00001);
 		}
 	}
-	with (obj_battle_menu){
-		 otraPrecisionSOB = other.precision
-	with (theEnemy){
-		lePrecision = other.otraPrecisionSOB;
-	}
-	}
+
+    var battle_menu = noone;
+    if (variable_instance_exists(id, "battle_id")) {
+        battle_menu = battle_id;
+    }
+
+    if (instance_exists(battle_menu)) {
+        battle_menu.otraPrecisionSOB = precision;
+        if (variable_instance_exists(battle_menu, "theEnemy") && instance_exists(battle_menu.theEnemy)) {
+            with (battle_menu.theEnemy) {
+                lePrecision = battle_menu.otraPrecisionSOB;
+            }
+        }
+    }
+
     // Parámetros ajustables para daño
     var min_mult = 0.25;            // daño mínimo relativo al ATK
     var max_mult = 2.5;             // daño máximo relativo al ATK
@@ -82,6 +97,17 @@ if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_e
 
     // Daño final (restando defensa)
     damage = max(1, round(raw_damage) - defense);
+
+    // === Efecto especial de Sans ===
+    if (global.enemy == "Sans") {
+        damage = 1;
+        if (instance_exists(battle_id) && instance_exists(battle_id.theEnemy)) {
+            var ex = battle_id.theEnemy.x;
+            var ey = battle_id.theEnemy.y;
+            instance_create_layer(ex + 10, ey - 10, "Instances_1", obj_miss);
+            scr_sansmiss(battle_id.theEnemy);
+        }
+    }
 
     // === FIN DE LÓGICA DE DAÑO ===
 

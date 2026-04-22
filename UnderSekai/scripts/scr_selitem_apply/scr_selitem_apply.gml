@@ -20,6 +20,18 @@ function scr_selitem_apply(_itemname)
         case "KeyTest":
             image_index  = 6;
         break;
+        case "CHECK":
+            image_index = 0; // o algún sprite
+        break;
+        case "PUN":
+            image_index = 0;
+        break;
+        case "JOKE":
+            image_index = 0;
+        break;
+        case "HOLDBREATH":
+            image_index = 0;
+        break;
 		default:
 			image_index = 1;
 		break;

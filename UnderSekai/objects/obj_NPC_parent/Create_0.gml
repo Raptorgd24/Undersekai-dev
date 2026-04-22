@@ -1,11 +1,51 @@
+
 // Crear 
 
 function npc_dialogue() {
-    scr_dialogue("sans", 0, "hey, soy un texto de ejemplo.", true,false);
-    scr_dialogue("sans", 4, "te lo puedes creer?", false,true);
+    var dialogue_struct = {
+        messages: [],
+        release_move: true
+    };
+    
+    if (global.name == "SANS") {
+        array_push(dialogue_struct.messages, {
+            text: "hola, yo.",
+            character: "sans",
+            face_index: 0,
+            keep_box: true
+        });
+        array_push(dialogue_struct.messages, {
+            text: "yo de tu me cambiaba el nombre.",
+            character: "sans",
+            face_index: 3,
+            keep_box: true
+        });
+        array_push(dialogue_struct.messages, {
+            text: "porfa",
+            character: "sans",
+            face_index: 7,
+            keep_box: false
+        });
+    } else {
+        array_push(dialogue_struct.messages, {
+            text: "hey, soy un texto de ejemplo.",
+            character: "sans",
+            face_index: 0,
+            keep_box: true
+        });
+        array_push(dialogue_struct.messages, {
+            text: "te lo puedes creer?",
+            character: "sans",
+            face_index: 4,
+            keep_box: false
+        });
+    }
+    
+    dialogue_start(dialogue_struct);
 }
 
 
+npc_id = "default"; // Declarar variable
 NPCmoving     = false;
 NPCdirection  = "down";
 NPCframes     = 0;

@@ -12,20 +12,27 @@ if (!variable_instance_exists(id, "saved_state")) saved_state = false;
 if (cooldown_timer > 0) cooldown_timer -= 1;
 
 // Interacción inicial — abrir diálogo
-if (!menu_visible && !global.dialogue_active && cooldown_timer <= 0) {
+if (!menu_visible && !global.dialogue_manager.active && cooldown_timer <= 0) {
     if ((keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) &&
         instance_exists(obj_usable) && obj_usable.can_use) {
         if (place_meeting(x, y, obj_usable)) {
-            scr_dialogue("noone", 0, dialogue_text, false, false);
-			audio_play_sound(snd_heal, 1, false,0.7);
-			global.healthu = global.maxHP; // regenerar HP
-            state = "dialogue";
+            var save_dialogue = {
+                messages: [
+                    { text: dialogue_text, character: "", face_index: 0, keep_box: false }
+                ],
+                release_move: false
+            };
+            dialogue_start(save_dialogue, function() {
+                audio_play_sound(snd_heal, 1, false, 0.7);
+                global.healthu = global.maxHP; // regenerar HP
+                state = "dialogue";
+            });
         }
     }
 }
 
 // Esperar a que termine el diálogo y timer de seguridad
-if (state == "dialogue" && !global.dialogue_active &&
+if (state == "dialogue" && !global.dialogue_manager.active &&
     (!variable_global_exists("dialogue_use_timer") || global.dialogue_use_timer <= 0)) {
     state = "open_menu_wait";
     cooldown_timer = 1; // abrir menú casi inmediatamente

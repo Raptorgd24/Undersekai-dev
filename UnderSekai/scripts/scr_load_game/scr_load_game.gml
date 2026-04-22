@@ -1,4 +1,4 @@
-function scr_load_game() {
+function scr_load_game(_goto_room = true) {
 
     // Si no hay save, salir
     if (!file_exists("save.dat")) {
@@ -21,6 +21,18 @@ function scr_load_game() {
     global.play_time = real(file_text_read_string(file)); file_text_readln(file);
 	global.events_done = file_text_read_string(file); file_text_readln(file);
 	global.xp      = real(file_text_read_string(file)); file_text_readln(file);
+	global.fame    = real(file_text_read_string(file)); file_text_readln(file);
+	global.route   = file_text_read_string(file); file_text_readln(file);
+	global.kills   = real(file_text_read_string(file)); file_text_readln(file);
+	global.spares  = real(file_text_read_string(file)); file_text_readln(file);
+	global.deaths  = real(file_text_read_string(file)); file_text_readln(file);
+	var map_str = file_text_read_string(file); file_text_readln(file);
+	if (string_length(map_str) > 0) {
+	    global.event_data_map = ds_map_create();
+	    ds_map_read(global.event_data_map, map_str);
+	} else {
+	    global.event_data_map = ds_map_create();
+	}
 	show_debug_message(global.events_done);
 	
 	// Limpia y convierte los arrays desde texto
@@ -97,10 +109,20 @@ show_debug_message(global.events_done);
             show_debug_message("🎵 [LOAD GAME] Usando música por defecto: " + string(global.song_asset));
         }
         
-        // Hacer transición automática a la room guardada
-        room_goto(target_room);
+        // Hacer transición automática a la room guardada solo si se pidió
+        if (_goto_room) {
+            room_goto(target_room);
+        }
 
-		
+        // Reset camera defaults in case previous room changed them
+        if (instance_exists(obj_battle_menu)) {
+            with (obj_battle_menu) {
+                zooming = false;
+                zoom_current = 1;
+                zoom_target = 1;
+            }
+        }
+
     } else {
         show_debug_message("⚠ scr_load_game: No se encontró la room '" + string(global.room_name) + "'");
     }

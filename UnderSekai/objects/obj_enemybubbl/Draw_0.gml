@@ -6,4 +6,11 @@ draw_sprite_stretched(sprite_index, 0, x, y, box_width, box_height);
 
 draw_set_font(ft_determinationmono);
 draw_set_color(c_black);
-draw_text(x + text_offset_x, y + text_offset_y, display_text);
+
+draw_text_transformed(
+    x + text_offset_x,
+    y + text_offset_y,
+    display_text,
+    0.4, 0.4, // escala
+    0
+);

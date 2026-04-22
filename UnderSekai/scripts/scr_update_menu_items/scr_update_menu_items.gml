@@ -1,27 +1,30 @@
 function scr_update_menu_items()
 {
-
-    function get_item(offset)
-    {
-		var idx = obj_battle_menu.selected_item_index;
-		    var len = array_length(global.objects);
-			if (len <= 0) return;
-        return global.objects[(idx + offset + len) mod len];
-		
+    var items = global.objects;
+    if (variable_global_exists("temp_menu_items") && global.temp_menu_items != undefined) {
+        items = global.temp_menu_items;
     }
 
-    with (sel_left)
+    function get_item(offset, items_array)
     {
-        scr_selitem_apply(get_item(my_offset));
+        var idx = obj_battle_menu.selected_item_index;
+        var len = array_length(items_array);
+        if (len <= 0) return;
+        return items_array[(idx + offset + len) mod len];
     }
 
-    with (sel_mid)
+    with (global.sel_left)
     {
-        scr_selitem_apply(get_item(my_offset));
+        scr_selitem_apply(get_item(my_offset, items));
     }
 
-    with (sel_right)
+    with (global.sel_mid)
     {
-        scr_selitem_apply(get_item(my_offset));
+        scr_selitem_apply(get_item(my_offset, items));
+    }
+
+    with (global.sel_right)
+    {
+        scr_selitem_apply(get_item(my_offset, items));
     }
 }

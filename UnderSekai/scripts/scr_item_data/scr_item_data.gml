@@ -32,6 +32,42 @@ function scr_item_data(_itemname){
                 desc: "KeyTes desct",
                 type: "key"
             };
+        case "CHECK":
+            return {
+                name: "CHECK",
+                desc: "* Check the enemy's stats.",
+                type: "act"
+            };
+        case "PUN":
+            return {
+                name: "PUN",
+                desc: "* Tell a pun.",
+                type: "act"
+            };
+        case "JOKE":
+            return {
+                name: "JOKE",
+                desc: "* Tell a joke.",
+                type: "act"
+            };
+        case "HOLDBREATH":
+            return {
+                name: "HOLDBREATH",
+                desc: "* Hold your breath to move faster.",
+                type: "act"
+            };
+        case "SABOTAGE":
+            return {
+                name: "SABOTAGE",
+                desc: "* Sabotage their work.",
+                type: "act"
+            };
+        case "TASK":
+            return {
+                name: "TASK",
+                desc: "* Complete a task together.",
+                type: "act"
+            };
     }
     
     return undefined;

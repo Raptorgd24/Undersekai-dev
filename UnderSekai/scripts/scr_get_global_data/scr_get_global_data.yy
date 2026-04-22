@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_get_global_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_get_global_data",
+  "parent":{
+    "name":"globaldata",
+    "path":"folders/Scripts/globaldata.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

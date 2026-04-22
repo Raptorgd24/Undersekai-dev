@@ -4,7 +4,7 @@ phase = 0;
 black_alpha = 0;
 blink_count = 0;
 blink_speed = 6;
-
+once = false;
 // Crear el corazón temporal para la transición
 var px = obj_player.x + 3;
 var py = obj_player.y + 15;

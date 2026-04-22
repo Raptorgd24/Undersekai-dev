@@ -1,5 +1,6 @@
 //step
-// Ajuste de depth solo si no es passable
+if (!variable_instance_exists(id, "passable")) passable = true;
+
 if (!passable) {
     // El jugador está por encima o por debajo de mí
     if (obj_player.y < y) {

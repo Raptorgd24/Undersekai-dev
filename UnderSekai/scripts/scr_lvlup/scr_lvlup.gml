@@ -1,5 +1,5 @@
 function scr_lvlup_game() {
-currentlevel = global.lv
+global.currentlevel = global.lv
 if ((global.xp >= 10)){
 
     global.lv = 2
@@ -79,10 +79,10 @@ if ((global.xp >= 99999)){
     global.xp = 99999
 }
 
-if ((global.lv != currentlevel))
+if ((global.lv != global.currentlevel))
 {
 	audio_play_sound(snd_lvlup,1,false);
-    levelup = 1
+    global.levelup = 1
     global.maxHP = (16 + (global.lv * 4))
     global.ATK = (8 + (global.lv * 2))
     global.DEF = (9 + ceil((global.lv / 4)))
@@ -94,5 +94,5 @@ if ((global.lv != currentlevel))
     }
 }
 else
-    levelup = 0
+    global.levelup = 0
 }

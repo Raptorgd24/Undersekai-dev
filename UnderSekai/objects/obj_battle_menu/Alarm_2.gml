@@ -1,6 +1,12 @@
 /// @description  Inicio del turno enemigo (texto / animación)
 /// Iniciamos la secuencia de turno enemigo (texto corto)
 show_debug_message("obj_battle_menu - Alarm[2] -> inicio turno enemigo (texto)");
+// Limpiar texto anterior
+if (instance_exists(obj_thebox)) with (obj_thebox) {
+    text = "";
+    display_text = "";
+    text_index = 0;
+}
 mode = "enemy_turn";
 turn = "enemy";
 obj_heart.mode = "enemy_turn"
@@ -34,6 +40,6 @@ switch (attack_name){
 	break;
 }
 
-
-// programamos fin del turno enemigo en alarm[3] (2 segundos por defecto)
+	
+// programamos fin del turno enemigo en alarm[3] (turntime segundos)
 alarm[3] = room_speed * turntime;

@@ -11,7 +11,18 @@ opciones = ["FIGHT","ACT","ITEM","MERCY"];
 // --- Dialogue system ---
 dialogue_index = 0;
 dialogue_data = undefined;
+dialogue_box = noone;
 dialogue_active = false;
+hit_count = 0;
+is_item_result = false;
+enemy_turn_text_complete = false;
+
+act_options = [];
+selected_act_index = 0;
+act_row = 0;
+act_col = 0;
+task_used = false; // Rastrear si TASK ya fue usado en esta batalla
+selected_act = ""; // Acción seleccionada en ACT
 
 
 selected_index = 0;        
@@ -19,6 +30,8 @@ selected_index = 0;
 sel_left  = noone;
 sel_mid   = noone;
 sel_right = noone;
+
+selected_item_index = 0;
 
 boton_x_inicial = 45;
 boton_y = 410;
@@ -32,6 +45,10 @@ box_height = 78;
 enemyName = "Test";
 enemyHealth = 50;
 enemyDefense = 0;
+enemyAttack = 5;
+enemy_mercy = 0;
+was_spared = false; // Bandera para saber si el enemigo fue perdonado
+player_fame = 0;
 theEnemy = noone; 
 px = 129; py = 27; 
 global.enemydmg =0;
@@ -120,7 +137,7 @@ if (variable_global_exists("enemy")) {
 			theEnemy = instance_create_layer(px, py-20, "Instances", obj_sans);
             text_to_show = "* You feel your crawling sinsing \n  in your back";
             enemyName = "Sans";
-            enemyHealth = 991;
+            enemyHealth = 100;
 			enemyDefense = 1;
 			expgiven = 600;
 			goldGiven = 600;
@@ -189,6 +206,10 @@ alarm[3] = -1;
 // zoom cosos
 default_cam_w = 320;
 default_cam_h = 240;
+zooming = false;
+zoom_current = 1;
+zoom_target = 1;
+zoom_speed = 0.05;
 zoom_target = 0.75;      // 0.75 = 75% del tamaño -> zoom in suave
 zoom_speed = 0.02;
 zooming = false;

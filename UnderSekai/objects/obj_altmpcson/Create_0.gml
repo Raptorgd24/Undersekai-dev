@@ -1,14 +1,44 @@
 talk = 0;
+passable = true; // Declarar variable
 function npc_dialogue() {
-	if talk = 0{
-    scr_dialogue("sans", 0, "hola, soy goku", true,false);
-    scr_dialogue("sans", 1, "que porque tengo el sprite de sans?", true,false);
-    scr_dialogue("goku", 8, "Buena pregunta", false,true);
-	alarm_set(0,1)
-	}
-	if talk = 1{
-    scr_dialogue("sans", 9, "matate zorra", true,false);
-	alarm_set(1,1)
-	
-	}
+    var dialogue_struct = {
+        messages: [],
+        release_move: true
+    };
+    
+    if (talk == 0) {
+        array_push(dialogue_struct.messages, {
+            text: "hola, soy goku",
+            character: "sans",
+            face_index: 0,
+            keep_box: true
+        });
+        array_push(dialogue_struct.messages, {
+            text: "que porque tengo el sprite de sans?",
+            character: "sans",
+            face_index: 1,
+            keep_box: true
+        });
+        array_push(dialogue_struct.messages, {
+            text: "",
+            character: "",
+            face_index: 8,
+            keep_box: false,
+            choices: [
+                {
+                    text: "Si, dime",
+                    action: function() {
+                        talk = 1;
+                        scr_start_battle("Goku");
+                    }
+                },
+                {
+                    text: "No me importa",
+                    action: function() { /* nada */ }
+                }
+            ]
+        });
+    }
+    
+    dialogue_start(dialogue_struct);
 }

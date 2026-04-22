@@ -1,33 +1,32 @@
 // --------------------- STEP ---------------------
-if (global.dialogue_active) {
-    // Avance letra a letra
-    global.dialogue_timer++;
-    if (global.dialogue_timer >= global.dialogue_speed && global.dialogue_index < string_length(global.dialogue_text)) {
-        global.dialogue_index++;
-        global.dialogue_timer = 0;
-        if (global.dialogue_sound != -1) {
-            audio_play_sound(global.dialogue_sound, 1, false);
+dialogue_update(); // Usar el nuevo manager
+
+if (global.dialogue_manager.active) {
+    // Avance de texto o selección de opciones
+    if (!global.dialogue_manager.waiting_for_choice) {
+        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+            if (global.dialogue_manager.text_index >= string_length(global.dialogue_manager.current_dialogue.messages[global.dialogue_manager.current_index - 1].text)) {
+                dialogue_next();
+            }
         }
-    }
-
-    if (!variable_global_exists("dialogue_x_cooldown")) {
-        global.dialogue_x_cooldown = 0;
-    }
-
-    if (global.dialogue_x_cooldown > 0) {
-        global.dialogue_x_cooldown -= 1;
-    }
-
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
-        if (global.dialogue_index >= string_length(global.dialogue_text)) {
-            scr_dialogue_next();
-            
-            global.dialogue_x_cooldown = 1;
+        if ((keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift))) {
+            global.dialogue_manager.text_index = string_length(global.dialogue_manager.current_dialogue.messages[global.dialogue_manager.current_index - 1].text);
         }
-    }
-
-    if ((keyboard_check_pressed(ord("X")) && global.dialogue_x_cooldown <= 0) || (keyboard_check_pressed(vk_shift) && global.dialogue_x_cooldown <= 0)) {
-        global.dialogue_index = string_length(global.dialogue_text);
+    } else {
+        // Navegar opciones
+        if (keyboard_check_pressed(vk_up)) {
+			audio_play_sound(snd_menumove, 1, false, 0.7);
+            global.dialogue_manager.selected_choice = max(0, global.dialogue_manager.selected_choice - 1);
+        }
+        if (keyboard_check_pressed(vk_down)) {
+			
+			audio_play_sound(snd_menumove, 1, false, 0.7);
+            global.dialogue_manager.selected_choice = min(array_length(global.dialogue_manager.choices) - 1, global.dialogue_manager.selected_choice + 1);
+        }
+        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+			audio_play_sound(snd_select, 1, false, 0.7);
+            dialogue_select_choice(global.dialogue_manager.selected_choice);
+        }
     }
 }
 
@@ -86,64 +85,7 @@ if (!is_undefined(global.event_datalol) && is_array(global.event_datalol)) {
     }
 }
 
-if (variable_global_exists("waiting_for_walk") && global.waiting_for_walk) {
-    if (instance_exists(global.event_npc) && !global.event_npc.NPCmoving) {
-        show_debug_message("[Event System] NPC terminó de caminar, continuando evento");
-        global.waiting_for_walk = false;
-        
-        scr_dialogue("sans", 0, "anyway kid...", true,false);
-        scr_dialogue("sans", 0, "i-i think im close-", true,false);
-        scr_dialogue("sans", 0, "oh no... i'm about to-", false,false);
-        
-        global.event_datalol = [
-            ["after_dialogue", function() {
-                obj_player.can_move = false;
-                obj_usable.can_use = false;
-                show_debug_message("[Event System] Fase 3: Sonido sansing");
-                audio_play_sound(snd_sansing, 1, false);
-                global.boom_wait_frames = 42;
-                global.waiting_for_boom = true;
-            }]
-        ];
-        global.event_step = 0;
-        global.event_time = -1;
-    }
-}
-
-if (variable_global_exists("waiting_for_boom") && global.waiting_for_boom) {
-    if (global.boom_wait_frames > 0) {
-        global.boom_wait_frames--;
-        if (global.debug && global.boom_wait_frames % 10 == 0) {
-            show_debug_message("[Event System] Frames restantes para boom: " + string(global.boom_wait_frames));
-        }
-    } else {
-        show_debug_message("[Event System] ¡Espera completada! Creando explosión");
-        global.waiting_for_boom = false;
-        
-        if (instance_exists(global.event_npc)) {
-            var boom = instance_create_layer(global.event_npc.x - 20, global.event_npc.y - 20, "Instances_1", obj_boom_temp);
-            boom.parent_npc = global.event_npc;
-            audio_play_sound(snd_boom, 1, false);
-            audio_stop_sound(snd_sansing);
-            scr_dialogue("noone", 8, "...", true,false);
-            scr_dialogue("noone", 8, "What the fuck...", false,true);
-            
-            global.event_datalol = [
-                ["after_dialogue", function() {
-                    show_debug_message("[Event System] Fase 4: Fin del evento");
-					array_push(global.events_done, "Test");
-                    obj_player.can_move = true;
-                    obj_usable.can_use = true;
-                    global.event_npc = noone;
-                    if (variable_global_exists("waiting_for_boom")) global.waiting_for_boom = false;
-                    if (variable_global_exists("boom_wait_frames")) global.boom_wait_frames = 0;
-                }]
-            ];
-            global.event_step = 0;
-            global.event_time = -1;
-        }
-    }
-}
+event_update(); // Usar el nuevo manager de eventos
 
 if (global.trans_active) {
     switch (global.trans_state) {
@@ -159,6 +101,8 @@ if (global.trans_active) {
         case 1:
             global.trans_state = 2;
 			obj_player.visible = true;
+				obj_player.x =_x;
+				obj_player.y =_y;
         break;
 
         case 2:
@@ -168,7 +112,7 @@ if (global.trans_active) {
                 global.trans_active = false;
                 obj_player.can_move = true;
                 obj_usable.can_use = true;
-				
+
             }
         break;
     }

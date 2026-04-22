@@ -24,3 +24,5 @@ instance_destroy(bullet)
         x = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
         y = other.boton_y + 6;
     }
+
+hit_count++

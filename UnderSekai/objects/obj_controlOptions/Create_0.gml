@@ -1,0 +1,1 @@
+audio_play_sound(mus_666,1,true)

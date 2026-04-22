@@ -2,8 +2,8 @@
 if (randomassbool == true) {
     if (place_meeting(x, y, obj_player)) {
 				var npc = instance_create_layer(487, 164, "Instances", obj_NPC_parent);
-		npc.npc_id = "sans";
-        scr_events(1);
+		npc.npc_id = npc_id;
+        scr_events(eventnum);
 
         // Evitar retriggers inmediatos: desactivar hasta que expire la alarma
         randomassbool = false;

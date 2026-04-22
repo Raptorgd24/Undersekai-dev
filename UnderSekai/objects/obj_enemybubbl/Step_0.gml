@@ -8,8 +8,11 @@ if (text_index < string_length(text)) {
     if (timer >= text_speed) {
         timer = 0;
         text_index++;
+        text_index++;
         display_text = string_copy(text, 1, text_index);
-        audio_play_sound(voice, 1, false);
+        if (!is_undefined(voice) && audio_exists(voice)) {
+            audio_play_sound(voice, 1, false);
+        }
     }
 }
 

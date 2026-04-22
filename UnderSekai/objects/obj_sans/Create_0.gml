@@ -12,7 +12,7 @@ image_yscale = 1.3;
 
 can_move = true;
 is_hurt = false;
-
+sans_miss = false;
 // Inicializar animación en estado neutral (velocidad por defecto para idle)
 image_speed = 0;        // ahora tiene velocidad por defecto para que la animación avance
 hurt_sound_played = false; // importante inicializar
@@ -28,3 +28,7 @@ lecontinue =false;
 
 torso = instance_create_layer(x-14, y + 30, "Instances", obj_sanstorso);
 legs = instance_create_layer(x-6, y + 62, "Instances", obj_sanslegs);
+
+move_state = 0; // 0 = izquierda, 1 = frenando, 2 = volver derecha, 3 = terminado
+move_speed = -12; // empieza muy rápido a la izquierda
+target_x = origin_x; // volver aquí

@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":122.5,
+  "duration":11.218416,
   "exportDir":"",
   "name":"mus_666",
   "parent":{

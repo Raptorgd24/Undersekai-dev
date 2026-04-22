@@ -5,6 +5,7 @@ image_alpha = 0;
 // === CONFIGURACIÓN DE MENÚ ===
 audio_play_sound(mus_close, 1, true);
 
+
 // Fuente
 font_menu = ft_determinationsans;
 

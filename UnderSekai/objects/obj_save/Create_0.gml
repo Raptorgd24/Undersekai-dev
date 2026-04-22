@@ -23,8 +23,13 @@ switch (room) {
         room_name_text = "Ruins - Entrance";
         break;
 
+    case rm_ruins3:
+        dialogue_text = "You lay in the dry leaves,\nit fills you with determination.";
+        room_name_text = "Ruins - Entrance";
+        break;
+
     case rm_StartingPointBeta:
-        dialogue_text = "The flowers even if they aren't blooming, they feel peaceful.";
+        dialogue_text = "The flowers even if they \naren't blooming, they feel peaceful.";
         room_name_text = "Hole in the ceiling";
         break;
 

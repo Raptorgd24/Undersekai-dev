@@ -51,6 +51,7 @@ switch (option) {
     
     case "OPTIONS":
         show_debug_message("Abriendo menú de opciones...");
+		audio_stop_sound(mus_close)
         room_goto(rm_options);
     break;
 }

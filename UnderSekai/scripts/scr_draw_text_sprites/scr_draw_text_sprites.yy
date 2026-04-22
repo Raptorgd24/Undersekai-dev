@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_draw_text_sprites",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_draw_text_sprites",
+  "parent":{
+    "name":"TextGraah",
+    "path":"folders/Scripts/BattleStuff/TextGraah.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

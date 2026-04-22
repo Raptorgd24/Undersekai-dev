@@ -1,11 +1,12 @@
 // CREATE EVENT
+gpu_set_texfilter(false);
 show_debug_message("=== INICIO INTRO ===");
 image_alpha = 0;
 intro_state = "writing";
 intro_texts = [
-    "Long ago, two my dih ruled over Earth: ANTONIO\nAND LOBATO.",
-    "One day, war broke out between the two pendejos.",
-    "After a long battle, Freddy Fazbear was\nvictorious."
+    "In this timeline. Undertale has already happened",
+    "But something happened after a certain \naccident with a truck.",
+    "Something New was brewing in the \nUnderground..?"
 ];
 intro_current_text = 0;
 intro_display_text = "";

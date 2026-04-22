@@ -17,6 +17,18 @@ file_text_write_string(file, string(global.play_time)); file_text_writeln(file);
 file_text_write_string(file, string(global.events_done)); file_text_writeln(file);
 
 file_text_write_string(file, string(global.xp)); file_text_writeln(file);
+file_text_write_string(file, string(global.fame)); file_text_writeln(file);
+file_text_write_string(file, string(global.route)); file_text_writeln(file);
+file_text_write_string(file, string(global.kills)); file_text_writeln(file);
+file_text_write_string(file, string(global.spares)); file_text_writeln(file);
+file_text_write_string(file, string(global.deaths)); file_text_writeln(file);
+
+if (variable_global_exists("event_data_map") && ds_exists(global.event_data_map, ds_type_map)) {
+    var map_str = ds_map_write(global.event_data_map);
+    file_text_write_string(file, map_str); file_text_writeln(file);
+} else {
+    file_text_write_string(file, ""); file_text_writeln(file);
+}
 
 file_text_close(file);
 

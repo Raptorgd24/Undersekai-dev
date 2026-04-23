@@ -1,6 +1,6 @@
 function scr_init_zones() {
     if (!variable_global_exists("zone_TestRooms")) {
-        global.zone_TestRooms    = [rm_Room1, rm_RoomTest];
+        global.zone_TestRooms    = [rm_Room1, rm_RoomTest, rm_ruins2, rm_ruins3];
         global.zone_MysteryRooms = [rm_Room666];
         global.zone_Silence = [rm_StartingPointBeta, rm_ruins1];
         

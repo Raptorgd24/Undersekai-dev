@@ -32,8 +32,14 @@ if (global.dialogue_manager.active) {
 
 if (shake_timer <= 0){	
 	if (shake_layer != -1)
-	layer_set_visible("Shake", false);
-} else{
+		if (layer_exists("Shake"))
+		layer_set_visible("Shake", false)
+		else{
+		layer_create(1,"Shake")
+		layer_set_visible("Shake", false)
+		}
+} 
+else{
 	shake_timer--	
 }
 

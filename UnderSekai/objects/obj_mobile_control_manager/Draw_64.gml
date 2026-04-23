@@ -3,7 +3,7 @@ draw_set_alpha(0.35);
 draw_set_color(c_white);
 draw_circle(joy_x, joy_y, joy_r, false);           // Base joystick
 
-draw_set_alpha(1);
+draw_set_alpha(0.5);
 draw_set_color(c_yellow);
 draw_circle(stick_x, stick_y, stick_r, false);     // Stick
 

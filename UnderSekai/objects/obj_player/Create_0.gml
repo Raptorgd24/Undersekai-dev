@@ -26,5 +26,8 @@ anim_speed = 0.07;   // qué tan rápido cambian los frames
 anim_timer = 0;
 last_dir = "down";
 can_move = true;
-
+// Cooldown / ataque
+global.atkcooldown = false; 
+global.cooldowntimer = 0;
+dead = false;
 

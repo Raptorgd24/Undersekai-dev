@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":146.61046,
+  "duration":366.01614,
   "exportDir":"",
   "name":"mus_roaringfraud",
   "parent":{

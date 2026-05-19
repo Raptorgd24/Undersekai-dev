@@ -73,4 +73,33 @@ if ((!inst_y || inst_y.passable) && !place_meeting(x, y + dy, obj_colision) && !
     }
     anim_timer = 0;
 }
+
+
+
+if (global.atkcooldown) {
+    global.cooldowntimer -= 1;
+
+   
+    if ((global.cooldowntimer div 10) mod 2 == 0) {
+        image_alpha = 0.5;
+    } else {
+        image_alpha = 1;
+    }
+
+    if (global.cooldowntimer <= 0) {
+        global.atkcooldown = false;
+        image_alpha = 1;
+    }
+}
+
+if (keyboard_check_pressed(ord("T"))){
+    scr_hurt(20,2);
+}
+if (!dead){
+	if (global.healthu <=0){
+		dead = true;
+		scr_die()
+	}
+}
+
 }

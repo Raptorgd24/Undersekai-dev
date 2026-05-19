@@ -37,16 +37,16 @@ case "ACT":
 
     switch (global.enemy) {
         case "Sans":
-            act_options = ["CHECK", "PUN", "JOKE"];
+            act_options = ["CHECK", "PUN", "JOKE", "SING"];
             break;
         case "Rory_Nyte":
-            act_options = ["CHECK", "HOLDBREATH"];
+            act_options = ["CHECK", "HOLDBREATH", "SING"];
             break;
         case "Mogus":
-            act_options = ["CHECK", "SABOTAGE", "TASK"];
+            act_options = ["CHECK", "SABOTAGE", "TASK", "SING"];
             break;
         default:
-            act_options = ["CHECK","GIVE FAME", "ULTRA MERCY"];
+            act_options = ["CHECK","GIVE FAME", "ULTRA MERCY", "SING"];
     }
 
     selected_act_index = 0;
@@ -620,6 +620,37 @@ else if (mode == "act_select") {
                 }
                 mode = "act_result";
                 break;
+case "SING":
+    if (instance_exists(obj_thebox)) with (obj_thebox) {
+        text         = "* You begin to sing...";
+        display_text = "";
+        text_index   = 0;
+    }
+
+    // Inicializar el sistema (scr_sing_init ahora retorna el manager)
+    var sing_mgr = scr_sing_init(id);
+
+    if (instance_exists(sing_mgr)) {
+        // Cargar chart de prueba (reemplazar con chart del enemigo según global.enemy)
+        var chart = scr_sing_create_test_chart();
+        scr_sing_load_chart(sing_mgr, chart);
+
+        // Activar DESPUÉS de cargar el chart para evitar que el Step corra con lista vacía
+        sing_mgr.chart_active = true;
+
+        mode = "sing_chart";
+    } else {
+        // Fallback si el manager no se pudo crear
+        show_debug_message("[battle_menu] ERROR: sing_mgr no se pudo crear, saltando a act_result.");
+        if (instance_exists(obj_thebox)) with (obj_thebox) {
+            text         = "* The song got stuck in your throat...";
+            display_text = "";
+            text_index   = 0;
+        }
+        mode = "act_result";
+        selected_act = "SING";
+    }
+    break;
         }
     }
 }
@@ -641,6 +672,12 @@ else if (mode == "act_result") {
 
                     case "TASK":
                         dialogue_index = 1;
+                        break;
+                    
+                    case "SING":
+                        // Reanudar la música después de sing
+                        audio_resume_sound(song_instance);
+                        dialogue_index = -1;
                         break;
 
                     default:
@@ -679,6 +716,17 @@ else if (mode == "attacking") {
         }
     }
 
+}
+
+// MODO CHARTING (SING)
+else if (mode == "sing_chart") {
+    // El sistema de charting se maneja en obj_sing_manager
+    // Solo esperamos a que termine
+	
+    if (!instance_exists(obj_sing_manager)) {
+        // Si el manager fue destruido, volver a act_result
+        mode = "act_result";
+    }
 }
 
 // MODO TURNO ENEMIGO

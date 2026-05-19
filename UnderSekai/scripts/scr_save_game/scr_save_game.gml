@@ -12,7 +12,7 @@ file_text_write_string(file, string(global.gold)); file_text_writeln(file);
 file_text_write_string(file, global.objects); file_text_writeln(file);
 file_text_write_string(file, global.weapon); file_text_writeln(file);
 file_text_write_string(file, global.armor); file_text_writeln(file);
-file_text_write_string(file, string(global.play_time)); file_text_writeln(file);
+file_text_write_string(file, floor(string(global.play_time))); file_text_writeln(file);
 //
 file_text_write_string(file, string(global.events_done)); file_text_writeln(file);
 

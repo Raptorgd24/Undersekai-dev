@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_sing_end",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_sing_end",
+  "parent":{
+    "name":"sing",
+    "path":"folders/Scripts/BattleStuff/sing.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

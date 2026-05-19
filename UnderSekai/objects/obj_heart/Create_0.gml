@@ -19,3 +19,4 @@ global.cooldowntimer = 0;
 soulspeed = 1.5;
 dead = false;
 heart_speed_multiplier = 1;
+show_debug_message("HI TWINN!!!!")

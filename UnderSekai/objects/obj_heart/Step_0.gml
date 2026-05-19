@@ -27,9 +27,6 @@ switch(mode){
 // cooldown
 if (global.atkcooldown) {
     global.cooldowntimer -= 1;
-
-
-   
     if ((global.cooldowntimer div 10) mod 2 == 0) {
         image_alpha = 0.5;
     } else {

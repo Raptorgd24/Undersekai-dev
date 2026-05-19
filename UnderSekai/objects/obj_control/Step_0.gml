@@ -45,6 +45,7 @@ else{
 
 
 
+
 if (variable_global_exists("dialogue_use_timer") && global.dialogue_use_timer > 0) {
     global.dialogue_use_timer -= 1;
     if (global.dialogue_use_timer <= 0) {
@@ -199,4 +200,4 @@ if (variable_global_exists("song_inst") && global.song_inst != noone) {
     }
 }
 
-global.play_time += delta_time / 1000000;
+global.play_time += delta_time;

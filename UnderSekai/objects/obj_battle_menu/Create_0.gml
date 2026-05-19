@@ -74,6 +74,9 @@ dmg = 0;
 otraPrecisionSOB =0;
 text_to_show = "* Random Encounter!";
 
+// Instancia de sonido para el charting
+song_instance = -1;
+
 lebox = instance_create_layer(0, -870, "Instances", obj_thebox);
 //lebox.x = -50
 //lebox.y = -500
@@ -83,7 +86,7 @@ if (variable_global_exists("enemy")) {
     switch (global.enemy) {
         case "Rory_Nyte":
 			songbattle = mus_roaringfraud
-            audio_play_sound(songbattle, 1, true);
+            song_instance = audio_play_sound(songbattle, 1, true);
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
             enemyName = "Roaring Knight";
@@ -97,7 +100,7 @@ if (variable_global_exists("enemy")) {
             break;
         case "Negru":
             
-            audio_play_sound(songbattle, 1, true);
+            song_instance = audio_play_sound(songbattle, 1, true);
             theEnemy = instance_create_layer(px, py, "Instances", obj_Rory_Nyte);
             text_to_show = "* The Roaring Knight appears.";
             enemyName = "Roaring Knight";
@@ -107,7 +110,7 @@ if (variable_global_exists("enemy")) {
 			goldGiven = 9999;
             break;
         case "Mogus":
-            audio_play_sound(songbattle, 1, true);
+            song_instance = audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);
             text_to_show = "* Something feels sus!";
             enemyName = "The Impostor";
@@ -119,7 +122,7 @@ if (variable_global_exists("enemy")) {
             break;
         case "Goku":
 			songbattle = mus_ultrainstinct
-            audio_play_sound(songbattle, 1, true);
+            song_instance = audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py-20, "Instances", obj_goku);
             text_to_show = "* WHAT THE FUCK";
             enemyName = "Goku";
@@ -133,7 +136,7 @@ if (variable_global_exists("enemy")) {
             break;
         case "Sans":
 			songbattle = mus_megalovania
-            audio_play_sound(songbattle, 1, true);
+            song_instance = audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py-20, "Instances", obj_sans);
             text_to_show = "* You feel your crawling sinsing \n  in your back";
             enemyName = "Sans";
@@ -146,7 +149,7 @@ if (variable_global_exists("enemy")) {
 			global.enemydmg = 1
             break;
 		default:
-		    audio_play_sound(songbattle, 1, true);
+		    song_instance = audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);
             text_to_show = "* The Roaring Knight doesn't appear.";
             enemyName = "Test";

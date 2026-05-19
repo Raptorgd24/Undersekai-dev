@@ -103,7 +103,7 @@ if (state == "menu" && menu_visible) {
                 save_objects_gui = save_objects;
                 save_weapon_gui  = save_weapon;
                 save_armor_gui   = save_armor;
-                save_time_gui    = save_time;
+                save_time_gui    = save_time  / 1000000;
                 save_zone_gui    = save_zone;
 
                 // Guardar en archivo

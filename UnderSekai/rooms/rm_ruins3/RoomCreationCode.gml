@@ -2,7 +2,7 @@ var save = instance_find(obj_save, 0);
 if (!instance_exists(obj_player)) {
     
     if (save != noone) {
-        instance_create_layer(save.x, save.y+2, "Instances", obj_player);
+        instance_create_layer(save.x, save.y+4, "Instances", obj_player);
     }
 }
 

@@ -1,23 +1,40 @@
-if (use_palette) {
-    // ✅ Bug 4: Desactivar interpolación para evitar sangrado entre colores
-    gpu_set_tex_filter(false);
-// Justo antes de shader_set(shd_palette)
-var uvs = sprite_get_uvs(spr_palette, 0);
-show_debug_message("UVs: " + string(uvs[0]) + ", " + string(uvs[1]) + ", " + string(uvs[2]) + ", " + string(uvs[3]));
-show_debug_message("my_row: " + string(my_row) + " / total: " + string(total_sets));
+if (use_palette)
+{
+
     shader_set(shd_palette);
 
+    // uniforms
     var u_row   = shader_get_uniform(shd_palette, "row");
     var u_total = shader_get_uniform(shd_palette, "total_rows");
-    shader_set_uniform_f(u_row,   my_row);
+    var u_uvs   = shader_get_uniform(shd_palette, "palette_uvs");
+
+    shader_set_uniform_f(u_row, my_row);
     shader_set_uniform_f(u_total, total_sets);
 
-    var u_palette = shader_get_sampler_index(shd_palette, "palette");
-    texture_set_stage(u_palette, sprite_get_texture(spr_palette, 0));
+    // ENVIAR UVS
+    var uvs = sprite_get_uvs(spr_palette, 0);
+
+    shader_set_uniform_f(
+        u_uvs,
+        uvs[0],
+        uvs[1],
+        uvs[2],
+        uvs[3]
+    );
+
+    // textura
+    var tex = sprite_get_texture(spr_palette, 0);
+
+    var sampler = shader_get_sampler_index(shd_palette, "palette");
+
+    texture_set_stage(sampler, tex);
 
     draw_self();
 
     shader_reset();
-} else {
+
+}
+else
+{
     draw_self();
 }

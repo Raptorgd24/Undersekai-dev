@@ -2,10 +2,10 @@
   "$GMSprite":"v2",
   "%Name":"spr_introfrick",
   "bboxMode":2,
-  "bbox_bottom":29,
+  "bbox_bottom":24,
   "bbox_left":0,
   "bbox_right":18,
-  "bbox_top":16,
+  "bbox_top":11,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -19,7 +19,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":30,
+  "height":25,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"62cd2d18-3014-4b03-bb71-ba0d8702de1e","blendMode":0,"displayName":"default","isLocked":false,"name":"62cd2d18-3014-4b03-bb71-ba0d8702de1e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -35,7 +35,7 @@
     "left":0,
     "resourceType":"GMNineSliceData",
     "resourceVersion":"2.0",
-    "right":17,
+    "right":15,
     "tileMode":[
       0,
       0,
@@ -119,5 +119,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":19,
+  "width":17,
 }

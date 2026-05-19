@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":1.7142917,
+  "duration":0.0,
   "exportDir":"",
   "name":"snd_killed",
   "parent":{

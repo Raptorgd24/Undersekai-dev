@@ -1,40 +1,56 @@
 varying vec2 v_vTexcoord;
+
 uniform sampler2D palette;
+
 uniform float row;
 uniform float total_rows;
+
 uniform vec4 palette_uvs;
 
-void main() {
-    vec4 base_color = texture2D(gm_BaseTexture, v_vTexcoord);
+void main()
+{
+    vec4 base = texture2D(gm_BaseTexture, v_vTexcoord);
 
-    if (base_color.a < 0.01) {
-        gl_FragColor = vec4(0.0);
+    if (base.a <= 0.0)
+    {
+        gl_FragColor = base;
         return;
     }
 
-    float r = base_color.r;
-    float g = base_color.g;
-    float b = base_color.b;
-
     float index = -1.0;
 
-    // ✅ Canal dominante: el ganador debe duplicar a los otros dos
-    if      (r > 0.5 && r > g * 2.0 && r > b * 2.0) index = 0.0; // rojo
-    else if (g > 0.5 && g > r * 2.0 && g > b * 2.0) index = 1.0; // verde
-    else if (b > 0.5 && b > r * 2.0 && b > g * 2.0) index = 2.0; // azul
+    float eps = 0.05;
 
-    if (index < 0.0) {
-        gl_FragColor = base_color;
+    if (distance(base.rgb, vec3(1.0, 0.0, 0.0)) < eps)
+    {
+        index = 0.0;
+    }
+    else if (distance(base.rgb, vec3(0.0, 1.0, 0.0)) < eps)
+    {
+        index = 1.0;
+    }
+    else if (distance(base.rgb, vec3(0.0, 0.0, 1.0)) < eps)
+    {
+        index = 2.0;
+    }
+
+    if (index < 0.0)
+    {
+        gl_FragColor = base;
         return;
     }
 
     float palette_width = 3.0;
-    float norm_x = (index + 0.5) / palette_width;
-    float norm_y = (row   + 0.5) / total_rows;
 
-    float atlas_x = palette_uvs.x + norm_x * (palette_uvs.z - palette_uvs.x);
-    float atlas_y = palette_uvs.y + norm_y * (palette_uvs.w - palette_uvs.y);
+    // UV LOCAL dentro de la paleta
+    float local_x = (index + 0.5) / palette_width;
+    float local_y = (row + 0.5) / total_rows;
 
-    vec3 new_color = texture2D(palette, vec2(atlas_x, atlas_y)).rgb;
-    gl_FragColor = vec4(new_color, base_color.a);
+    // Convertir a UV REAL del atlas
+    float atlas_x = mix(palette_uvs.x, palette_uvs.z, local_x);
+    float atlas_y = mix(palette_uvs.y, palette_uvs.w, local_y);
+
+    vec4 pal = texture2D(palette, vec2(atlas_x, atlas_y));
+
+    gl_FragColor = vec4(pal.rgb, base.a);
 }

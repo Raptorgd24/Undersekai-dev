@@ -1,6 +1,6 @@
 image_alpha = 0;
 // --------------------- CREATE ---------------------
-// Inicializar managers
+
 global.dialogue_manager = {
     active: false,
     current_dialogue: undefined,

@@ -68,16 +68,20 @@ function scr_sing_end(_sing_manager) {
     if (instance_exists(_battle_ref)) {
         global.fame += _fame_given;
 
-        with (_battle_ref) {
-            selected_act = "SING";
+with (_battle_ref) {
+    selected_act = "SING";
 
-            if (instance_exists(obj_thebox)) {
-                obj_thebox.text         = "* You sang! " + _rank + "\n* Gained " + string(_fame_given) + " fame!";
-                obj_thebox.display_text = "";
-                obj_thebox.text_index   = 0;
-            }
+    if (instance_exists(obj_thebox)) {
+        obj_thebox.target_width  = 280;
+        obj_thebox.target_height = 78;
+        obj_thebox.target_x      = 25;
+        obj_thebox.target_y      = 110;
+        obj_thebox.text          = "* You sang! " + _rank + "\n* Gained " + string(_fame_given) + " fame!";
+        obj_thebox.display_text  = "";
+        obj_thebox.text_index    = 0;
+    }
 
-            mode = "act_result";
-        }
+    mode = "act_result";
+}
     }
 }

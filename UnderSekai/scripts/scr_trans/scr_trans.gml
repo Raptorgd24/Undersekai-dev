@@ -13,10 +13,8 @@ function scr_trans(_the_room=rm_Room666, _x=0, _y=0) {
         global.trans_state = 0;
         global.trans_target = _the_room;
 		
-        // --- Determinar zona de la habitación ---
         var room_zone = get_zone_for_room(_the_room);
 
-        // Solo cambiar música si la zona es diferente
         if (!is_undefined(room_zone) && room_zone != global.current_zone) {
             var new_song = noone;
             if (ds_map_exists(global.zone_music, room_zone)) {
@@ -24,7 +22,7 @@ function scr_trans(_the_room=rm_Room666, _x=0, _y=0) {
             }
 
             if (!is_undefined(new_song) && new_song != noone) {
-                scr_musictrans(new_song, 30); // fade de 30 frames
+                scr_musictrans(new_song, 30); 
             }
 
             global.current_zone = room_zone;

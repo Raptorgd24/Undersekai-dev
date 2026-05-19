@@ -27,6 +27,11 @@ function scr_sing_update(_sing_manager) {
                     note_obj.lane         = note.lane;
                     note_obj.time_ms      = note.time_ms;
                     note_obj.sing_manager = id;
+					note_obj.x = note_obj.lane_positions[$ note.lane];
+					
+					if (instance_exists(obj_sing_ui)) {
+						note_obj.x = obj_sing_ui.lane_positions[$ note.lane];
+					}
                 }
                 note.visual_created = true;
                 note.visual_id      = instance_exists(note_obj) ? note_obj : noone;

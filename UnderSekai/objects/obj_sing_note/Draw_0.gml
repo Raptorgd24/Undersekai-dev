@@ -1,3 +1,4 @@
+draw_set_font(ft_determinationsans);
 var lane_colors = {
     D: c_red,
     F: c_lime,
@@ -6,7 +7,7 @@ var lane_colors = {
 };
 
 var col = lane_colors[$ lane];
-draw_set_font(ft_determinationsans);
+
 if (!hit) {
     draw_set_color(col);
     draw_rectangle(x - 12, y - 6, x + 12, y + 6, false);

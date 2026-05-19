@@ -1,37 +1,27 @@
-if (sing_manager == noone || !instance_exists(sing_manager)) return;
-
-var lane_keys = ["D", "F", "J", "K"];
-var lane_colors = [c_red, c_lime, c_blue, c_yellow];
-var lane_x_pos = [60, 100, 140, 180];
-var strum_y = 210;
-var strum_w = 28;
-var strum_h = 10;
-
+if (sing_manager == noone || !instance_exists(sing_manager)) exit;
+draw_set_font(ft_determinationsans);
 draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
+draw_set_valign(fa_top);
+draw_set_color(c_white);
 
-for (var i = 0; i < 4; i++) {
-    var lx = lane_x_pos[i];
-    
-    draw_set_color(c_dkgray);
-    draw_rectangle(lx - strum_w * 0.5, 0, lx + strum_w * 0.5, strum_y - strum_h * 0.5, false);
-    
-    var is_pressed = keyboard_check(ord(lane_keys[i]));
-    var strum_col = is_pressed ? lane_colors[i] : merge_color(lane_colors[i], c_black, 0.5);
-    
-    draw_set_color(strum_col);
-    draw_rectangle(lx - strum_w * 0.5, strum_y - strum_h * 0.5, lx + strum_w * 0.5, strum_y + strum_h * 0.5, false);
-    
-    draw_set_color(c_white);
-    draw_set_font(ft_determinationsans);
-    draw_text(lx, strum_y, lane_keys[i]);
+draw_text(combo_x, combo_y, "Combo: " + string(sing_manager.combo));
+draw_text(combo_x, combo_y + 25, "Max: " + string(sing_manager.max_combo));
+draw_text(score_x, score_y, "Score: " + string(sing_manager.total_score));
+
+draw_set_color(c_yellow);
+draw_line(lane_positions.D - 20, lane_y, lane_positions.K + 20, lane_y);
+
+draw_set_color(c_gray);
+var lanes = ["D", "F", "J", "K"];
+for (var i = 0; i < array_length(lanes); i++) {
+    var lx = lane_positions[$ lanes[i]];
+    draw_line_width(lx, lane_y - 30, lx, lane_y + 30, 3);
 }
 
 draw_set_color(c_white);
-draw_set_font(ft_determinationsans);
-draw_set_halign(fa_center);
-draw_text(combo_x, combo_y, "x" + string(sing_manager.combo));
-draw_text(score_x, score_y, string(sing_manager.total_score));
+for (var i = 0; i < array_length(lanes); i++) {
+    draw_text(lane_positions[$ lanes[i]], lane_y + 35, lanes[i]);
+}
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

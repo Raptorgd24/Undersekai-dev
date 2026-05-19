@@ -10,17 +10,15 @@ hit_accuracy = "";
 show_accuracy = false;
 
 lane_positions = {
-    D: 60,
-    F: 290,
-    J: 140,
-    K: 180
+    D: 80,
+    F: 160,
+    J: 240,
+    K: 320
 };
 
-x = lane_positions[$ lane];
-
-start_y = -8;
-target_y = 210;
-y = start_y;
+y = 50;
+start_y = 50;
+target_y = 450;
 
 speed_y = 2;
 

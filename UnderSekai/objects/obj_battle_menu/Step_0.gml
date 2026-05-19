@@ -622,7 +622,7 @@ else if (mode == "act_select") {
                 break;
 case "SING":
     if (instance_exists(obj_thebox)) with (obj_thebox) {
-        text         = "* You begin to sing...";
+        text         = "";
         display_text = "";
         text_index   = 0;
     }

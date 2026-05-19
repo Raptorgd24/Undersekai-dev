@@ -79,6 +79,7 @@
     {"name":"obj_heart_piece","order":1,"path":"objects/obj_heart_piece/obj_heart_piece.yy",},
     {"name":"obj_infcol","order":4,"path":"objects/obj_infcol/obj_infcol.yy",},
     {"name":"obj_item","order":2,"path":"objects/obj_item/obj_item.yy",},
+    {"name":"obj_menuoverworld","order":24,"path":"objects/obj_menuoverworld/obj_menuoverworld.yy",},
     {"name":"obj_mercy","order":3,"path":"objects/obj_mercy/obj_mercy.yy",},
     {"name":"obj_miss","order":13,"path":"objects/obj_miss/obj_miss.yy",},
     {"name":"obj_mogus","order":2,"path":"objects/obj_mogus/obj_mogus.yy",},

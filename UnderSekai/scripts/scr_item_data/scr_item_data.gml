@@ -15,7 +15,23 @@ function scr_item_data(_itemname){
                 name: "WeaponTest",
                 desc: "WeaponTest Desc",
                 type: "weapon",
-                atk: 5
+                atk: 10
+            };
+
+        case "Stick":
+            return {
+                name: "Palo",
+                desc: "Un palo endeble.",
+                type: "weapon",
+                atk: 1
+            };
+
+        case "Bandage":
+            return {
+                name: "Tirita",
+                desc: "Una tirita usada.",
+                type: "food",
+                heal: 4
             };
 
         case "ArmorTest":

@@ -1,7 +1,23 @@
 // Create Event
 //normal player stuff lmao
-global.ATK = (8 + (global.lv * 2))
-global.DEF = (9 + ceil((global.lv / 4)))
+global.ATK = (8 + (global.lv * 2));
+global.DEF = (9 + ceil((global.lv / 4)));
+
+if (variable_global_exists("weapon") && global.weapon != "Stick" && global.weapon != "") {
+    var _wdata = scr_item_data(global.weapon);
+    if (!is_undefined(_wdata) && variable_struct_exists(_wdata, "atk")) {
+        global.ATK += _wdata.atk;
+    }
+}
+
+if (variable_global_exists("armor") && global.armor != "Bandage" && global.armor != "") {
+    var _adata = scr_item_data(global.armor);
+    if (!is_undefined(_adata) && variable_struct_exists(_adata, "def")) {
+        global.DEF += _adata.def;
+    }
+}
+
+
 show_debug_message("ROOM: " + string(global.room_name));
 show_debug_message("NAME: " + string(global.name));
 show_debug_message("LV: " + string(global.lv));

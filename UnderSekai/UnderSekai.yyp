@@ -110,6 +110,7 @@
     {"id":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},},
     {"id":{"name":"obj_infcol","path":"objects/obj_infcol/obj_infcol.yy",},},
     {"id":{"name":"obj_item","path":"objects/obj_item/obj_item.yy",},},
+    {"id":{"name":"obj_menuoverworld","path":"objects/obj_menuoverworld/obj_menuoverworld.yy",},},
     {"id":{"name":"obj_mercy","path":"objects/obj_mercy/obj_mercy.yy",},},
     {"id":{"name":"obj_miss","path":"objects/obj_miss/obj_miss.yy",},},
     {"id":{"name":"obj_mknife","path":"objects/obj_mknife/obj_mknife.yy",},},

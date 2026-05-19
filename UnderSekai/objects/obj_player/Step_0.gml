@@ -1,7 +1,6 @@
 // Step Event
 if (can_move){
-
-// Tecla de correr (X)
+// todos los bindings so far
 if (keyboard_check(ord("X")) || keyboard_check(vk_shift)) {
     velocidad_actual = 3.25;
     anim_speed = 0.1;
@@ -10,6 +9,7 @@ else {
     velocidad_actual = base_vel;
     anim_speed = 0.07;
 }
+
 if (keyboard_check_pressed(ord("V"))) {
 	scr_trans(rm_StartingPointBeta);
 }
@@ -25,10 +25,20 @@ if (keyboard_check_pressed(ord("M"))) {
 if (keyboard_check_pressed(ord("G"))) {
 	scr_screenshake()
 }
-// Detectar movimiento (WASD o flechas)
+if (keyboard_check_pressed(ord("T"))){
+    scr_hurt(20,2);
+}
+if (keyboard_check_pressed(ord("C"))) {
+    if (!instance_exists(obj_menuoverworld)) {
+        var menu = instance_create_layer(0, 0, "Instances", obj_menuoverworld);
+        can_move = false;
+        obj_usable.can_use = false;
+    }
+}
+
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));
 my = (keyboard_check(vk_down)  || keyboard_check(ord("S"))) - (keyboard_check(vk_up)   || keyboard_check(ord("W")));
-// Si hay movimiento
+
 if (mx != 0 || my != 0) {
     var dist = point_distance(0, 0, mx, my);
     var dx = (mx	/ dist) * velocidad_actual;
@@ -92,9 +102,7 @@ if (global.atkcooldown) {
     }
 }
 
-if (keyboard_check_pressed(ord("T"))){
-    scr_hurt(20,2);
-}
+
 if (!dead){
 	if (global.healthu <=0){
 		dead = true;

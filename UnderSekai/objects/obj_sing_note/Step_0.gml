@@ -1,14 +1,15 @@
-// obj_sing_note - Step
-
 if (sing_manager == noone || !instance_exists(sing_manager)) {
     instance_destroy();
     return;
 }
 
-// Mover la nota hacia abajo
-y += speed_y;
+var cur_time = sing_manager.song_position;
+var note_time = time_ms;
+var approach_ms = 600;
 
-// Si la nota salió de la pantalla, destruir
-if (y > 500) {
+var t = 1 - clamp((note_time - cur_time) / approach_ms, 0, 1);
+y = lerp(start_y, target_y, t);
+
+if (cur_time > note_time + sing_manager.timing_bad && !hit) {
     instance_destroy();
 }

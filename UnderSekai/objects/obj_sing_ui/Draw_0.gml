@@ -1,37 +1,37 @@
-// obj_sing_ui - Draw
-
 if (sing_manager == noone || !instance_exists(sing_manager)) return;
 
+var lane_keys = ["D", "F", "J", "K"];
+var lane_colors = [c_red, c_lime, c_blue, c_yellow];
+var lane_x_pos = [60, 100, 140, 180];
+var strum_y = 210;
+var strum_w = 28;
+var strum_h = 10;
+
 draw_set_halign(fa_center);
-draw_set_valign(fa_top);
+draw_set_valign(fa_middle);
+
+for (var i = 0; i < 4; i++) {
+    var lx = lane_x_pos[i];
+    
+    draw_set_color(c_dkgray);
+    draw_rectangle(lx - strum_w * 0.5, 0, lx + strum_w * 0.5, strum_y - strum_h * 0.5, false);
+    
+    var is_pressed = keyboard_check(ord(lane_keys[i]));
+    var strum_col = is_pressed ? lane_colors[i] : merge_color(lane_colors[i], c_black, 0.5);
+    
+    draw_set_color(strum_col);
+    draw_rectangle(lx - strum_w * 0.5, strum_y - strum_h * 0.5, lx + strum_w * 0.5, strum_y + strum_h * 0.5, false);
+    
+    draw_set_color(c_white);
+    draw_set_font(ft_determinationsans);
+    draw_text(lx, strum_y, lane_keys[i]);
+}
+
 draw_set_color(c_white);
-
-// Dibujar combo
-draw_text(combo_x, combo_y, "Combo: " + string(sing_manager.combo));
-
-// Dibujar máximo combo
-draw_text(combo_x, combo_y + 25, "Max: " + string(sing_manager.max_combo));
-
-// Dibujar score total
-draw_text(score_x, score_y, "Score: " + string(sing_manager.total_score));
-
-// Dibujar línea de hit (zona de presición)
-draw_set_color(c_yellow);
-draw_line(50, 450, 390, 450);
-
-// Dibujar zonas de lanes
-draw_set_color(c_gray);
-draw_line_width(80, 420, 80, 480, 3);
-draw_line_width(160, 420, 160, 480, 3);
-draw_line_width(240, 420, 240, 480, 3);
-draw_line_width(320, 420, 320, 480, 3);
-
-// Dibujar labels de lanes
-draw_set_color(c_white);
-draw_text(80, 485, "D");
-draw_text(160, 485, "F");
-draw_text(240, 485, "J");
-draw_text(320, 485, "K");
+draw_set_font(ft_determinationsans);
+draw_set_halign(fa_center);
+draw_text(combo_x, combo_y, "x" + string(sing_manager.combo));
+draw_text(score_x, score_y, string(sing_manager.total_score));
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

@@ -720,11 +720,18 @@ else if (mode == "attacking") {
 
 // MODO CHARTING (SING)
 else if (mode == "sing_chart") {
-    // El sistema de charting se maneja en obj_sing_manager
-    // Solo esperamos a que termine
-	
+    if (instance_exists(obj_thebox)) {
+        with (obj_thebox) {
+            target_y = 300;
+        }
+    }
+    
     if (!instance_exists(obj_sing_manager)) {
-        // Si el manager fue destruido, volver a act_result
+        if (instance_exists(obj_thebox)) {
+            with (obj_thebox) {
+                target_y = 110;
+            }
+        }
         mode = "act_result";
     }
 }

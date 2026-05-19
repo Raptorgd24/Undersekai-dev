@@ -1,5 +1,3 @@
-// obj_sing_note - Create
-
 chart_data = undefined;
 lane = "D";
 time_ms = 0;
@@ -11,20 +9,20 @@ show_miss = false;
 hit_accuracy = "";
 show_accuracy = false;
 
-// Posición visual
 lane_positions = {
-    D: 80,
-    F: 160,
-    J: 240,
-    K: 320
+    D: 60,
+    F: 290,
+    J: 140,
+    K: 180
 };
 
 x = lane_positions[$ lane];
-y = 50;
-start_y = 50;
-target_y = 450; // línea de hit
 
-speed_y = 2; // velocidad de caída
+start_y = -8;
+target_y = 210;
+y = start_y;
+
+speed_y = 2;
 
 image_alpha = 1;
 depth = -400;

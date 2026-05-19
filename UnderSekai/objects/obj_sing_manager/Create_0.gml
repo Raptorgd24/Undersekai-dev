@@ -1,10 +1,7 @@
-// obj_sing_manager - Create
-// Inicialización base. scr_sing_init() sobreescribe los valores que necesita.
-
 battle_id     = noone;
-song_instance = -1;      // -1 = sin audio asignado
+song_instance = -1;
 song_position = 0;
-song_duration = 30000;   // ms (sobreescrito por scr_sing_init)
+song_duration = 30000;
 chart_start_offset = 500;
 
 combo        = 0;
@@ -19,10 +16,9 @@ timing_good = 90;
 timing_bad  = 150;
 
 show_combo    = true;
-chart_active  = false;   // Se activa DESPUÉS de cargar el chart
+chart_active  = false;
 chart_end_time = 0;
 
-// Lista de notas (NO recrear en scr_sing_init para evitar fuga de memoria)
 notes = ds_list_create();
 
 pressed_keys = {

@@ -29,6 +29,7 @@
     {"name":"sing","order":7,"path":"folders/Scripts/BattleStuff/sing.yy",},
     {"name":"TextGraah","order":6,"path":"folders/Scripts/BattleStuff/TextGraah.yy",},
     {"name":"globaldata","order":20,"path":"folders/Scripts/globaldata.yy",},
+    {"name":"HTTP","order":21,"path":"folders/Scripts/HTTP.yy",},
     {"name":"Intro","order":8,"path":"folders/Scripts/Intro.yy",},
     {"name":"ItemStuff","order":15,"path":"folders/Scripts/ItemStuff.yy",},
     {"name":"Secuencias","order":10,"path":"folders/Secuencias.yy",},

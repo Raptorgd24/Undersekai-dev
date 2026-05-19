@@ -11,9 +11,7 @@ if (confirm_lock_timer > 0) {
 }
 
 
-// =====================
 // INPUT (ESCRIBIR NOMBRE)
-// =====================
 if (menu_state == MenuState.INPUT) {
 
     if (keyboard_check_pressed(vk_up)) {
@@ -78,7 +76,6 @@ if (menu_state == MenuState.INPUT) {
         }
     }
 
-    // BORRAR (X o SHIFT)
     if (input_enabled && confirm_lock_timer <= 0 &&
         (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift))) {
 
@@ -91,9 +88,6 @@ if (menu_state == MenuState.INPUT) {
 }
 
 
-// =====================
-// CONFIRM
-// =====================
 if (menu_state == MenuState.CONFIRM) {
 
     if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right)) {
@@ -104,7 +98,6 @@ if (menu_state == MenuState.CONFIRM) {
         }
     }
 
-    // ACEPTAR
     if (input_enabled && confirm_lock_timer <= 0 &&
         (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
 
@@ -144,7 +137,6 @@ if (menu_state == MenuState.CONFIRM) {
 		}
     }
 
-    // VOLVER
     if (input_enabled && confirm_lock_timer <= 0 &&
         (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift))) {
 
@@ -163,14 +155,10 @@ if (menu_state == MenuState.CONFIRM) {
     }
 }
 
-// teehee
-if (text_input ="GASTER"){
+if (text_input == "GASTER"){
 game_restart()
 }
 
-// =====================
-// BACK ANIM
-// =====================
 if (menu_state == MenuState.BACK_ANIM) {
 
 	if (abs(text_obj.name_scale - 1) < 0.05) {
@@ -180,9 +168,6 @@ if (menu_state == MenuState.BACK_ANIM) {
 }
 
 
-// =====================
-// FADE
-// =====================
 if (fading) {
 
     fade_timer++;
@@ -192,7 +177,7 @@ if (fading) {
     if (fade_alpha >= 1 && !fade_done) {
         fade_alpha = 1;
         fade_done = true;
-		if (text_input ="GOSE" ||text_input ="GOOSE")|| text_input ="JOSE"{
+		if (text_input == "GOSE" ||text_input == "GOOSE")|| text_input == "JOSE"{
 			room_goto(rm_Shucks)
 		} else{
 			scr_init_zones();

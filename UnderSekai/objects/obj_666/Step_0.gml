@@ -15,7 +15,7 @@ if ((keyboard_check_pressed(ord("Z")) && obj_usable.can_use && shitassbool)
 }
 
 // Reducir el slowvalue hasta 0
-if (slowvalue > 0 && shitassbool=false) {
+if (slowvalue > 0 && shitassbool==false) {
     slowvalue -= 0.03;
     if (slowvalue < 0) slowvalue = 0; // clamp para no ir en negativo
 }
@@ -27,7 +27,7 @@ image_alpha = slowvalue;
 if (image_alpha <= 0) {
     instance_destroy();
 }
-if image_alpha <= 0.5 {
+if (image_alpha <= 0.5) {
 	
 	instance_create_layer(obj_666.x-20, obj_666.y-20, "Instances_1", obj_boom_temp);
 	audio_play_sound(snd_boom, 1, false);}

@@ -151,51 +151,70 @@ if (variable_instance_exists(id, "requested_song") && !is_undefined(requested_so
 }
 
 // --- controlador de volumen para la música ---
-if (variable_global_exists("song_inst") && global.song_inst != noone) {
-    global.song_fade_delta = 1 / max(1, global.song_fade_frames);
-
-    if (global.song_volume != global.song_target) {
-        if (global.song_target > global.song_volume) {
-            global.song_volume += global.song_fade_delta;
-            if (global.song_volume > global.song_target) global.song_volume = global.song_target;
-        } else {
-            global.song_volume -= global.song_fade_delta;
-            if (global.song_volume < global.song_target) global.song_volume = global.song_target;
-        }
-
-        if (audio_is_playing(global.song_inst)) {
-            audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
-        } else {
-            global.song_inst = noone;
-        }
-
-        if (global.song_volume <= 0.001 && global.song_target == 0) {
-            if (audio_is_playing(global.song_inst)) audio_stop_sound(global.song_inst);
-            global.song_inst = noone;
-
-            if (variable_global_exists("song_next") && global.song_next != noone) {
-                var _next_asset = global.song_next;
-                if (is_string(_next_asset)) {
-                    var idx = asset_get_index(_next_asset);
-                    if (idx != -1) _next_asset = idx;
-                    else _next_asset = -1;
-                }
-                if (_next_asset != -1) {
-                    global.song_asset = _next_asset;
-                    global.song_inst  = audio_play_sound(global.song_asset, 1, true);
-                    audio_sound_gain(global.song_inst, 0, 0);
-                    global.song_volume = 0;
-                    global.song_target = 1;
-                    global.song_next = noone;
-                } else {
-                    show_debug_message("⚠ scr_musictrans: song_next inválida: " + string(global.song_next));
-                    global.song_next = noone;
-                }
+if (variable_global_exists("song_inst")) {
+    if (global.song_inst == noone) {
+        if (variable_global_exists("song_next") && global.song_next != noone) {
+            var _next = global.song_next;
+            if (is_string(_next)) {
+                var _idx = asset_get_index(_next);
+                _next = (_idx != -1) ? _idx : -1;
             }
+            if (_next != -1) {
+                global.song_asset  = _next;
+                global.song_inst   = audio_play_sound(global.song_asset, 1, true);
+                audio_sound_gain(global.song_inst, 0, 0);
+                global.song_volume = 0;
+                global.song_target = 1;
+                global.song_next   = noone;
+            }
+        } else if (variable_global_exists("song_asset") && global.song_asset != noone) {
+            global.song_inst   = audio_play_sound(global.song_asset, 1, true);
+            audio_sound_gain(global.song_inst, global.song_volume, 0);
         }
     } else {
-        if (audio_is_playing(global.song_inst)) {
-            audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
+        global.song_fade_delta = 1 / max(1, global.song_fade_frames);
+
+        if (global.song_volume != global.song_target) {
+            if (global.song_target > global.song_volume) {
+                global.song_volume += global.song_fade_delta;
+                if (global.song_volume > global.song_target) global.song_volume = global.song_target;
+            } else {
+                global.song_volume -= global.song_fade_delta;
+                if (global.song_volume < global.song_target) global.song_volume = global.song_target;
+            }
+
+            if (audio_is_playing(global.song_inst)) {
+                audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
+            } else {
+                global.song_inst = noone;
+            }
+
+            if (global.song_volume <= 0.001 && global.song_target == 0) {
+                if (audio_is_playing(global.song_inst)) audio_stop_sound(global.song_inst);
+                global.song_inst = noone;
+
+                if (variable_global_exists("song_next") && global.song_next != noone) {
+                    var _next_asset = global.song_next;
+                    if (is_string(_next_asset)) {
+                        var idx = asset_get_index(_next_asset);
+                        _next_asset = (idx != -1) ? idx : -1;
+                    }
+                    if (_next_asset != -1) {
+                        global.song_asset  = _next_asset;
+                        global.song_inst   = audio_play_sound(global.song_asset, 1, true);
+                        audio_sound_gain(global.song_inst, 0, 0);
+                        global.song_volume = 0;
+                        global.song_target = 1;
+                        global.song_next   = noone;
+                    } else {
+                        global.song_next = noone;
+                    }
+                }
+            }
+        } else {
+            if (audio_is_playing(global.song_inst)) {
+                audio_sound_gain(global.song_inst, clamp(global.song_volume, 0, 1), 0);
+            }
         }
     }
 }

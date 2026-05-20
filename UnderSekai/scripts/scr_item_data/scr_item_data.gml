@@ -9,6 +9,14 @@ function scr_item_data(_itemname){
                 type: "food",
                 heal: 20
             };
+			
+        case "Puerro":
+            return {
+                name: "Puerro",
+                desc: "Parece que valga 40 yenes.",
+                type: "food",
+                heal: 100
+            };
 
         case "WeaponTest":
             return {

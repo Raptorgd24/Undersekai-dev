@@ -13,6 +13,14 @@ function scr_selitem_apply(_itemname)
             image_index  = 3;
         break;
 
+        case "Stick":
+            image_index  = 4;
+        break;
+
+        case "Bandage":
+            image_index  = 8;
+        break;
+
         case "ArmorTest":
             image_index  = 5;
         break;
@@ -20,18 +28,7 @@ function scr_selitem_apply(_itemname)
         case "KeyTest":
             image_index  = 6;
         break;
-        case "CHECK":
-            image_index = 0; // o algún sprite
-        break;
-        case "PUN":
-            image_index = 0;
-        break;
-        case "JOKE":
-            image_index = 0;
-        break;
-        case "HOLDBREATH":
-            image_index = 0;
-        break;
+
 		default:
 			image_index = 1;
 		break;

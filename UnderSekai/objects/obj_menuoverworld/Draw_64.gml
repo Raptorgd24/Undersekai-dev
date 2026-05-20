@@ -75,6 +75,8 @@ else if (state == "items") {
                 case "WeaponTest": frame = 3; break;
                 case "ArmorTest":  frame = 5; break;
                 case "KeyTest":    frame = 6; break;
+                case "Bandage":    frame = 8; break;
+                case "Stick":    frame = 4; break;
             }
 
             var sprite_cx = right_panel_x + right_panel_w / 2;

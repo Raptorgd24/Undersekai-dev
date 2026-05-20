@@ -38,3 +38,15 @@ else
 {
     draw_self();
 }
+if (global.debug) {
+    draw_set_alpha(0.25);
+    draw_set_color(c_green);
+    draw_rectangle(zone_x1, zone_y1, zone_x2, zone_y2, false);
+
+    draw_set_alpha(0.5);
+    draw_set_color(returning ? c_orange : (followPlayer ? c_red : c_green));
+    draw_circle(x, y, detect_range, true);
+
+    draw_set_alpha(1);
+    draw_set_color(c_white);
+}

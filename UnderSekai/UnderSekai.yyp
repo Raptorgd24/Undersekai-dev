@@ -170,6 +170,7 @@
     {"id":{"name":"scr_dialogue","path":"scripts/scr_dialogue/scr_dialogue.yy",},},
     {"id":{"name":"scr_die","path":"scripts/scr_die/scr_die.yy",},},
     {"id":{"name":"scr_draw_text_sprites","path":"scripts/scr_draw_text_sprites/scr_draw_text_sprites.yy",},},
+    {"id":{"name":"scr_enemyfollower_anim","path":"scripts/scr_enemyfollower_anim/scr_enemyfollower_anim.yy",},},
     {"id":{"name":"scr_event_manager","path":"scripts/scr_event_manager/scr_event_manager.yy",},},
     {"id":{"name":"scr_events","path":"scripts/scr_events/scr_events.yy",},},
     {"id":{"name":"scr_firststart","path":"scripts/scr_firststart/scr_firststart.yy",},},

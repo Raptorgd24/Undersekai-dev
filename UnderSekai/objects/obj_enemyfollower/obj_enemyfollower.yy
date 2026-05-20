@@ -30,6 +30,8 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"whoAreYou","filters":[],"listItems":[],"multiselect":false,"name":"whoAreYou","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Mogus","varType":2,},
+    {"$GMObjectProperty":"v2","%Name":"zone_half_h","filters":[],"listItems":[],"multiselect":false,"name":"zone_half_h","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"150","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"zone_half_w","filters":[],"listItems":[],"multiselect":false,"name":"zone_half_w","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"150","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

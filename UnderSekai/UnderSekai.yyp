@@ -101,6 +101,7 @@
     {"id":{"name":"obj_endphone","path":"objects/obj_endphone/obj_endphone.yy",},},
     {"id":{"name":"obj_enemybubbl","path":"objects/obj_enemybubbl/obj_enemybubbl.yy",},},
     {"id":{"name":"obj_enemyfollower","path":"objects/obj_enemyfollower/obj_enemyfollower.yy",},},
+    {"id":{"name":"obj_enemyfollowertrail","path":"objects/obj_enemyfollowertrail/obj_enemyfollowertrail.yy",},},
     {"id":{"name":"obj_eventTrigger","path":"objects/obj_eventTrigger/obj_eventTrigger.yy",},},
     {"id":{"name":"obj_fight","path":"objects/obj_fight/obj_fight.yy",},},
     {"id":{"name":"obj_flowers","path":"objects/obj_flowers/obj_flowers.yy",},},

@@ -44,7 +44,12 @@ if (returning) {
 }
 
 if (!followPlayer && !detected) {
-
+    // Trail visual
+    trail_timer++;
+    if (trail_timer >= trail_interval) {
+        trail_timer = 0;
+        instance_create_layer(x, y, layer, obj_enemyfollowertrail);
+    }
     if (is_waiting) {
         wait_timer--;
         scr_enemyfollower_anim(0);

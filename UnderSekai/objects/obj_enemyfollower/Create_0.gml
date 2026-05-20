@@ -1,6 +1,7 @@
 hsp = 0.5;
 dir = 1;
-
+trail_timer = 0;
+trail_interval = 6;
 is_waiting    = false;
 move_timer    = irandom_range(90, 200);
 wait_timer    = irandom_range(60, 150);

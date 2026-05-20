@@ -1,4 +1,6 @@
-if (!active && place_meeting(x, y, obj_player)) {
+var touching = place_meeting(x, y, obj_player);
+
+if (!active && touching && !was_touching) {
 
     active = true;
     image_index = 1;
@@ -10,3 +12,5 @@ if (!active && place_meeting(x, y, obj_player)) {
         ctrl.check_input(btnid);
     }
 }
+
+was_touching = touching;

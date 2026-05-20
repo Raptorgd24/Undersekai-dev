@@ -5,6 +5,9 @@ function scr_sansmiss(_target) {
 
     with (_target) {
         sans_miss = true;
+        move_state = 0;
+        move_speed = -12;
+        target_x = origin_x;
         scr_sansmovement(false);
     }
 }

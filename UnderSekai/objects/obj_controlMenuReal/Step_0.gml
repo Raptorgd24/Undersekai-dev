@@ -17,7 +17,7 @@ if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) {
         window_set_fullscreen(false);
     }
 }*/
-// Capping (no circular)
+
 if (menu_index < 0) menu_index = 0;
 if (menu_index > array_length(menu_options) - 1) menu_index = array_length(menu_options) - 1;
 
@@ -34,6 +34,7 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
 switch (option) {
     case "START":
         show_debug_message("Creando nuevo save.dat...");
+		
 		scr_firststart()
     break;
     
@@ -46,6 +47,7 @@ switch (option) {
     
     case "RESET":
         show_debug_message("Reseteando save.dat...");
+		
 		scr_firststart()
     break;
     

@@ -1,4 +1,3 @@
-
 // Crear 
 
 function npc_dialogue() {
@@ -79,6 +78,7 @@ NPCframes     = 0;
 NPCspeed      = 1;
 NPCmoonwalk   = false;
 
+passable = false;
 
 anim_timer    = 0;
 anim_speed    = 0.1; 

@@ -161,6 +161,7 @@
     {"id":{"name":"rm_ruins4","path":"rooms/rm_ruins4/rm_ruins4.yy",},},
     {"id":{"name":"rm_ruins5","path":"rooms/rm_ruins5/rm_ruins5.yy",},},
     {"id":{"name":"rm_ruins6","path":"rooms/rm_ruins6/rm_ruins6.yy",},},
+    {"id":{"name":"rm_ruins7","path":"rooms/rm_ruins7/rm_ruins7.yy",},},
     {"id":{"name":"rm_Shucks","path":"rooms/rm_Shucks/rm_Shucks.yy",},},
     {"id":{"name":"rm_StartingPointBeta","path":"rooms/rm_StartingPointBeta/rm_StartingPointBeta.yy",},},
     {"id":{"name":"get_zone_for_room","path":"scripts/get_zone_for_room/get_zone_for_room.yy",},},
@@ -333,6 +334,7 @@
     {"roomId":{"name":"rm_ruins4","path":"rooms/rm_ruins4/rm_ruins4.yy",},},
     {"roomId":{"name":"rm_ruins5","path":"rooms/rm_ruins5/rm_ruins5.yy",},},
     {"roomId":{"name":"rm_ruins6","path":"rooms/rm_ruins6/rm_ruins6.yy",},},
+    {"roomId":{"name":"rm_ruins7","path":"rooms/rm_ruins7/rm_ruins7.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

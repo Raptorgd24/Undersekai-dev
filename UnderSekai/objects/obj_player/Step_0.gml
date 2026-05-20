@@ -39,10 +39,19 @@ if (keyboard_check_pressed(ord("C"))) {
 mx = (keyboard_check(vk_right) || keyboard_check(ord("D"))) - (keyboard_check(vk_left) || keyboard_check(ord("A")));
 my = (keyboard_check(vk_down)  || keyboard_check(ord("S"))) - (keyboard_check(vk_up)   || keyboard_check(ord("W")));
 
+
+if (!place_meeting(x, y, obj_colision))
+{
+    last_safe_x = x;
+    last_safe_y = y;
+}
+
 if (mx != 0 || my != 0) {
     var dist = point_distance(0, 0, mx, my);
     var dx = (mx	/ dist) * velocidad_actual;
     var dy = (my / dist) * velocidad_actual;
+
+
 // --- Movimiento con colisión ---
 var inst_x = instance_place(x + dx, y, obj_NPC_parent);
 var inst_y = instance_place(x, y + dy, obj_NPC_parent);

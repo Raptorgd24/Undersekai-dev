@@ -16,8 +16,8 @@ if (variable_global_exists("armor") && global.armor != "Bandage" && global.armor
         global.DEF += _adata.def;
     }
 }
-
-
+last_safe_x =0;
+last_safe_y =0;
 show_debug_message("ROOM: " + string(global.room_name));
 show_debug_message("NAME: " + string(global.name));
 show_debug_message("LV: " + string(global.lv));

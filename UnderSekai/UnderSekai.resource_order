@@ -103,6 +103,7 @@
     {"name":"obj_thebox","order":4,"path":"objects/obj_thebox/obj_thebox.yy",},
     {"name":"obj_trail","order":1,"path":"objects/obj_trail/obj_trail.yy",},
     {"name":"obj_trans","order":10,"path":"objects/obj_trans/obj_trans.yy",},
+    {"name":"obj_trleek","order":25,"path":"objects/obj_trleek/obj_trleek.yy",},
     {"name":"obj_usable","order":3,"path":"objects/obj_usable/obj_usable.yy",},
     {"name":"obj_zoom_effect","order":10,"path":"objects/obj_zoom_effect/obj_zoom_effect.yy",},
     {"name":"rm_ActualMenu","order":7,"path":"rooms/rm_ActualMenu/rm_ActualMenu.yy",},

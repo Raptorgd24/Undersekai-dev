@@ -42,6 +42,9 @@ box_y = 245;
 box_width = 280;
 box_height = 78;
 
+is_tutorial    = false;
+tutorial_phase = 0;
+
 enemyName = "Test";
 enemyHealth = 50;
 enemyDefense = 0;
@@ -148,6 +151,22 @@ if (variable_global_exists("enemy")) {
 			bulletcooldownOG = bulletcooldown;
 			global.enemydmg = 1
             break;
+		case "Sans_Tutorial":
+			songbattle     = mus_sanstutorial;
+			song_instance  = audio_play_sound(songbattle, 1, true);
+			theEnemy       = instance_create_layer(px, py - 20, "Instances", obj_sans);
+			text_to_show   = "* Hora de aprender.";
+			enemyName      = "Sans";
+			enemyHealth    = 999999;
+			enemyDefense   = 999;
+			expgiven       = 0;
+			goldGiven      = 0;
+			bulletcooldown = 45;
+			bulletcooldownOG = bulletcooldown;
+			global.enemydmg  = 1;
+			is_tutorial      = true;
+			tutorial_phase   = 0;
+			break;
 		default:
 		    song_instance = audio_play_sound(songbattle, 1, true);
 			theEnemy = instance_create_layer(px, py, "Instances", obj_mogus);

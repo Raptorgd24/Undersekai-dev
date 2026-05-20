@@ -1,4 +1,4 @@
-audio_play_sound(mus_666,1,true)
+audio_play_sound(mus_options,1,true)
 scr_options_load();
 
 menu_options = ["RESOLUTION", "FULLSCREEN", "MASTER VOL", "BACK"];

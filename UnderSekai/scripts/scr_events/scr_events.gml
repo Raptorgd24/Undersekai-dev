@@ -45,8 +45,8 @@ function scr_events(_event) {
                             var dialogue = {
                                 messages: [
                                     { text: "anyway kid...", character: "sans", face_index: 0, keep_box: true },
-                                    { text: "i-i think im close-", character: "sans", face_index: 0, keep_box: true },
-                                    { text: "oh no... i'm about to-", character: "sans", face_index: 0, keep_box: false }
+                                    { text: "im going to fly away", character: "sans", face_index: 0, keep_box: true },
+                                    { text: "wooooo", character: "sans", face_index: 0, keep_box: false }
                                 ],
                                 release_move: false
                             };
@@ -69,7 +69,7 @@ function scr_events(_event) {
                             var dialogue = {
                                 messages: [
                                     { text: "...", character: "noone", face_index: 8, keep_box: true },
-                                    { text: "What the fuck...", character: "noone", face_index: 8, keep_box: false }
+                                    { text: "Huh...", character: "noone", face_index: 8, keep_box: false }
                                 ],
                                 release_move: true
                             };
@@ -86,6 +86,60 @@ function scr_events(_event) {
             event_start(event_struct);
             break;
 		case 2:
+    var _talked  = scr_get_global_data("tutorial_talked",  false);
+    var _skipped = scr_get_global_data("tutorial_skipped", false);
+
+    if (_talked || _skipped) {
+        obj_player.can_move = true;
+        obj_usable.can_use  = true;
+        break;
+    }
+
+    var event_skip = {
+        steps: [
+            {
+                action: function() {
+                    obj_player.can_move = false;
+                    obj_usable.can_use  = false;
+
+                    var dialogue = {
+                        messages: [
+                            {
+                                text: "hey hey hey.\n¿a dónde crees que vas?",
+                                character: "sans",
+                                face_index: 7,
+                                keep_box: true
+                            },
+                            {
+                                text: "no sabes que es de mala educación\npasar sin saludar?",
+                                character: "sans",
+                                face_index: 10,
+                                keep_box: true
+                            },
+                            {
+                                text: "ven.\nserá rápido.",
+                                character: "sans",
+                                face_index: 0,
+                                keep_box: false
+                            }
+                        ],
+                        release_move: false
+                    };
+                    dialogue_start(dialogue, function() {
+                        global.event_manager.waiting_for_dialogue = true;
+                    });
+                }
+            },
+            {
+                action: function() {
+                    scr_set_global_data("tutorial_skipped", true);
+                    scr_start_battle("Sans_Tutorial");
+                }
+            }
+        ]
+    };
+    event_start(event_skip);
+    break;
 		
 		break;
 		case 3:

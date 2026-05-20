@@ -48,7 +48,7 @@ switch (menu_options[menu_index]) {
         if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
             audio_play_sound(snd_select, 1, false);
             if (room == rm_options) {
-                audio_stop_sound(mus_666);
+                audio_stop_sound(mus_options);
                 room_goto(rm_ActualMenu);
             } else {
                 instance_destroy();
@@ -60,7 +60,7 @@ switch (menu_options[menu_index]) {
 if (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift)) {
     audio_play_sound(snd_menumove, 1, false);
     if (room == rm_options) {
-        audio_stop_sound(mus_666);
+        audio_stop_sound(mus_options);
         room_goto(rm_ActualMenu);
     } else {
         instance_destroy();

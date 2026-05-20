@@ -3,6 +3,11 @@
 
 var menu_objs = [obj_fight, obj_act, obj_item, obj_mercy];
 
+if (is_tutorial) {
+    global.healthu = max(1, global.healthu);
+    global.atkcooldown = (global.healthu <= 1) ? false : global.atkcooldown;
+}
+
 if (mode == "menu") {
     // Navegación del cursor (L/R)
     if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))) {
@@ -135,8 +140,44 @@ break;
 }
 else if (mode == "end") {
     if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
-        audio_resume_sound(global.song_inst);
-        scr_trans(last_room, global.player_return_x, global.player_return_y);
+
+        if (is_tutorial && !tutorial_end_talked) {
+            tutorial_end_talked = true;
+
+            var _skipped = scr_get_global_data("tutorial_skipped", false);
+
+            var _end_text  = "";
+            var _end_face  = 0;
+
+            if (_skipped) {
+                _end_text = "ya ves.\nno era tan difícil.\nla próxima vez\nhazme caso antes.";
+                _end_face = 4;
+            } else {
+                _end_text = "bien hecho.\nrecuerda:\nfama, lucha, o canción.\ntú decides.";
+                _end_face = 12;
+            }
+
+            var dialogue_end = {
+                messages: [
+                    {
+                        text:       _end_text,
+                        character:  "sans",
+                        face_index: _end_face,
+                        keep_box:   false
+                    }
+                ],
+                release_move: false
+            };
+
+            dialogue_start(dialogue_end, function() {
+                audio_resume_sound(global.song_inst);
+                scr_trans(last_room, global.player_return_x, global.player_return_y);
+            });
+
+        } else if (!is_tutorial || tutorial_end_talked) {
+            audio_resume_sound(global.song_inst);
+            scr_trans(last_room, global.player_return_x, global.player_return_y);
+        }
     }
 }
 else if (mode == "mercy_menu") {

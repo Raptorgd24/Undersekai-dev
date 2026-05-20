@@ -4,9 +4,15 @@ var gui_h = display_get_gui_height();
 box_w = 300;
 box_h = 160;
 
+options_index = 0;
+options_list  = ["RESOLUTION", "FULLSCREEN", "MASTER VOL", "EXIT GAME"];
+res_labels    = ["320x240", "640x480", "960x720", "1280x960"];
+options_confirm = false;
+
 sizes = {
-    main:  { w: 300, h: 160 },
-    items: { w: 560, h: 300 }
+    main:    { w: 300, h: 160 },
+    items:   { w: 560, h: 300 },
+    options: { w: 420, h: 200 }
 };
 
 box_x = (gui_w - box_w) / 2;

@@ -89,6 +89,66 @@ else if (state == "items") {
         draw_text(right_panel_x, box_y + box_h / 2, "No items.");
     }
 }
+else if (state == "options") {
+    var padding = 20;
+    var opt_y   = box_y + padding;
+    var spacing = 38;
+
+    if (options_confirm) {
+        draw_set_color(c_white);
+        draw_text(box_x + padding + 20, opt_y, "Are you sure?");
+
+        var yes_x = box_x + padding + 20;
+        var no_x  = box_x + padding + 130;
+        var btn_y = opt_y + spacing;
+
+        if (options_index == 0) {
+            draw_set_color(c_yellow);
+            draw_sprite_ext(spr_heart, 0, yes_x - 24, btn_y + 5, 2, 2, 0, c_white, 1);
+        } else {
+            draw_set_color(make_color_rgb(180, 180, 180));
+        }
+        draw_text(yes_x, btn_y, "YES");
+
+        if (options_index == 1) {
+            draw_set_color(c_yellow);
+            draw_sprite_ext(spr_heart, 0, no_x - 24, btn_y + 5, 2, 2, 0, c_white, 1);
+        } else {
+            draw_set_color(make_color_rgb(180, 180, 180));
+        }
+        draw_text(no_x, btn_y, "NO");
+
+        draw_set_color(c_white);
+        exit;
+    }
+
+    for (var i = 0; i < array_length(options_list); i++) {
+        var opt = options_list[i];
+        var oy  = opt_y + i * spacing;
+        var ox  = box_x + padding + 20;
+
+        if (i == options_index) {
+            draw_set_color(c_white);
+            draw_sprite_ext(spr_heart, 0, ox - 24, oy + 5, 2, 2, 0, c_white, 1);
+        } else {
+            draw_set_color(make_color_rgb(180, 180, 180));
+        }
+
+        draw_text(ox, oy, opt);
+
+        draw_set_color(c_white);
+
+        if (opt == "RESOLUTION") {
+            draw_text(ox + 170, oy, "< " + res_labels[global.opt_resolution] + " >");
+        }
+        if (opt == "FULLSCREEN") {
+            draw_text(ox + 170, oy, global.opt_fullscreen ? "ON" : "OFF");
+        }
+        if (opt == "MASTER VOL") {
+            draw_text(ox + 170, oy, "< " + string(round(global.opt_master_vol * 100)) + "% >");
+        }
+    }
+}
 
 draw_set_color(c_white);
 draw_set_halign(fa_left);

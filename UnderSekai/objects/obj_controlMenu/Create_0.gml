@@ -1,5 +1,6 @@
 // CREATE EVENT
 gpu_set_texfilter(false);
+scr_options_load();
 show_debug_message("=== INICIO INTRO ===");
 image_alpha = 0;
 intro_state = "writing";

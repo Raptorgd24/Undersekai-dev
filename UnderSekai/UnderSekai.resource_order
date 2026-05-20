@@ -232,6 +232,7 @@
     {"name":"spr_mtsekai","order":1,"path":"sprites/spr_mtsekai/spr_mtsekai.yy",},
     {"name":"spr_nohealth","order":5,"path":"sprites/spr_nohealth/spr_nohealth.yy",},
     {"name":"spr_noone","order":2,"path":"sprites/spr_noone/spr_noone.yy",},
+    {"name":"spr_noor","order":6,"path":"sprites/spr_noor/spr_noor.yy",},
     {"name":"spr_normalBG","order":12,"path":"sprites/spr_normalBG/spr_normalBG.yy",},
     {"name":"spr_numbah","order":9,"path":"sprites/spr_numbah/spr_numbah.yy",},
     {"name":"spr_palette","order":1,"path":"sprites/spr_palette/spr_palette.yy",},

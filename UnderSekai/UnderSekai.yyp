@@ -291,6 +291,7 @@
     {"id":{"name":"spr_mtsekai","path":"sprites/spr_mtsekai/spr_mtsekai.yy",},},
     {"id":{"name":"spr_nohealth","path":"sprites/spr_nohealth/spr_nohealth.yy",},},
     {"id":{"name":"spr_noone","path":"sprites/spr_noone/spr_noone.yy",},},
+    {"id":{"name":"spr_noor","path":"sprites/spr_noor/spr_noor.yy",},},
     {"id":{"name":"spr_normalBG","path":"sprites/spr_normalBG/spr_normalBG.yy",},},
     {"id":{"name":"spr_numbah","path":"sprites/spr_numbah/spr_numbah.yy",},},
     {"id":{"name":"spr_palette","path":"sprites/spr_palette/spr_palette.yy",},},

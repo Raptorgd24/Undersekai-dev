@@ -50,3 +50,8 @@ if (global.debug) {
     draw_set_alpha(1);
     draw_set_color(c_white);
 }
+
+if (show_alert)
+{
+    draw_sprite(spr_exclamation, 0, x+5, y - 13);
+}

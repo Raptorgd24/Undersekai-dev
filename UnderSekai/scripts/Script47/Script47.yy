@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script47",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script47",
+  "parent":{
+    "name":"HTTP",
+    "path":"folders/Scripts/HTTP.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

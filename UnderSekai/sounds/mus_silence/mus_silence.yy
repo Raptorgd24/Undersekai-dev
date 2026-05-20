@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":9.978368,
   "exportDir":"",
   "name":"mus_silence",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"mus_silence.ogg",
+  "soundFile":"mus_silence.wav",
   "volume":1.0,
 }

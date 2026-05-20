@@ -133,14 +133,11 @@ break;
         }
     }
 }
-else if (mode == "end"){
-	if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
-		with (obj_heart){
-			
-			audio_resume_sound(global.song_inst);
-			scr_trans(last_room, global.player_return_x, global.player_return_y)
-		}
-	}
+else if (mode == "end") {
+    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+        audio_resume_sound(global.song_inst);
+        scr_trans(last_room, global.player_return_x, global.player_return_y);
+    }
 }
 else if (mode == "mercy_menu") {
 

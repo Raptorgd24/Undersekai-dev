@@ -2,7 +2,7 @@
 /// @desc 
 image_alpha = 0;
 depth = -100;
-
+last_room = global.player_return_room;
 mode = "menu";
 seleccion = 0;
 songbattle = mus_nuzzle;
@@ -173,15 +173,17 @@ if (instance_exists(obj_thebox)) {
     }
 }
 
-// Configurar obj_heart (posición inicial)
-if (instance_exists(obj_heart)) {
+// obj heart coso
+if (!instance_exists(obj_heart)) {
+    var _h = instance_create_layer(0, 0, "Instances", obj_heart);
+    _h.mode = "select";
+    _h.x    = boton_x_inicial + seleccion * boton_espaciado + 4;
+    _h.y    = boton_y + 6;
+} else {
     with (obj_heart) {
         mode = "select";
-        // posicionarlo sobre la opción actual
-        x = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
-        y = other.boton_y + 6;
-        target_x = x;
-        target_y = y;
+        x    = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
+        y    = other.boton_y + 6;
     }
 }
 

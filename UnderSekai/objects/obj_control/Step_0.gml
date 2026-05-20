@@ -105,12 +105,12 @@ if (global.trans_active) {
             }
         break;
 
-        case 1:
-            global.trans_state = 2;
+		case 1:
+			global.trans_state = 2;
 			obj_player.visible = true;
-				obj_player.x =_x;
-				obj_player.y =_y;
-        break;
+			obj_player.x = obj_control._x;
+			obj_player.y = obj_control._y;
+		break;
 
         case 2:
             global.trans_alpha -= global.trans_speed;

@@ -119,6 +119,7 @@
     {"name":"rm_ruins3","order":2,"path":"rooms/rm_ruins3/rm_ruins3.yy",},
     {"name":"rm_ruins4","order":3,"path":"rooms/rm_ruins4/rm_ruins4.yy",},
     {"name":"rm_ruins5","order":4,"path":"rooms/rm_ruins5/rm_ruins5.yy",},
+    {"name":"rm_ruins6","order":5,"path":"rooms/rm_ruins6/rm_ruins6.yy",},
     {"name":"rm_Shucks","order":13,"path":"rooms/rm_Shucks/rm_Shucks.yy",},
     {"name":"rm_StartingPointBeta","order":3,"path":"rooms/rm_StartingPointBeta/rm_StartingPointBeta.yy",},
     {"name":"get_zone_for_room","order":5,"path":"scripts/get_zone_for_room/get_zone_for_room.yy",},

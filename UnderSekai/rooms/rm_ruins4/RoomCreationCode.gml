@@ -37,7 +37,7 @@ for (var i = 0; i < 6; i++) {
     var b = instance_create_layer(positions[i][0], positions[i][1], "Instances", obj_button);
     b.btnid = i + 1;
 	with (b){
-	if(scr_get_global_data("Spikes")){
+	if(scr_get_global_data("Spikes1")){
 	active = true;
     image_index = 1;	
 	}}

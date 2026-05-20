@@ -20,7 +20,7 @@ function check_input(_id) {
             with (obj_spikes) {
                 active = false;
 				image_index = 1;
-				scr_set_global_data("Spikes",true)
+				scr_set_global_data("Spikes1",true)
 
             }
         }

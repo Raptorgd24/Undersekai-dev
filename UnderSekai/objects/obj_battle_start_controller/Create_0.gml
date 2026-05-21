@@ -19,9 +19,7 @@ heart_gui_y  = ((obj_player.y - cam_y) / cam_h) * gui_h;
 target_gui_x = 49;
 target_gui_y = 416;
 
-with (obj_player) {
-    can_move = false;
-}
-with (obj_usable) {
-    can_use = false;
-}
+instance_create_layer(0, 0, "Instances", obj_heart);
+with (obj_heart) visible = false;
+with (obj_player) can_move = false;
+with (obj_usable) can_use = false;

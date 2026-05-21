@@ -8,6 +8,8 @@ seleccion = 0;
 songbattle = mus_nuzzle;
 opciones = ["FIGHT","ACT","ITEM","MERCY"];
 
+
+
 // --- Dialogue system ---
 dialogue_index = 0;
 dialogue_data = undefined;
@@ -200,6 +202,7 @@ if (!instance_exists(obj_heart)) {
     _h.y    = boton_y + 6;
 } else {
     with (obj_heart) {
+		visible = true;
         mode = "select";
         x    = other.boton_x_inicial + other.seleccion * other.boton_espaciado + 4;
         y    = other.boton_y + 6;

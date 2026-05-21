@@ -37,6 +37,10 @@ function scr_selitem_apply(_itemname)
             image_index  = 9;
         break;
 
+        case "Micro":
+            image_index  = 10;
+        break;
+
 		default:
 			image_index = 1;
 		break;

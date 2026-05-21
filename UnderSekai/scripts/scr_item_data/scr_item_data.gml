@@ -34,6 +34,14 @@ function scr_item_data(_itemname){
                 atk: 1
             };
 
+        case "Micro":
+            return {
+                name: "Micro",
+                desc: "Un microfono roto.",
+                type: "weapon",
+                atk: 3
+            };
+
         case "Bandage":
             return {
                 name: "Tirita",
@@ -63,42 +71,7 @@ function scr_item_data(_itemname){
                 desc: "Llave con una forma peculiar.",
                 type: "key"
             };
-        case "CHECK":
-            return {
-                name: "CHECK",
-                desc: "* Check the enemy's stats.",
-                type: "act"
-            };
-        case "PUN":
-            return {
-                name: "PUN",
-                desc: "* Tell a pun.",
-                type: "act"
-            };
-        case "JOKE":
-            return {
-                name: "JOKE",
-                desc: "* Tell a joke.",
-                type: "act"
-            };
-        case "HOLDBREATH":
-            return {
-                name: "HOLDBREATH",
-                desc: "* Hold your breath to move faster.",
-                type: "act"
-            };
-        case "SABOTAGE":
-            return {
-                name: "SABOTAGE",
-                desc: "* Sabotage their work.",
-                type: "act"
-            };
-        case "TASK":
-            return {
-                name: "TASK",
-                desc: "* Complete a task together.",
-                type: "act"
-            };
+
     }
     
     return undefined;

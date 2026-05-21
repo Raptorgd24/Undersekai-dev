@@ -78,9 +78,11 @@ else if (state == "items") {
                 case "Bandage":    frame = 8; break;
                 case "Puerro":    frame = 7; break;
                 case "Stick":    frame = 4; break;
+                case "Palo":    frame = 4; break;
                 case "MikuLlave":    frame = 9; break;
                 case "LlaveMiku":    frame = 9; break;
                 case "Llave Miku":    frame = 9; break;
+                case "Micro":    frame = 10; break;
             }
 
             var sprite_cx = right_panel_x + right_panel_w / 2;

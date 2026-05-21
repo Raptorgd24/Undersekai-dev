@@ -88,6 +88,7 @@
     {"name":"obj_mercy","order":3,"path":"objects/obj_mercy/obj_mercy.yy",},
     {"name":"obj_mikey","order":5,"path":"objects/obj_mikey/obj_mikey.yy",},
     {"name":"obj_miku","order":11,"path":"objects/obj_miku/obj_miku.yy",},
+    {"name":"obj_mikubed","order":13,"path":"objects/obj_mikubed/obj_mikubed.yy",},
     {"name":"obj_mikumic","order":10,"path":"objects/obj_mikumic/obj_mikumic.yy",},
     {"name":"obj_mikuplush","order":6,"path":"objects/obj_mikuplush/obj_mikuplush.yy",},
     {"name":"obj_mikuposter1","order":7,"path":"objects/obj_mikuposter1/obj_mikuposter1.yy",},
@@ -252,6 +253,7 @@
     {"name":"spr_mic","order":9,"path":"sprites/spr_mic/spr_mic.yy",},
     {"name":"spr_mik","order":3,"path":"sprites/spr_mik/spr_mik.yy",},
     {"name":"spr_miku","order":4,"path":"sprites/spr_miku/spr_miku.yy",},
+    {"name":"spr_mikubed","order":16,"path":"sprites/spr_mikubed/spr_mikubed.yy",},
     {"name":"spr_MikuKey","order":8,"path":"sprites/spr_MikuKey/spr_MikuKey.yy",},
     {"name":"spr_mikuplush","order":10,"path":"sprites/spr_mikuplush/spr_mikuplush.yy",},
     {"name":"spr_mikuselfie","order":13,"path":"sprites/spr_mikuselfie/spr_mikuselfie.yy",},
@@ -280,6 +282,5 @@
     {"name":"spr_trleek","order":20,"path":"sprites/spr_trleek/spr_trleek.yy",},
     {"name":"spr_undersekai","order":11,"path":"sprites/spr_undersekai/spr_undersekai.yy",},
     {"name":"spr_usable","order":2,"path":"sprites/spr_usable/spr_usable.yy",},
-    {"name":"Sprite72","order":15,"path":"sprites/Sprite72/Sprite72.yy",},
   ],
 }

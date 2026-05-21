@@ -35,12 +35,17 @@ switch (room) {
 
     case rm_ruins8:
         dialogue_text = "* El arbol mistico te da hambre.";
-        room_name_text = "Miku's Outside";
+        room_name_text = "Jardin Miku";
         break;
 
     case rm_ruins6:
-        dialogue_text = "* Sientes como que te van a doler \nlos pies.";
-        room_name_text = "Spike maze";
+        dialogue_text = "* Sientes como que te van a doler \n  los pies.";
+        room_name_text = "Laberinto de pinchos";
+        break;
+
+    case rm_ruins10:
+        dialogue_text = "* La habitacion de Miku te hace \n  querer irte.";
+        room_name_text = "Habitacion Miku";
         break;
 
     default:

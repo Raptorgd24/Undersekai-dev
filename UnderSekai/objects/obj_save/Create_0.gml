@@ -24,7 +24,7 @@ switch (room) {
         break;
 
     case rm_ruins3:
-        dialogue_text = "* Te tumbas en las hojas secas, \nte dan ganas de dormir.";
+        dialogue_text = "* Te tumbas en las hojas secas,\n  te dan ganas de dormir.";
         room_name_text = "Ruinas - Entrada";
         break;
 

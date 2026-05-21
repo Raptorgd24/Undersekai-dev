@@ -105,6 +105,7 @@
     {"name":"obj_sanstorso","order":1,"path":"objects/obj_sanstorso/obj_sanstorso.yy",},
     {"name":"obj_save","order":12,"path":"objects/obj_save/obj_save.yy",},
     {"name":"obj_selitem","order":12,"path":"objects/obj_selitem/obj_selitem.yy",},
+    {"name":"obj_signpuzzle","order":12,"path":"objects/obj_signpuzzle/obj_signpuzzle.yy",},
     {"name":"obj_sing_note","order":1,"path":"objects/obj_sing_note/obj_sing_note.yy",},
     {"name":"obj_sing_ui","order":2,"path":"objects/obj_sing_ui/obj_sing_ui.yy",},
     {"name":"obj_slash","order":8,"path":"objects/obj_slash/obj_slash.yy",},
@@ -279,5 +280,6 @@
     {"name":"spr_trleek","order":20,"path":"sprites/spr_trleek/spr_trleek.yy",},
     {"name":"spr_undersekai","order":11,"path":"sprites/spr_undersekai/spr_undersekai.yy",},
     {"name":"spr_usable","order":2,"path":"sprites/spr_usable/spr_usable.yy",},
+    {"name":"Sprite72","order":15,"path":"sprites/Sprite72/Sprite72.yy",},
   ],
 }

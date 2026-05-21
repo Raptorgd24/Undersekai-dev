@@ -8,17 +8,18 @@ missed = false;
 show_miss = false;
 hit_accuracy = "";
 show_accuracy = false;
+dead_timer = -1;
 
 lane_positions = {
-    D: 80,
-    F: 160,
-    J: 240,
-    K: 320
+	D: 105,
+	F: 142,
+	J: 178,
+	K: 215
 };
 
-y = 50;
-start_y = 50;
-target_y = 450;
+y = -20;
+start_y = -20;
+target_y = 126;
 
 speed_y = 2;
 

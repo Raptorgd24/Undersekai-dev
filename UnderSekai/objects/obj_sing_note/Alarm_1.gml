@@ -1,3 +1,4 @@
-// obj_sing_note - Alarm[1] - Esconder accuracy display
+// obj_sing_note - Alarm[1]
 
 show_accuracy = false;
+instance_destroy();

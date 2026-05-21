@@ -10,8 +10,8 @@
   "name":"obj_sing_ui",
   "overriddenProperties":[],
   "parent":{
-    "name":"BattleBoys",
-    "path":"folders/Objetos/BattleBoys.yy",
+    "name":"Sing",
+    "path":"folders/Objetos/BattleBoys/Sing.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,25 +1,30 @@
-/// scr_sing_create_test_chart()
-/// Retorna un array con un chart de prueba para testing
 function scr_sing_create_test_chart() {
-    var chart = [
-        // Estructura: { time_ms: número, lane: "D"|"F"|"J"|"K" }
-        { time_ms: 500, lane: "D" },
-        { time_ms: 750, lane: "F" },
-        { time_ms: 1000, lane: "J" },
-        { time_ms: 1250, lane: "K" },
-        { time_ms: 1500, lane: "D" },
-        { time_ms: 1750, lane: "F" },
-        { time_ms: 2000, lane: "J" },
-        { time_ms: 2250, lane: "K" },
-        { time_ms: 2500, lane: "D" },
-        { time_ms: 2750, lane: "F" },
-        { time_ms: 3000, lane: "J" },
-        { time_ms: 3250, lane: "K" },
-        { time_ms: 3500, lane: "D" },
-        { time_ms: 3750, lane: "F" },
-        { time_ms: 4000, lane: "J" },
-        { time_ms: 4250, lane: "K" },
-    ];
-    
-    return chart;
+	var chart = [
+		{ time_ms: 1200, lane: "D" },
+		{ time_ms: 1450, lane: "F" },
+		{ time_ms: 1700, lane: "J" },
+		{ time_ms: 1950, lane: "K" },
+		{ time_ms: 2300, lane: "D" },
+		{ time_ms: 2300, lane: "K" },
+		{ time_ms: 2700, lane: "F" },
+		{ time_ms: 2950, lane: "J" },
+		{ time_ms: 3300, lane: "D" },
+		{ time_ms: 3550, lane: "F" },
+		{ time_ms: 3800, lane: "J" },
+		{ time_ms: 4050, lane: "K" },
+		{ time_ms: 4450, lane: "F" },
+		{ time_ms: 4450, lane: "J" },
+		{ time_ms: 4850, lane: "D" },
+		{ time_ms: 5100, lane: "K" },
+		{ time_ms: 5500, lane: "D" },
+		{ time_ms: 5750, lane: "F" },
+		{ time_ms: 6000, lane: "J" },
+		{ time_ms: 6250, lane: "K" },
+		{ time_ms: 6650, lane: "D" },
+		{ time_ms: 6650, lane: "F" },
+		{ time_ms: 7050, lane: "J" },
+		{ time_ms: 7050, lane: "K" }
+	];
+
+	return chart;
 }

@@ -1,3 +1,5 @@
-// obj_sing_note - Alarm[0] - Destruir miss display
+// obj_sing_note - Alarm[0]
 
 show_miss = false;
+show_accuracy = false;
+instance_destroy();

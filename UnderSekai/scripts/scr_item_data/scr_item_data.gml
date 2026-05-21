@@ -13,7 +13,7 @@ function scr_item_data(_itemname){
         case "Puerro":
             return {
                 name: "Puerro",
-                desc: "Parece que valga 40 yenes.",
+                desc: "Parece de 40 yenes.",
                 type: "food",
                 heal: 100
             };

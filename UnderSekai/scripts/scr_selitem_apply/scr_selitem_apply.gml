@@ -21,6 +21,10 @@ function scr_selitem_apply(_itemname)
             image_index  = 8;
         break;
 
+        case "Puerro":
+            image_index  = 7;
+        break;
+
         case "ArmorTest":
             image_index  = 5;
         break;

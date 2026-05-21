@@ -76,6 +76,7 @@ else if (state == "items") {
                 case "ArmorTest":  frame = 5; break;
                 case "KeyTest":    frame = 6; break;
                 case "Bandage":    frame = 8; break;
+                case "Puerro":    frame = 7; break;
                 case "Stick":    frame = 4; break;
             }
 

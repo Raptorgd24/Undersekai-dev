@@ -1,5 +1,4 @@
 talk = 0;
-passable = true; // Declarar variable
 function npc_dialogue() {
     var dialogue_struct = {
         messages: [],
@@ -28,7 +27,10 @@ function npc_dialogue() {
                 {
                     text: "Coger uno",
                     action: function() {
-                    //dar el puerro    
+					image_index = 1
+					talk =1;
+                    scr_giveitem("Puerro") 
+
                     }
                 },
                 {
@@ -37,7 +39,14 @@ function npc_dialogue() {
                 }
             ]
         });
-    }
+    } else{
+	        array_push(dialogue_struct.messages, {
+            text: "La avaricia rompe el saco.",
+            character: "",
+            face_index: 0,
+            keep_box: false
+        });
+	}
     
     dialogue_start(dialogue_struct);
 }

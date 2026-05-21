@@ -5,7 +5,7 @@ function scr_giveitem(_item = "FoodTest") {
     array_push(global.objects, _item);
     audio_play_sound(snd_item, 1, false);
     
-    var _dialogue = {
+   /* var _dialogue = {
         messages: [
             {
                 text: "Has recogido " + _name + ".",
@@ -16,5 +16,5 @@ function scr_giveitem(_item = "FoodTest") {
         ],
         release_move: true
     };
-    dialogue_start(_dialogue);
+    dialogue_start(_dialogue);*/
 }

@@ -24,13 +24,23 @@ switch (room) {
         break;
 
     case rm_ruins3:
-        dialogue_text = "You lay in the dry leaves,\nit fills you with determination.";
-        room_name_text = "Ruins - Entrance";
+        dialogue_text = "* Te tumbas en las hojas secas, \nte dan ganas de dormir.";
+        room_name_text = "Ruinas - Entrada";
         break;
 
     case rm_StartingPointBeta:
-        dialogue_text = "The flowers even if they \naren't blooming, they feel peaceful.";
+        dialogue_text = "* Las flores doradas \nse sienten pacificas.";
         room_name_text = "Hole in the ceiling";
+        break;
+
+    case rm_ruins8:
+        dialogue_text = "* El arbol mistico te da hambre.";
+        room_name_text = "Miku's Outside";
+        break;
+
+    case rm_ruins6:
+        dialogue_text = "* Sientes como que te van a doler \nlos pies.";
+        room_name_text = "Spike maze";
         break;
 
     default:

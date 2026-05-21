@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script47",
+  "%Name":"scr_api_save_game",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script47",
+  "name":"scr_api_save_game",
   "parent":{
     "name":"HTTP",
     "path":"folders/Scripts/HTTP.yy",

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_api_init",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_api_init",
+  "parent":{
+    "name":"HTTP",
+    "path":"folders/Scripts/HTTP.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

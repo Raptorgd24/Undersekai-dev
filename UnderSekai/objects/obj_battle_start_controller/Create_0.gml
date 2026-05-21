@@ -14,10 +14,10 @@ var cam_h = camera_get_view_height(cam);
 var gui_w = display_get_gui_width();
 var gui_h = display_get_gui_height();
 
-heart_gui_x  = ((obj_player.x - cam_x) / cam_w) * gui_w;
-heart_gui_y  = ((obj_player.y - cam_y) / cam_h) * gui_h;
-target_gui_x = 49;
-target_gui_y = 416;
+heart_gui_x  = ((obj_player.x - cam_x) / cam_w) * gui_w+9;
+heart_gui_y  = ((obj_player.y - cam_y) / cam_h) * gui_h+28;
+target_gui_x = 54;
+target_gui_y = 432;
 
 instance_create_layer(0, 0, "Instances", obj_heart);
 with (obj_heart) visible = false;

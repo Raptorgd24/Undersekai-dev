@@ -10,7 +10,7 @@ if (!passable) {
 }
 else{
 if (place_meeting(x, y, obj_player)) {
- scr_trans(rm_ruins9,0,0)
+ scr_trans(rm_ruins9,32,285)
 }
 }
 

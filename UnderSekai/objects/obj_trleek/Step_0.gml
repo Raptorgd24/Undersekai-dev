@@ -1,5 +1,5 @@
 //step
-if (!variable_instance_exists(id, "passable")) passable = true;
+if (!variable_instance_exists(id, "passable")) passable = false;
 
 if (!passable) {
     // El jugador está por encima o por debajo de mí

@@ -314,6 +314,7 @@
     {"id":{"name":"spr_spikes","path":"sprites/spr_spikes/spr_spikes.yy",},},
     {"id":{"name":"spr_tilesetruins","path":"sprites/spr_tilesetruins/spr_tilesetruins.yy",},},
     {"id":{"name":"spr_trans","path":"sprites/spr_trans/spr_trans.yy",},},
+    {"id":{"name":"spr_trleek","path":"sprites/spr_trleek/spr_trleek.yy",},},
     {"id":{"name":"spr_undersekai","path":"sprites/spr_undersekai/spr_undersekai.yy",},},
     {"id":{"name":"spr_usable","path":"sprites/spr_usable/spr_usable.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},

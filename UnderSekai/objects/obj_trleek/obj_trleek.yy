@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gok",
-    "path":"sprites/spr_gok/spr_gok.yy",
+    "name":"spr_trleek",
+    "path":"sprites/spr_trleek/spr_trleek.yy",
   },
   "spriteMaskId":null,
   "visible":true,

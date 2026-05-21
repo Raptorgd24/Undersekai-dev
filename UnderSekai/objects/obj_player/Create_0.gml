@@ -17,7 +17,7 @@ if (variable_global_exists("armor") && global.armor != "Bandage" && global.armor
     }
 }
 last_safe_x =0;
-last_safe_y =0;
+last_safe_y =0;/*
 show_debug_message("ROOM: " + string(global.room_name));
 show_debug_message("NAME: " + string(global.name));
 show_debug_message("LV: " + string(global.lv));
@@ -32,7 +32,7 @@ show_debug_message("FAME: " + string(global.fame));
 show_debug_message("ROUTE: " + string(global.route));
 show_debug_message("KILLS: " + string(global.kills));
 show_debug_message("SPARES: " + string(global.spares));
-show_debug_message("DEATHS: " + string(global.deaths));
+show_debug_message("DEATHS: " + string(global.deaths));*/
 base_vel = 2;
 velocidad_actual = base_vel;
 mx = 0;

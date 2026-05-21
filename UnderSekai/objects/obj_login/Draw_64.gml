@@ -16,7 +16,7 @@ var field_x  = cx - 60;
 var field_w  = 180;
 
 draw_set_color(c_white);
-draw_text(label_x, cy - 40, "Usuario:");
+draw_text(label_x, cy - 40, "Correo:");
 var user_col = (state == "username") ? c_yellow : c_white;
 draw_set_color(user_col);
 draw_text(field_x, cy - 20, username_input + ((state == "username" && (current_time div 400) mod 2 == 0) ? "_" : ""));

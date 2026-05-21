@@ -308,6 +308,7 @@
     {"id":{"name":"spr_GameOver","path":"sprites/spr_GameOver/spr_GameOver.yy",},},
     {"id":{"name":"spr_gok","path":"sprites/spr_gok/spr_gok.yy",},},
     {"id":{"name":"spr_goku","path":"sprites/spr_goku/spr_goku.yy",},},
+    {"id":{"name":"spr_gracias","path":"sprites/spr_gracias/spr_gracias.yy",},},
     {"id":{"name":"spr_health","path":"sprites/spr_health/spr_health.yy",},},
     {"id":{"name":"spr_heart_piece","path":"sprites/spr_heart_piece/spr_heart_piece.yy",},},
     {"id":{"name":"spr_heart_shatter","path":"sprites/spr_heart_shatter/spr_heart_shatter.yy",},},

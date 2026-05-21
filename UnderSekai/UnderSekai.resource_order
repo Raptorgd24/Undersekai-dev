@@ -249,6 +249,7 @@
     {"name":"spr_GameOver","order":4,"path":"sprites/spr_GameOver/spr_GameOver.yy",},
     {"name":"spr_gok","order":2,"path":"sprites/spr_gok/spr_gok.yy",},
     {"name":"spr_goku","order":3,"path":"sprites/spr_goku/spr_goku.yy",},
+    {"name":"spr_gracias","order":18,"path":"sprites/spr_gracias/spr_gracias.yy",},
     {"name":"spr_health","order":4,"path":"sprites/spr_health/spr_health.yy",},
     {"name":"spr_heart_piece","order":3,"path":"sprites/spr_heart_piece/spr_heart_piece.yy",},
     {"name":"spr_heart_shatter","order":2,"path":"sprites/spr_heart_shatter/spr_heart_shatter.yy",},

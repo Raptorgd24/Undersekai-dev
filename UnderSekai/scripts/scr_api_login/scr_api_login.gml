@@ -30,5 +30,4 @@ function scr_api_login(_email, _password) {
     ds_map_destroy(_headers);
 
     return _req;
-}return _req;
 }

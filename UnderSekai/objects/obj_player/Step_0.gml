@@ -9,7 +9,7 @@ else {
     velocidad_actual = base_vel;
     anim_speed = 0.07;
 }
-
+/*
 if (keyboard_check_pressed(ord("V"))) {
 	scr_trans(rm_StartingPointBeta);
 }
@@ -27,7 +27,7 @@ if (keyboard_check_pressed(ord("G"))) {
 }
 if (keyboard_check_pressed(ord("T"))){
     scr_hurt(20,2);
-}
+}*/
 if (keyboard_check_pressed(ord("C"))) {
     if (!instance_exists(obj_menuoverworld)) {
         var menu = instance_create_layer(0, 0, "Instances", obj_menuoverworld);

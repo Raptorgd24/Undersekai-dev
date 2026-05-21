@@ -9,7 +9,7 @@ function scr_firststart(){
         global.healthu = 20;
         global.maxHP = 20;
         global.gold = 0;
-        global.objects = ["ArmorTest","WeaponTest","FoodTest","KeyTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest","FoodTest"];
+        global.objects = [];
         global.weapon = "Stick";
         global.armor = "Bandage";
         global.play_time = 0

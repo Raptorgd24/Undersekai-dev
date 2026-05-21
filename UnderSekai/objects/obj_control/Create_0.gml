@@ -128,7 +128,7 @@ ds_map_add(global.zone_music, "MysteryRooms", mus_666);
 ds_map_add(global.zone_music, "Silence", mus_silence);
 
 // Zona actual
-global.current_zone = "TestRooms";
+global.current_zone = "";
 
 
 global.event_npc = noone;

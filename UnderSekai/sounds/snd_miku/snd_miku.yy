@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_miku",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":2,
+  "compressionQuality":10,
+  "conversionMode":0,
+  "duration":0.08730159,
+  "exportDir":"",
+  "name":"snd_miku",
+  "parent":{
+    "name":"talk",
+    "path":"folders/Sonidos/talk.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_miku.wav",
+  "volume":1.0,
+}

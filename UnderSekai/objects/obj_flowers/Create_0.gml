@@ -1,7 +1,7 @@
 function npc_dialogue() {
     var dialogue = {
         messages: [
-            { text: "The flowers aren't blooming lmao", face_index: 8 }
+            { text: "Son unas flores muy bonitas.", face_index: 8 }
         ],
         character: "noone",
         on_end: function() { /* nada */ }

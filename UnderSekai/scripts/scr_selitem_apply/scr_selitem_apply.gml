@@ -33,6 +33,10 @@ function scr_selitem_apply(_itemname)
             image_index  = 6;
         break;
 
+        case "MikuLlave":
+            image_index  = 9;
+        break;
+
 		default:
 			image_index = 1;
 		break;

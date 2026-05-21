@@ -9,8 +9,8 @@
   "name":"obj_NPC_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Overworld NPCS",
+    "path":"folders/Objetos/Overworld NPCS.yy",
   },
   "parentObjectId":null,
   "persistent":false,

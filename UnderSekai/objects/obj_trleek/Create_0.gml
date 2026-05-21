@@ -1,4 +1,8 @@
 talk = 0;
+if (scr_get_global_data("cogido_puerro")) {
+    talk=1;
+	image_index = 1;
+}
 function npc_dialogue() {
 
     var dialogue_struct = {
@@ -39,7 +43,7 @@ function npc_dialogue() {
                             image_index = 1;
                             talk = 1;
                         }
-
+						scr_set_global_data("cogido_puerro",true)
                         scr_giveitem("Puerro");
                     }
                 },

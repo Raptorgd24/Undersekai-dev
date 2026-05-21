@@ -78,6 +78,9 @@ else if (state == "items") {
                 case "Bandage":    frame = 8; break;
                 case "Puerro":    frame = 7; break;
                 case "Stick":    frame = 4; break;
+                case "MikuLlave":    frame = 9; break;
+                case "LlaveMiku":    frame = 9; break;
+                case "Llave Miku":    frame = 9; break;
             }
 
             var sprite_cx = right_panel_x + right_panel_w / 2;
@@ -85,7 +88,7 @@ else if (state == "items") {
             draw_sprite_ext(spr_selitem, frame, sprite_cx, sprite_cy, 2, 2, 0, c_white, 1);
 
             draw_set_color(make_color_rgb(255, 255, 255));
-            draw_text_ext(70, box_y + box_h - 45, data.desc, -1, right_panel_w);
+            draw_text_ext(70, box_y + box_h - 45, data.desc, -1, left_panel_w+20);
             draw_set_color(c_white);
         }
     } else {

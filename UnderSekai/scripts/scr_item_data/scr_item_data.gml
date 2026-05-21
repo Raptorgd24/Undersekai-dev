@@ -56,6 +56,13 @@ function scr_item_data(_itemname){
                 desc: "KeyTes desct",
                 type: "key"
             };
+
+        case "Llave Miku":
+            return {
+                name: "Llave Miku",
+                desc: "Llave con una forma peculiar.",
+                type: "key"
+            };
         case "CHECK":
             return {
                 name: "CHECK",

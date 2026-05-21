@@ -1,19 +1,23 @@
 {
   "$GMObject":"",
-  "%Name":"obj_666",
+  "%Name":"obj_mikey",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_666",
-  "overriddenProperties":[],
+  "name":"obj_mikey",
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_NPC_parent","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"propertyId":{"name":"passable","path":"objects/obj_NPC_parent/obj_NPC_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
+  ],
   "parent":{
     "name":"Overworld NPCS",
     "path":"folders/Objetos/Overworld NPCS.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_NPC_parent",
+    "path":"objects/obj_NPC_parent/obj_NPC_parent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -32,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_666",
-    "path":"sprites/spr_666/spr_666.yy",
+    "name":"spr_MikuKey",
+    "path":"sprites/spr_MikuKey/spr_MikuKey.yy",
   },
   "spriteMaskId":null,
   "visible":true,

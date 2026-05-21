@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_api_logout",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_api_logout",
+  "parent":{
+    "name":"HTTP",
+    "path":"folders/Scripts/HTTP.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

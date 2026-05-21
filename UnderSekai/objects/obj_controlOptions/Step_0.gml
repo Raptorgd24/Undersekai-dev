@@ -7,7 +7,9 @@ if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) {
     menu_index = (menu_index + 1) mod array_length(menu_options);
 }
 
-switch (menu_options[menu_index]) {
+var current_opt = menu_options[menu_index];
+
+switch (current_opt) {
 
     case "RESOLUTION":
         if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))) {
@@ -52,6 +54,21 @@ switch (menu_options[menu_index]) {
                 room_goto(rm_ActualMenu);
             } else {
                 instance_destroy();
+            }
+        }
+        break;
+
+    default:
+        if (string_pos("LOGIN", current_opt) > 0 || string_pos("LOGOUT", current_opt) > 0) {
+            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+                audio_play_sound(snd_select, 1, false);
+                if (global.api_logged_in) {
+                    scr_api_logout();
+                    menu_options[menu_index] = "LOGIN";
+                } else {
+                    if (room == rm_options) audio_stop_sound(mus_options);
+                    room_goto(rm_login);
+                }
             }
         }
         break;

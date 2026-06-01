@@ -30,3 +30,10 @@ switch (obj_player.last_dir) {
         image_angle = 270; // eje Y positivo
         break;
 }
+
+// --- Flag para controles moviles: hay algo interactuable delante? ---
+// obj_NPC_parent es el padre de todos los objetos interactuables.
+// obj_save no hereda de obj_NPC_parent, asi que se comprueba aparte.
+var _meet = (instance_exists(obj_NPC_parent) && place_meeting(x, y, obj_NPC_parent))
+         || (instance_exists(obj_save)       && place_meeting(x, y, obj_save));
+global.can_interact = (can_use && _meet);

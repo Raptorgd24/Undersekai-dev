@@ -34,3 +34,9 @@ gpu_set_texfilter(false);
 
 text_obj = instance_create_layer(0, 0, "Instances", obj_nameMenuText);
 text_obj.parent = id;
+
+// === ENTRADA POR TECLADO DEL DISPOSITIVO (MOVIL) ===
+keyboard_string = "";
+if (os_type == os_android || os_type == os_ios) {
+    keyboard_virtual_show(kbv_type_default, kbv_returnkey_done, kbv_autocapitalize_characters, false);
+}

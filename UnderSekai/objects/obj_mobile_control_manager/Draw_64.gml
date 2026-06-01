@@ -59,28 +59,41 @@ draw_set_alpha(0.5);
 draw_set_color(c_yellow);
 draw_circle(stick_x, stick_y, stick_r, false);
 
-// Botones
+// ================= BOTONES (spr_buttonsmobile) =================
+// Frames: 0 = mano (Z) | 1 = flecha atras | 2 = correr (X) | 3 = bolsa (C)
 var bx = btn_x;
 var by = btn_y;
 var s  = btn_size;
 
-// Z rojo
-draw_set_color(c_red);
-draw_rectangle(bx, by, bx + s, by + s, false);
-draw_set_color(c_white);
-draw_text(bx + s/2 - 12, by + s/2 - 12, "Z");
+// El sprite es 64x64; lo escalamos al tamano del boton
+var spr_scale = s / sprite_get_width(spr_buttonsmobile);
 
-// X azul
-draw_set_color(c_blue);
-draw_rectangle(bx + s, by, bx + s*2, by + s, false);
-draw_set_color(c_white);
-draw_text(bx + s + s/2 - 12, by + s/2 - 12, "X");
+// Estamos en un menu? -> X muestra "volver atras" en vez de "correr"
+var in_menu = instance_exists(obj_menuoverworld) || instance_exists(obj_nameMenu);
 
-// C verde
-draw_set_color(c_green);
-draw_rectangle(bx + s*2, by, bx + s*3, by + s, false);
-draw_set_color(c_white);
-draw_text(bx + s*2 + s/2 - 12, by + s/2 - 12, "C");
+// El boton de inventario (C) solo aparece una vez empezado el juego
+var show_c = (variable_global_exists("game_started") && global.game_started);
+
+// Puede interactuar? (objeto delante, dialogo activo o menu abierto)
+var can_z = false;
+if (variable_global_exists("can_interact") && global.can_interact) can_z = true;
+if (variable_global_exists("dialogue_active") && global.dialogue_active) can_z = true;
+if (in_menu) can_z = true;
+
+// --- Boton Z (mano) : transparente salvo que se pueda interactuar ---
+var z_alpha = (can_z || is_z) ? btn_alpha_on : btn_alpha_dim;
+draw_sprite_ext(spr_buttonsmobile, 0, bx, by, spr_scale, spr_scale, 0, c_white, z_alpha);
+
+// --- Boton X : correr (frame 2) o volver atras (frame 1) en menus ---
+var x_frame = in_menu ? 1 : 2;
+var x_alpha = is_x ? btn_alpha_on : btn_alpha_idle;
+draw_sprite_ext(spr_buttonsmobile, x_frame, bx + s, by, spr_scale, spr_scale, 0, c_white, x_alpha);
+
+// --- Boton C (bolsa) : solo si el juego ya empezo ---
+if (show_c) {
+	var c_alpha = is_c ? btn_alpha_on : btn_alpha_idle;
+	draw_sprite_ext(spr_buttonsmobile, 3, bx + s * 2, by, spr_scale, spr_scale, 0, c_white, c_alpha);
+}
 
 draw_set_alpha(1);
 draw_set_color(c_white);

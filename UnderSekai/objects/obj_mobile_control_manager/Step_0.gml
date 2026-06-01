@@ -1,3 +1,6 @@
+// Si no existe el probe de interaccion, no se puede interactuar
+if (!instance_exists(obj_usable)) global.can_interact = false;
+
 // reset input cada frame
 var left = false;
 var right = false;
@@ -98,9 +101,16 @@ for (var i = 0; i < 5; i++) {
 
 		if (point_in_rectangle(mx, my, bx, by, bx + s, by + s)) z_btn = true;
 		if (point_in_rectangle(mx, my, bx + s, by, bx + s * 2, by + s)) x_btn = true;
-		if (point_in_rectangle(mx, my, bx + s * 2, by, bx + s * 3, by + s)) c_btn = true;
+		// El boton C (inventario) solo responde una vez empezado el juego
+		if ((variable_global_exists("game_started") && global.game_started)
+		    && point_in_rectangle(mx, my, bx + s * 2, by, bx + s * 3, by + s)) c_btn = true;
 	}
 }
+
+// Guardar estado de pulsado para el dibujado
+is_z = z_btn;
+is_x = x_btn;
+is_c = c_btn;
 
 // MOVIMIENTO
 if (left)  keyboard_key_press(vk_left);  else keyboard_key_release(vk_left);

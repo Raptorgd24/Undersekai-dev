@@ -53,6 +53,7 @@
     {"name":"Overworld","order":4,"path":"folders/Sprites/Enemies/Overworld.yy",},
     {"name":"Sans","order":3,"path":"folders/Sprites/Enemies/Sans.yy",},
     {"name":"Torsos","order":3,"path":"folders/Sprites/Enemies/Sans/Torsos.yy",},
+    {"name":"MobileSprites","order":22,"path":"folders/Sprites/MobileSprites.yy",},
     {"name":"MenuStuffs","order":10,"path":"folders/Sprites/MenuStuffs.yy",},
     {"name":"Playable_Chars","order":3,"path":"folders/Sprites/Playable_Chars.yy",},
     {"name":"Tiles","order":4,"path":"folders/Sprites/Tiles.yy",},

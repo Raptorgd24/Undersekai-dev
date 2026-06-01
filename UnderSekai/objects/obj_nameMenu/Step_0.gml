@@ -10,6 +10,66 @@ if (confirm_lock_timer > 0) {
     confirm_lock_timer--;
 }
 
+var is_mobile = (os_type == os_android || os_type == os_ios);
+
+// === FUNDIDO A BLANCO: bloquea toda la entrada mientras transiciona ===
+if (fading) {
+    fade_timer++;
+    fade_alpha = fade_timer / fade_duration;
+
+    if (fade_alpha >= 1 && !fade_done) {
+        fade_alpha = 1;
+        fade_done = true;
+
+        if (is_mobile) keyboard_virtual_hide();
+
+        if (text_input == "GOSE" || text_input == "GOOSE" || text_input == "JOSE") {
+            room_goto(rm_Shucks);
+        } else {
+            scr_init_zones();
+            scr_load_game();
+        }
+    }
+    exit; // ningun boton responde durante el fundido
+}
+
+// === ENTRADA POR TECLADO DEL DISPOSITIVO (MOVIL) ===
+if (is_mobile && menu_state == MenuState.INPUT && input_enabled && confirm_lock_timer <= 0) {
+
+    // Letras escritas con el teclado del movil
+    if (keyboard_string != "") {
+        var _ks = keyboard_string;
+        keyboard_string = ""; // consumir lo escrito
+        for (var _k = 1; _k <= string_length(_ks); _k++) {
+            var _ch = string_upper(string_char_at(_ks, _k));
+            var _oc = ord(_ch);
+            if (_oc >= ord("A") && _oc <= ord("Z") && string_length(text_input) < max_chars) {
+                text_input += _ch;
+                with (text_obj) key_pop = 1.3;
+            }
+        }
+    }
+
+    // Backspace del teclado = boton RETURN (borrar)
+    if (keyboard_check_pressed(vk_backspace) && string_length(text_input) > 0) {
+        text_input = string_delete(text_input, string_length(text_input), 1);
+    }
+
+    // Enter del teclado = boton ENTER en pantalla (confirmar nombre)
+    if (keyboard_check_pressed(vk_enter) && string_length(text_input) > 0) {
+        audio_play_sound(snd_select, 1, false);
+        confirm_lock_timer = 10;
+        menu_state = MenuState.CONFIRM;
+        confirm_option = 0;
+        input_delay = 10;
+
+        if (!instance_exists(obj_textName)) {
+            instance_create_layer(0, 0, "Instances", obj_textName);
+        }
+        with (text_obj) target_scale = 2;
+    }
+}
+
 
 // INPUT (ESCRIBIR NOMBRE)
 if (menu_state == MenuState.INPUT) {
@@ -36,9 +96,9 @@ if (menu_state == MenuState.INPUT) {
         col = min(array_length(keyboard[row]) - 1, col + 1);
     }
 
-    // ACEPTAR (Z o ENTER)
+    // ACEPTAR (Z o ENTER). En movil, ENTER lo gestiona el bloque de teclado de arriba.
     if (input_enabled && confirm_lock_timer <= 0 &&
-        (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
+        (keyboard_check_pressed(ord("Z")) || (!is_mobile && keyboard_check_pressed(vk_enter)))) {
 
         audio_play_sound(snd_select, 1, false);
         confirm_lock_timer = 10;
@@ -167,21 +227,4 @@ if (menu_state == MenuState.BACK_ANIM) {
 	}
 }
 
-
-if (fading) {
-
-    fade_timer++;
-
-    fade_alpha = fade_timer / fade_duration;
-
-    if (fade_alpha >= 1 && !fade_done) {
-        fade_alpha = 1;
-        fade_done = true;
-		if (text_input == "GOSE" ||text_input == "GOOSE")|| text_input == "JOSE"{
-			room_goto(rm_Shucks)
-		} else{
-			scr_init_zones();
-			scr_load_game();
-		}
-    }
-}
+// El fundido se gestiona al principio del evento (bloquea la entrada).

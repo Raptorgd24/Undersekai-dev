@@ -127,6 +127,9 @@ show_debug_message(global.events_done);
         show_debug_message("⚠ scr_load_game: No se encontró la room '" + string(global.room_name) + "'");
     }
 
+    // El juego ya esta en marcha: habilitar el boton de inventario (C) en movil
+    global.game_started = true;
+
     show_debug_message("✅ scr_load_game: Archivo cargado correctamente");
 	
 	

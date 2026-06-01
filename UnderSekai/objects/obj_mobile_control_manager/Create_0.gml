@@ -27,4 +27,19 @@ joy_finger = -1;
 btn_x = gui_w - (btn_size * 3) - pad - 10;   // un poco más separado
 btn_y = gui_h - btn_size - pad;
 
+// === ESTADO DE BOTONES (spr_buttonsmobile) ===
+// Frames del sprite: 0 = mano (Z), 1 = flecha atras (X en menu), 2 = correr (X), 3 = bolsa (C)
+if (!variable_global_exists("can_interact")) global.can_interact = false;
+if (!variable_global_exists("game_started")) global.game_started = false;
+
+// Estado de pulsado para feedback visual
+is_z = false;
+is_x = false;
+is_c = false;
+
+// Alphas
+btn_alpha_dim  = 0.40;   // Z cuando NO se puede interactuar
+btn_alpha_idle = 0.85;   // X / C en reposo (siempre visibles)
+btn_alpha_on   = 1.00;   // boton activo / pulsado
+
 show_debug_message("Virtual Controls | Viewport GUI: " + string(gui_w) + "x" + string(gui_h));

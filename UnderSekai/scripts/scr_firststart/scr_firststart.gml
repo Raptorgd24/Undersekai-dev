@@ -17,6 +17,7 @@ function scr_firststart(){
 		global.xp = 0
         global.fame = 0;
         global.route = "pacifist";
+        global.game_started = false; // el boton de inventario (C) no aparece hasta entrar al juego
         global.kills = 0;
         global.spares = 0;
         global.deaths = 0;

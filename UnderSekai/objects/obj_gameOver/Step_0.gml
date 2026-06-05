@@ -33,6 +33,21 @@ if (room == rm_gameOver_screen) {
             menu_index = min(array_length(menu_options) - 1, menu_index + 1);
         }
 
+        // MOVIL: tocar una opcion la selecciona y confirma
+        if (is_mobile() && tap_pressed()) {
+            var _gw = display_get_gui_width();
+            var _cx = _gw / 2;
+            var _by = display_get_gui_height() * 0.7;
+            for (var ti = 0; ti < array_length(menu_options); ti++) {
+                var _xh = _cx + ((ti - 0.5) * 200);
+                if (tap_in(_xh - 20, _by - 10, _xh + 180, _by + 40)) {
+                    menu_index  = ti;
+                    fading      = true;
+                    fade_action = (ti == 0) ? "continue" : "giveup";
+                }
+            }
+        }
+
         if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
             // Iniciar fundido
             fading = true;

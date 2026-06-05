@@ -41,6 +41,18 @@ if (state == "main") {
         exit;
     }
 
+    // MOVIL: tocar una opcion la selecciona y la activa
+    var tap_confirm = false;
+    if (is_mobile() && tap_pressed()) {
+        var _osy = box_y + 20;
+        for (var ti = 0; ti < array_length(main_options); ti++) {
+            if (tap_in(box_x, _osy + ti * 36, box_x + box_w, _osy + ti * 36 + 36)) {
+                main_index = ti;
+                tap_confirm = true;
+            }
+        }
+    }
+
     if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) {
         audio_play_sound(snd_menumove, 1, false);
         main_index = (main_index - 1 + array_length(main_options)) mod array_length(main_options);
@@ -49,7 +61,7 @@ if (state == "main") {
         audio_play_sound(snd_menumove, 1, false);
         main_index = (main_index + 1) mod array_length(main_options);
     }
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm) {
         audio_play_sound(snd_select, 1, false);
         switch (main_options[main_index]) {
             case "Items":
@@ -94,7 +106,22 @@ else if (state == "items") {
             item_index = (item_index + 1) mod item_count;
         }
 
-        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+        // MOVIL: tocar un item lo selecciona y lo usa
+        var tap_confirm_item = false;
+        if (is_mobile() && tap_pressed()) {
+            var _lsy   = box_y + 20;
+            var _scroll = max(0, item_index - 4);
+            var _vis    = min(item_count, 8);
+            for (var ti = 0; ti < _vis; ti++) {
+                var _ry = _lsy + ti * 28 + 12;
+                if (tap_in(box_x, _ry, box_x + box_w * 0.45, _ry + 28)) {
+                    item_index = ti + _scroll;
+                    tap_confirm_item = true;
+                }
+            }
+        }
+
+        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm_item) {
             audio_play_sound(snd_select, 1, false);
             var current_item = items[item_index];
 			var data = scr_item_data(current_item);
@@ -133,6 +160,19 @@ else if (state == "items") {
 else if (state == "options") {
 	
     if (options_confirm) {
+        // MOVIL: tocar YES / NO
+        if (is_mobile() && tap_pressed()) {
+            var _by = box_y + 58;
+            if (tap_in(box_x + 40, _by, box_x + 140, _by + 36)) {
+                scr_options_save();
+                game_end();
+            } else if (tap_in(box_x + 145, _by, box_x + 260, _by + 36)) {
+                audio_play_sound(snd_menumove, 1, false);
+                options_confirm = false;
+                options_index   = array_length(options_list) - 1;
+                exit;
+            }
+        }
 		if (keyboard_check_pressed(ord("C"))) {
 			tween_timer = 0;
 			is_closing = true;
@@ -186,6 +226,18 @@ else if (state == "options") {
         options_index = (options_index + 1) mod array_length(options_list);
     }
 
+    // MOVIL: tocar una opcion la selecciona (y activa FULLSCREEN / EXIT GAME)
+    var tap_opt = false;
+    if (is_mobile() && tap_pressed()) {
+        var _ooy = box_y + 20;
+        for (var ti = 0; ti < array_length(options_list); ti++) {
+            if (tap_in(box_x, _ooy + ti * 38, box_x + box_w, _ooy + ti * 38 + 38)) {
+                options_index = ti;
+                tap_opt = true;
+            }
+        }
+    }
+
     switch (options_list[options_index]) {
 
         case "RESOLUTION":
@@ -203,7 +255,7 @@ else if (state == "options") {
 
         case "FULLSCREEN":
             if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))
-            ||  keyboard_check_pressed(ord("Z"))  || keyboard_check_pressed(vk_enter)) {
+            ||  keyboard_check_pressed(ord("Z"))  || keyboard_check_pressed(vk_enter) || tap_opt) {
                 global.opt_fullscreen = !global.opt_fullscreen;
                 scr_options_apply();
                 scr_options_save();
@@ -224,7 +276,7 @@ else if (state == "options") {
             break;
 
         case "EXIT GAME":
-            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_opt) {
                 audio_play_sound(snd_select, 1, false);
                 options_confirm = true;
                 options_index   = 1;

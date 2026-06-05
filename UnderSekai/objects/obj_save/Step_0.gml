@@ -52,7 +52,7 @@ if (state == "open_menu_wait" && cooldown_timer <= 0) {
 if (state == "menu" && menu_visible) {
 
     // Si ya se guardó, permitir salir con Z
-    if (saved_state && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
+    if (saved_state && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed()))) {
         menu_visible = false;
         state = "idle";
         saved_state = false;
@@ -77,8 +77,21 @@ if (state == "menu" && menu_visible) {
         if (moved && asset_get_index("snd_menumove") >= 0)
             audio_play_sound(snd_menumove, 1, false);
 
+        // MOVIL: tocar "Save" o "Return" lo selecciona y confirma
+        var tap_confirm_save = false;
+        if (is_mobile() && tap_pressed()) {
+            var _oy = by + box_h - 60;
+            if (tap_in(bx + 80, _oy - 10, bx + 180, _oy + 40)) {
+                menu_index = 0;
+                tap_confirm_save = true;
+            } else if (tap_in(bx + 240, _oy - 10, bx + 380, _oy + 40)) {
+                menu_index = 1;
+                tap_confirm_save = true;
+            }
+        }
+
         // Confirmar selección
-        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {          
+        if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm_save) {
                 
 
             // Opción SAVE → actualizar desde global y guardar

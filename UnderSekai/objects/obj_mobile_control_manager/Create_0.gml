@@ -24,8 +24,9 @@ stick_y = joy_y;
 
 joy_finger = -1;
 
-btn_x = gui_w - (btn_size * 3) - pad - 10;   // un poco más separado
-btn_y = gui_h - btn_size - pad;
+// Botones pegados a la esquina inferior derecha (para que no tapen el mapa)
+btn_x = gui_w - (btn_size * 3) - 2;
+btn_y = gui_h - btn_size - 2;
 
 // === ESTADO DE BOTONES (spr_buttonsmobile) ===
 // Frames del sprite: 0 = mano (Z), 1 = flecha atras (X en menu), 2 = correr (X), 3 = bolsa (C)

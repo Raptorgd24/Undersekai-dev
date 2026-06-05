@@ -7,7 +7,8 @@
         window_set_fullscreen(false);
     }
 }*/
-if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+// En movil, tocar en cualquier parte de la pantalla cuenta como skip
+if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_pressed()) {
     show_debug_message("SKIP ACTIVADO - Iniciando fades");
     if (intro_state != "final_fade") {
         intro_state = "final_fade";

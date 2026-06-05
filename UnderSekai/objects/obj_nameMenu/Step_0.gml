@@ -63,6 +63,8 @@ if (is_mobile && menu_state == MenuState.INPUT && input_enabled && confirm_lock_
         confirm_option = 0;
         input_delay = 10;
 
+        keyboard_virtual_hide(); // bajar el teclado al pasar a la confirmacion
+
         if (!instance_exists(obj_textName)) {
             instance_create_layer(0, 0, "Instances", obj_textName);
         }
@@ -111,6 +113,8 @@ if (menu_state == MenuState.INPUT) {
                 confirm_option = 0;
                 input_delay = 10;
 
+                if (is_mobile) keyboard_virtual_hide(); // bajar el teclado en la confirmacion
+
                 if (!instance_exists(obj_textName)) {
                     instance_create_layer(0, 0, "Instances", obj_textName);
                 }
@@ -158,8 +162,20 @@ if (menu_state == MenuState.CONFIRM) {
         }
     }
 
+    // MOVIL: tocar ACCEPT o BACK lo selecciona y confirma
+    var tap_confirm_nm = false;
+    if (is_mobile && input_enabled && confirm_lock_timer <= 0 && tap_pressed_game()) {
+        if (tap_in(90, 240, 195, 288)) {
+            confirm_option = 0;
+            tap_confirm_nm = true;
+        } else if (tap_in(195, 240, 330, 288)) {
+            confirm_option = 1;
+            tap_confirm_nm = true;
+        }
+    }
+
     if (input_enabled && confirm_lock_timer <= 0 &&
-        (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
+        (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm_nm)) {
 
         confirm_lock_timer = 20;
 
@@ -224,6 +240,11 @@ if (menu_state == MenuState.BACK_ANIM) {
 	if (abs(text_obj.name_scale - 1) < 0.05) {
 		text_obj.name_scale = 1;
 		menu_state = MenuState.INPUT;
+
+		// Al volver a escribir, reabrir el teclado del movil
+		if (is_mobile) {
+			keyboard_virtual_show(kbv_type_default, kbv_returnkey_done, kbv_autocapitalize_characters, false);
+		}
 	}
 }
 

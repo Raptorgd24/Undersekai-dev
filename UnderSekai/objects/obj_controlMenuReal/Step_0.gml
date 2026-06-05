@@ -26,7 +26,20 @@ if (moved) {
     show_debug_message("Selección actual: " + string(menu_options[menu_index]) + " (índice " + string(menu_index) + ")");
 }
 
-if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+var confirm_pressed = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"));
+
+// En movil: tocar una opcion la selecciona y la activa directamente
+if (is_mobile() && tap_pressed()) {
+    for (var ti = 0; ti < array_length(menu_options); ti++) {
+        var ty = 360 + ti * menu_spacing;
+        if (tap_in(menu_x, ty, menu_x + 400, ty + menu_spacing)) {
+            menu_index = ti;
+            confirm_pressed = true;
+        }
+    }
+}
+
+if (confirm_pressed) {
     var option = menu_options[menu_index];
     show_debug_message("Opción seleccionada: " + option);
     audio_play_sound(snd_select, 1, false);

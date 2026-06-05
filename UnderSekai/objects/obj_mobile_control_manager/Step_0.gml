@@ -19,6 +19,27 @@ if (instance_exists(obj_battle_menu)) {
 	}
 }
 
+// En batalla solo se muestra el boton de "volver" (X) en la esquina
+var battle_active = instance_exists(obj_battle_menu);
+
+// En batalla el joystick se desactiva SALVO durante el turno enemigo (para esquivar)
+var battle_enemy_turn = false;
+if (battle_active) {
+	var _bm = instance_find(obj_battle_menu, 0);
+	if (instance_exists(_bm)) battle_enemy_turn = (_bm.mode == "enemy_turn");
+}
+// Hay un dialogo abierto? -> tampoco se puede sacar el joystick
+var dialogue_open = false;
+if (variable_global_exists("dialogue_active") && global.dialogue_active) dialogue_open = true;
+if (!dialogue_open && variable_global_exists("dialogue_manager") && is_struct(global.dialogue_manager)) {
+	dialogue_open = global.dialogue_manager.active;
+}
+
+var joystick_allowed = (!battle_active || battle_enemy_turn) && !dialogue_open;
+
+// Si el joystick no esta permitido, soltarlo (deja de mover)
+if (!joystick_allowed) joy_finger = -1;
+
 global.sing_mobile_lanes = [false, false, false, false];
 
 if (sing_mode) {
@@ -47,6 +68,11 @@ if (sing_mode) {
 	exit;
 }
 
+// Anclar los botones a la esquina inferior derecha segun el tamaño REAL del GUI
+// (el GUI puede cambiar de tamaño con la resolucion, por eso se recalcula cada frame)
+btn_x = display_get_gui_width()  - (btn_size * 3) - 2;
+btn_y = display_get_gui_height() - btn_size - 2;
+
 // ================= TOUCH IDS (0-4 maximo tipico) =================
 for (var i = 0; i < 5; i++) {
 
@@ -55,10 +81,15 @@ for (var i = 0; i < 5; i++) {
 
 	var pressed = device_mouse_check_button(i, mb_left);
 
-	// ================= JOYSTICK =================
-	if (joy_finger == -1 && pressed) {
-		if (point_distance(mx, my, joy_x, joy_y) < joy_r) {
+	// ================= JOYSTICK (flotante) =================
+	// Aparece solo al tocar la mitad IZQUIERDA y se centra donde cae el dedo
+	if (joystick_allowed && joy_finger == -1 && pressed) {
+		if (mx < display_get_gui_width() * 0.5) {
 			joy_finger = i;
+			joy_x   = mx;   // el joystick nace bajo el dedo
+			joy_y   = my;
+			stick_x = mx;
+			stick_y = my;
 		}
 	}
 
@@ -99,12 +130,28 @@ for (var i = 0; i < 5; i++) {
 
 	if (pressed) {
 
-		if (point_in_rectangle(mx, my, bx, by, bx + s, by + s)) z_btn = true;
-		if (point_in_rectangle(mx, my, bx + s, by, bx + s * 2, by + s)) x_btn = true;
-		// El boton C (inventario) solo responde una vez empezado el juego
-		if ((variable_global_exists("game_started") && global.game_started)
-		    && point_in_rectangle(mx, my, bx + s * 2, by, bx + s * 3, by + s)) c_btn = true;
+		if (battle_active) {
+			// En batalla: solo el boton de volver (X) en la esquina derecha
+			if (point_in_rectangle(mx, my, bx + s * 2, by, bx + s * 3, by + s)) x_btn = true;
+		} else {
+			if (point_in_rectangle(mx, my, bx, by, bx + s, by + s)) z_btn = true;
+			if (point_in_rectangle(mx, my, bx + s, by, bx + s * 2, by + s)) x_btn = true;
+			// El boton C (inventario) solo responde una vez empezado el juego
+			if ((variable_global_exists("game_started") && global.game_started)
+			    && point_in_rectangle(mx, my, bx + s * 2, by, bx + s * 3, by + s)) c_btn = true;
+		}
 	}
+}
+
+// Publicar el rectangulo de los botones visibles (para tap_pressed_game)
+global.mobile_ui_y1 = btn_y;
+global.mobile_ui_y2 = btn_y + btn_size;
+if (battle_active) {
+	global.mobile_ui_x1 = btn_x + btn_size * 2;   // solo el boton de volver
+	global.mobile_ui_x2 = btn_x + btn_size * 3;
+} else {
+	global.mobile_ui_x1 = btn_x;
+	global.mobile_ui_x2 = btn_x + btn_size * 3;
 }
 
 // Guardar estado de pulsado para el dibujado

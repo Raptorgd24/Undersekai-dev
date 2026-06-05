@@ -12,6 +12,38 @@ if (keyboard_check_pressed(vk_escape)) {
     exit;
 }
 
+// === MOVIL: tocar campos / botones ===
+if (is_mobile() && tap_pressed()) {
+    var _cx = display_get_gui_width()  * 0.5;
+    var _cy = display_get_gui_height() * 0.5;
+
+    if (tap_in(_cx - 110, _cy - 45, _cx + 120, _cy - 5)) {
+        state = "username";
+        input_cooldown = 6;
+    } else if (tap_in(_cx - 110, _cy + 5, _cx + 120, _cy + 45)) {
+        state = "password";
+        input_cooldown = 6;
+    } else if (state == "confirm") {
+        if (tap_in(_cx - 100, _cy + 55, _cx + 100, _cy + 78)) {
+            // "Pulsa Z para entrar"
+            if (username_input == "" || password_input == "") {
+                error_msg = "Rellena todos los campos.";
+                state = "username";
+                input_cooldown = 10;
+            } else {
+                waiting_req = true;
+                status_msg  = "Conectando...";
+                error_msg   = "";
+                req_id = scr_api_login(username_input, password_input);
+            }
+        } else if (tap_in(_cx - 100, _cy + 78, _cx + 100, _cy + 98)) {
+            // "Pulsa X para volver"
+            state = "password";
+            input_cooldown = 6;
+        }
+    }
+}
+
 var _ks = keyboard_string;
 keyboard_string = "";
 

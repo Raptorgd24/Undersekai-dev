@@ -37,8 +37,8 @@ if (moving && !stopped) {
     }
 }
 
-// Input Z/Enter para detener la barra (ataque)
-if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter))) {
+// Input Z/Enter (o tap en movil) para detener la barra (ataque)
+if (!stopped && (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed()))) {
     // Parar la barra
     stopped = true;
     moving = false;

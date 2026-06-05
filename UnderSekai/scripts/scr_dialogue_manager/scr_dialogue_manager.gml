@@ -244,6 +244,12 @@ function dialogue_draw() {
     if (mgr.waiting_for_choice) {
         var heart_spr = asset_get_index("spr_heart"); // Sprite de corazón
         var choice_y = text_y + 20;
+
+        // Guardar layout de las opciones para el control tactil (movil)
+        mgr.choice_draw_x  = text_x + 10;
+        mgr.choice_draw_y  = choice_y;
+        mgr.choice_line_h  = 20;
+
         for (var i = 0; i < array_length(mgr.choices); i++) {
             // Solo dibujar corazón para la opción seleccionada
             if (i == mgr.selected_choice) {

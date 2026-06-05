@@ -5,9 +5,9 @@ if (lil_timer > 0) lil_timer--;
 if (other_timer > 0) other_timer--;
 
 
-// Si presiona Z o Enter y lil_timer ya terminó
-if ((keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) && lil_timer == 0) {
-   
+// Si presiona Z o Enter (o toca la pantalla en movil) y lil_timer ya terminó
+if ((keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_pressed()) && lil_timer == 0) {
+
     room_goto_next();
 }
 

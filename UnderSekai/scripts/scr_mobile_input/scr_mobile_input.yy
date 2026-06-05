@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_mobile_input",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_mobile_input",
+  "parent":{
+    "name":"mobilestuff",
+    "path":"folders/Scripts/mobilestuff.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

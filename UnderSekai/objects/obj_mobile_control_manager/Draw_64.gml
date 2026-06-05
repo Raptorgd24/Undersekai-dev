@@ -51,13 +51,16 @@ if (sing_mode) {
 	exit;
 }
 
-draw_set_alpha(0.35);
-draw_set_color(c_white);
-draw_circle(joy_x, joy_y, joy_r, false);
+// Joystick flotante: solo se dibuja mientras un dedo lo mantiene activo
+if (joy_finger != -1) {
+	draw_set_alpha(0.35);
+	draw_set_color(c_white);
+	draw_circle(joy_x, joy_y, joy_r, false);
 
-draw_set_alpha(0.5);
-draw_set_color(c_yellow);
-draw_circle(stick_x, stick_y, stick_r, false);
+	draw_set_alpha(0.5);
+	draw_set_color(c_yellow);
+	draw_circle(stick_x, stick_y, stick_r, false);
+}
 
 // ================= BOTONES (spr_buttonsmobile) =================
 // Frames: 0 = mano (Z) | 1 = flecha atras | 2 = correr (X) | 3 = bolsa (C)
@@ -68,31 +71,40 @@ var s  = btn_size;
 // El sprite es 64x64; lo escalamos al tamano del boton
 var spr_scale = s / sprite_get_width(spr_buttonsmobile);
 
-// Estamos en un menu? -> X muestra "volver atras" en vez de "correr"
-var in_menu = instance_exists(obj_menuoverworld) || instance_exists(obj_nameMenu);
+// En batalla el combate es tactil: solo se muestra el boton de "volver" (X) en la esquina
+var battle_active = instance_exists(obj_battle_menu);
 
-// El boton de inventario (C) solo aparece una vez empezado el juego
-var show_c = (variable_global_exists("game_started") && global.game_started);
+if (battle_active) {
+	// Solo flecha de volver atras, en la esquina derecha
+	var b_alpha = is_x ? btn_alpha_on : btn_alpha_idle;
+	draw_sprite_ext(spr_buttonsmobile, 1, bx + s * 2, by, spr_scale, spr_scale, 0, c_white, b_alpha);
+} else {
+	// Estamos en un menu? -> X muestra "volver atras" en vez de "correr"
+	var in_menu = instance_exists(obj_menuoverworld) || instance_exists(obj_nameMenu);
 
-// Puede interactuar? (objeto delante, dialogo activo o menu abierto)
-var can_z = false;
-if (variable_global_exists("can_interact") && global.can_interact) can_z = true;
-if (variable_global_exists("dialogue_active") && global.dialogue_active) can_z = true;
-if (in_menu) can_z = true;
+	// El boton de inventario (C) solo aparece una vez empezado el juego
+	var show_c = (variable_global_exists("game_started") && global.game_started);
 
-// --- Boton Z (mano) : transparente salvo que se pueda interactuar ---
-var z_alpha = (can_z || is_z) ? btn_alpha_on : btn_alpha_dim;
-draw_sprite_ext(spr_buttonsmobile, 0, bx, by, spr_scale, spr_scale, 0, c_white, z_alpha);
+	// Puede interactuar? (objeto delante, dialogo activo o menu abierto)
+	var can_z = false;
+	if (variable_global_exists("can_interact") && global.can_interact) can_z = true;
+	if (variable_global_exists("dialogue_active") && global.dialogue_active) can_z = true;
+	if (in_menu) can_z = true;
 
-// --- Boton X : correr (frame 2) o volver atras (frame 1) en menus ---
-var x_frame = in_menu ? 1 : 2;
-var x_alpha = is_x ? btn_alpha_on : btn_alpha_idle;
-draw_sprite_ext(spr_buttonsmobile, x_frame, bx + s, by, spr_scale, spr_scale, 0, c_white, x_alpha);
+	// --- Boton Z (mano) : transparente salvo que se pueda interactuar ---
+	var z_alpha = (can_z || is_z) ? btn_alpha_on : btn_alpha_dim;
+	draw_sprite_ext(spr_buttonsmobile, 0, bx, by, spr_scale, spr_scale, 0, c_white, z_alpha);
 
-// --- Boton C (bolsa) : solo si el juego ya empezo ---
-if (show_c) {
-	var c_alpha = is_c ? btn_alpha_on : btn_alpha_idle;
-	draw_sprite_ext(spr_buttonsmobile, 3, bx + s * 2, by, spr_scale, spr_scale, 0, c_white, c_alpha);
+	// --- Boton X : correr (frame 2) o volver atras (frame 1) en menus ---
+	var x_frame = in_menu ? 1 : 2;
+	var x_alpha = is_x ? btn_alpha_on : btn_alpha_idle;
+	draw_sprite_ext(spr_buttonsmobile, x_frame, bx + s, by, spr_scale, spr_scale, 0, c_white, x_alpha);
+
+	// --- Boton C (bolsa) : solo si el juego ya empezo ---
+	if (show_c) {
+		var c_alpha = is_c ? btn_alpha_on : btn_alpha_idle;
+		draw_sprite_ext(spr_buttonsmobile, 3, bx + s * 2, by, spr_scale, spr_scale, 0, c_white, c_alpha);
+	}
 }
 
 draw_set_alpha(1);

@@ -4,13 +4,26 @@ dialogue_update(); // Usar el nuevo manager
 if (global.dialogue_manager.active) {
     // Avance de texto o selección de opciones
     if (!global.dialogue_manager.waiting_for_choice) {
+        var _dlg_len = string_length(global.dialogue_manager.current_dialogue.messages[global.dialogue_manager.current_index - 1].text);
+
         if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
-            if (global.dialogue_manager.text_index >= string_length(global.dialogue_manager.current_dialogue.messages[global.dialogue_manager.current_index - 1].text)) {
+            if (global.dialogue_manager.text_index >= _dlg_len) {
                 dialogue_next();
             }
         }
         if ((keyboard_check_pressed(ord("X")) || keyboard_check_pressed(vk_shift))) {
-            global.dialogue_manager.text_index = string_length(global.dialogue_manager.current_dialogue.messages[global.dialogue_manager.current_index - 1].text);
+            global.dialogue_manager.text_index = _dlg_len;
+        }
+
+        // MOVIL: tocar la pantalla (fuera de los botones) avanza el dialogo
+        // - Si el texto no termino -> completarlo (como "X")
+        // - Si ya termino -> pasar al siguiente (como "Z")
+        if (is_mobile() && tap_pressed_game()) {
+            if (global.dialogue_manager.text_index >= _dlg_len) {
+                dialogue_next();
+            } else {
+                global.dialogue_manager.text_index = _dlg_len;
+            }
         }
     } else {
         // Navegar opciones
@@ -26,6 +39,23 @@ if (global.dialogue_manager.active) {
         if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
 			audio_play_sound(snd_select, 1, false, 0.7);
             dialogue_select_choice(global.dialogue_manager.selected_choice);
+        }
+
+        // MOVIL: tocar una opcion la selecciona y confirma
+        if (is_mobile() && tap_pressed_game()
+            && variable_struct_exists(global.dialogue_manager, "choice_draw_y")) {
+            var _cy0 = global.dialogue_manager.choice_draw_y;
+            var _lh  = global.dialogue_manager.choice_line_h;
+            var _n   = array_length(global.dialogue_manager.choices);
+            for (var ci = 0; ci < _n; ci++) {
+                var _yy = _cy0 + ci * _lh;
+                if (tap_in(0, _yy - 4, display_get_gui_width(), _yy + _lh)) {
+                    global.dialogue_manager.selected_choice = ci;
+                    audio_play_sound(snd_select, 1, false, 0.7);
+                    dialogue_select_choice(ci);
+                    break;
+                }
+            }
         }
     }
 }

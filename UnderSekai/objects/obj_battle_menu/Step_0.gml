@@ -19,8 +19,19 @@ if (mode == "menu") {
         seleccion = (seleccion - 1 + array_length(opciones)) mod array_length(opciones);
     }
 
+    // MOVIL: tocar un boton (FIGHT/ACT/ITEM/MERCY) lo selecciona y confirma
+    var tap_confirm = false;
+    if (is_mobile() && tap_pressed_game()) {
+        for (var bi = 0; bi < array_length(menu_objs); bi++) {
+            if (instance_exists(menu_objs[bi]) && position_meeting(tap_room_x(), tap_room_y(), menu_objs[bi])) {
+                seleccion = bi;
+                tap_confirm = true;
+            }
+        }
+    }
+
     // Confirmar opción
-    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || tap_confirm) {
         audio_play_sound(snd_select, 1, false);
         var opcion = opciones[seleccion];
         switch (opcion) {
@@ -139,7 +150,7 @@ break;
     }
 }
 else if (mode == "end") {
-    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || (is_mobile() && tap_pressed_game())) {
 
         if (is_tutorial && !tutorial_end_talked) {
             tutorial_end_talked = true;
@@ -218,8 +229,17 @@ else if (mode == "mercy_menu") {
         exit;
     }
 
+    // MOVIL: tocar Spare (arriba) o Flee (abajo) lo selecciona y confirma
+    var tap_confirm_mercy = false;
+    if (is_mobile() && tap_pressed_game()) {
+        if (point_in_rectangle(tap_room_x(), tap_room_y(), box_x - 10, 118, box_x + 220, 154)) {
+            mercy_selection = (tap_room_y() < 136) ? 0 : 1;
+            tap_confirm_mercy = true;
+        }
+    }
+
     // --- CONFIRMAR ---
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm_mercy) {
 		obj_mercy.image_index = 0;
         audio_play_sound(snd_select, 1, false);
 
@@ -309,7 +329,7 @@ else if (mode == "dialogue") {
         exit;
     }
 
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed_game())) {
         // Solo permitir continuar si el texto está completo
         if (dialogue_box.text_index >= string_length(dialogue_box.text)) {
             // siguiente texto
@@ -362,7 +382,7 @@ else if (mode == "item_result") {
     if (instance_exists(obj_thebox)) {
         // Solo permitir input si el texto está completo
         if (obj_thebox.text_index >= string_length(obj_thebox.text)) {
-            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed_game())) {
                 // fin del resultado del item
                 is_item_result = false;
                 mode = "dialogue";
@@ -400,7 +420,7 @@ else if (mode == "enemy_select") {
         }
     }
 
-    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) {
+    if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || (is_mobile() && tap_pressed_game())) {
         if (!instance_exists(obj_attack_bar)) {
             var ab = instance_create_layer(-500, 0, "Instances", obj_attack_bar);
             if (instance_exists(ab)) {
@@ -482,8 +502,8 @@ else if (mode == "item_select")
         scr_update_menu_items();
     }
 
-    // --- USAR ITEM ---
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    // --- USAR ITEM (en movil, tocar usa el item seleccionado) ---
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed_game())) {
 		obj_item.image_index = 0;
         audio_play_sound(snd_select, 1, false);
 		scr_destroy_menu_items()
@@ -560,8 +580,23 @@ else if (mode == "act_select") {
         }
     }
 
+    // MOVIL: tocar una accion (rejilla 2 columnas) la selecciona y confirma
+    var tap_confirm_act = false;
+    if (is_mobile() && tap_pressed_game()) {
+        var _nr = ceil(len / 2.0);
+        var _c  = (tap_room_x() < 110) ? 0 : 1;
+        var _r  = clamp(round((tap_room_y() - 129) / 14.2), 0, _nr - 1);
+        var _idx = _r * 2 + _c;
+        if (tap_room_y() >= 118 && tap_room_y() <= 129 + _nr * 14.2 + 10 && _idx < len) {
+            act_row = _r;
+            act_col = _c;
+            selected_act_index = _idx;
+            tap_confirm_act = true;
+        }
+    }
+
     // Seleccionar
-    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+    if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || tap_confirm_act) {
 		obj_act.image_index = 0;
 		    if (instance_exists(obj_heart)) {
         with (obj_heart) {
@@ -699,7 +734,7 @@ else if (mode == "act_result") {
         if (obj_thebox.text_index >= string_length(obj_thebox.text)) {
 
             // esperar INPUT del jugador
-            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter)) {
+            if (keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) || (is_mobile() && tap_pressed_game())) {
 
                 dialogue_index = 0;
 
